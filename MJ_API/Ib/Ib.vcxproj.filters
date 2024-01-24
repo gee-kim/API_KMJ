@@ -3,9 +3,13 @@
   <ItemGroup>
     <ClInclude Include="IbCore.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayLevel.h" />
+    <ClInclude Include="TitleLevel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayLevel.cpp" />
+    <ClCompile Include="TitleLevel.cpp" />
   </ItemGroup>
 </Project>
