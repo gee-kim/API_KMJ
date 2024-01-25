@@ -1,5 +1,7 @@
 #pragma once
-class Player
+#include <EngineCore\Actor.h>
+
+class Player : public AActor
 {
 public:
 	Player();
@@ -12,6 +14,8 @@ public:
 	Player& operator=(Player&& _Other) noexcept = delete;
 
 protected:
+	void BeginPlay() override;
+	void Tick(float _DeltaTime) override;
 
 private:
 
