@@ -27,6 +27,7 @@ void EngineTime::TimeCheckStart()
 {
 	// 초당 샐수 있는 양인데.
 	QueryPerformanceFrequency(&Count);
+
 	QueryPerformanceCounter(&PrevTime);
 
 	dCount = static_cast<double>(Count.QuadPart);
@@ -44,5 +45,3 @@ float EngineTime::TimeCheck()
 	PrevTime.QuadPart = CurTime.QuadPart;
 	return static_cast<float>(DeltaTime);
 }
-
-
