@@ -24,16 +24,10 @@ void Player::BeginPlay()
 
 
 	{
-		BodyRenderer = CreateImageRenderer(0);
-		BodyRenderer->SetPosition({ 0, 30 });
-		BodyRenderer->SetScale({ 80, 80 });
-	}
-
-
-	{
 		HeadRenderer = CreateImageRenderer(0);
-		HeadRenderer->SetPosition({ 0, -25 });
-		HeadRenderer->SetScale({ 60, 60 });
+		HeadRenderer->SetPosition({ 25, 25 });
+		HeadRenderer->SetImage("Black Area.png");
+		HeadRenderer->SetScale({ 300, 300 });
 	}
 	// UImageRenderer* Ptr = CreateRenderer();
 	// 플레이어 기준
