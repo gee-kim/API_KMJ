@@ -16,6 +16,9 @@
     <Filter Include="Object\Component\Renderer">
       <UniqueIdentifier>{1a4b798e-928b-4076-bdff-49bc3070b315}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{3ce63b20-e283-447b-adf8-b89005896258}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineCore.cpp">
@@ -26,9 +29,6 @@
     </ClCompile>
     <ClCompile Include="Actor.cpp">
       <Filter>Object\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="NameObject.cpp">
-      <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="TickObject.cpp">
       <Filter>Object</Filter>
@@ -42,6 +42,12 @@
     <ClCompile Include="ImageRenderer.cpp">
       <Filter>Object\Component\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="EngineResourcesManager.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineCore.h">
@@ -52,9 +58,6 @@
     </ClInclude>
     <ClInclude Include="Actor.h">
       <Filter>Object\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="NameObject.h">
-      <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="TickObject.h">
       <Filter>Object</Filter>
@@ -67,6 +70,12 @@
     </ClInclude>
     <ClInclude Include="ImageRenderer.h">
       <Filter>Object\Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineResourcesManager.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Resources</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

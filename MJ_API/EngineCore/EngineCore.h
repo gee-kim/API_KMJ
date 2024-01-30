@@ -23,7 +23,7 @@ public:
 
 	// 하나는 무조건 만들어지고 사라질일이 없을것이므ㅗ.
 	// 코어가 윈도우를 가지고
-	EngineWindow MainWindow;
+	UEngineWindow MainWindow;
 	EngineTime MainTimer;
 
 	static void EngineStart(HINSTANCE _hInstance, EngineCore* _UserCore);
@@ -37,7 +37,7 @@ public:
 	template<typename LevelType>
 	void CreateLevel(std::string_view _Name)
 	{
-		std::string UpperName = EngineString::ToUpper(_Name);
+		std::string UpperName = UEngineString::ToUpper(_Name);
 
 		if (true == AllLevel.contains(UpperName))
 		{

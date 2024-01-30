@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="EngineString.cpp" />
     <ClCompile Include="EngineDebug.cpp">
       <Filter>Debug</Filter>
     </ClCompile>
@@ -14,9 +13,26 @@
     <ClCompile Include="EngineTime.cpp">
       <Filter>Time</Filter>
     </ClCompile>
+    <ClCompile Include="EnginePath.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineFile.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineDirectory.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineString.cpp">
+      <Filter>String</Filter>
+    </ClCompile>
+    <ClCompile Include="PathObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EngineCore\NameObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EngineString.h" />
     <ClInclude Include="EngineDebug.h">
       <Filter>Debug</Filter>
     </ClInclude>
@@ -28,6 +44,24 @@
     </ClInclude>
     <ClInclude Include="EngineTime.h">
       <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="EnginePath.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineFile.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineDirectory.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineString.h">
+      <Filter>String</Filter>
+    </ClInclude>
+    <ClInclude Include="PathObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EngineCore\NameObject.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +76,12 @@
     </Filter>
     <Filter Include="Time">
       <UniqueIdentifier>{bfd8d80d-fe03-45a2-b86f-ef9deb171762}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO">
+      <UniqueIdentifier>{b9934070-3f80-4e32-b9ec-3a596a3b5be9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{682720f2-c6f2-4faf-b210-1d0990dce27b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
