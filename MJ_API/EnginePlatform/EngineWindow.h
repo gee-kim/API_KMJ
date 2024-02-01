@@ -31,6 +31,8 @@ public:
 	//{
 	//	return WindowImage->GetImageDC();
 	//}
+	
+	void SetWindowScale(const FVector& _Scale);
 
 protected:
 

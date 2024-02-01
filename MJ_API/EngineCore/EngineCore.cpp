@@ -40,6 +40,7 @@ void EngineCore::CoreTick()
 	// 0.0003000
 	// CurFrameTime -= FrameTime;
 
+
 	if (1 <= Frame)
 	{
 		//               5.0f

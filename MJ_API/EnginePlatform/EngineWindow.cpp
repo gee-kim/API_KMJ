@@ -130,3 +130,7 @@ unsigned __int64 UEngineWindow::WindowMessageLoop(void(*_Update)(), void(*_End)(
 }
 
 
+void UEngineWindow::SetWindowScale(const FVector& _Scale)
+{
+	AdjustWindowRect()
+}
