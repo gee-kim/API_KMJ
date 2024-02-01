@@ -1,7 +1,7 @@
 #pragma once
 #include <EngineCore/EngineCore.h>
 
-class IbCore : public EngineCore
+class IbCore : public UEngineCore
 {
 public:
 	IbCore();

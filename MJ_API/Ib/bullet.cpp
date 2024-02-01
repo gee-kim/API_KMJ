@@ -13,12 +13,12 @@ ABullet::~ABullet()
 
 void ABullet::BeginPlay()
 {
-	{
-		UImageRenderer* Renderer = CreateImageRenderer(-10);
-		Renderer->SetImageToScale("Black Area.png");
-	}
+	//{
+	//	UImageRenderer* Renderer = CreateImageRenderer(-10);
+	//	Renderer->SetImageToScale("Black Area.png");
+	//}
 
-	Destroy(2.0f);
+	//Destroy(2.0f);
 }
 
 void ABullet::Tick(float _DeltaTime)

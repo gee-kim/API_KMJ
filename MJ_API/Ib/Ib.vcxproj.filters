@@ -2,16 +2,42 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="IbCore.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="PlayLevel.h" />
-    <ClInclude Include="TitleLevel.h" />
     <ClInclude Include="bullet.h" />
+    <ClInclude Include="PlayLevel.h">
+      <Filter>Object\PlayLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLevel.h">
+      <Filter>Object\TitleLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Object\PlayLevel\Actor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="PlayLevel.cpp" />
-    <ClCompile Include="TitleLevel.cpp" />
     <ClCompile Include="bullet.cpp" />
+    <ClCompile Include="PlayLevel.cpp">
+      <Filter>Object\PlayLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLevel.cpp">
+      <Filter>Object\TitleLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Object\PlayLevel\Actor</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Object">
+      <UniqueIdentifier>{3d5d8b0a-c317-4a02-8007-f59e10eb9d6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\TitleLevel">
+      <UniqueIdentifier>{0a9ca305-6f47-4077-a7f0-8730071c9185}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\PlayLevel">
+      <UniqueIdentifier>{0bfc769e-2d2e-4171-9687-1a0fba3cf00e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\PlayLevel\Actor">
+      <UniqueIdentifier>{15822336-ec7f-4824-89c8-f46f4c6beef2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

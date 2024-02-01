@@ -18,57 +18,15 @@ void Player::BeginPlay()
 {
 	AActor::BeginPlay();
 
-	// 플레이어 100, 100 => Actor
-	// 상체? 100, 100 - 50 => Renderer
-	// 하체? 100, 100 + 50 => Renderer
 
+	//Renderer = CreateImageRenderer();
+	//Renderer->SetImage("Player_Right.png");
+	//Renderer->SetTransform({ {0,0}, {100, 100} });
+	//Renderer->SetImageCuttingTransform({ {64,64}, {32, 32} });
+	//Renderer->CreateAnimation("Idle", "Player_Right.png", 0, 17, 0.5f, true);
+	//Renderer->CreateAnimation("Attack", "Player_Right.png", 26, 32, 0.5f, true);
+	//Renderer->ChangeAnimation("Idle");
 
-	{
-		HeadRenderer = CreateImageRenderer(0);
-		HeadRenderer->SetPosition({ 25, 25 });
-		HeadRenderer->SetImage("Black Area.png");
-		HeadRenderer->SetScale({ 300, 300 });
-	}
-	// UImageRenderer* Ptr = CreateRenderer();
-	// 플레이어 기준
-	// Ptr->SetPosition({0.0, -50.0f}); // 500, 500
-	// Ptr->SetImage("AAAA.png"); // 500, 500
-	// Ptr->SetScale();
-	// Ptr->SetImageScaleSetting(); 
-
-
-	// CreateDefaultSubObject<UStaticMeshRenderer>();
-
-	// n장 랜더할수 있게 만들어야 한다.
-	// 상체와 하체로 나뉜다고 쳐보자.
-
-	//{
-	//	EngineTime NewTime;
-	//	NewTime.TimeCheckStart();
-	//	std::vector<int> NewInt;
-	//	for (int i = 0; i < 10000000; i++)
-	//	{
-	//		NewInt.push_back(i);
-	//	}
-	//	float Time = NewTime.TimeCheck();
-	//	int a = 0;
-	//}
-	//{
-	//	EngineTime NewTime;
-	//	NewTime.TimeCheckStart();
-	//	std::list<int> NewInt;
-	//	for (int i = 0; i < 10000000; i++)
-	//	{
-	//		NewInt.push_back(i);
-	//	}
-	//	float Time = NewTime.TimeCheck();
-	//	int a = 0;
-	//}
-
-
-
-	SetActorLocation({ 100, 100 });
-	SetActorScale({ 100, 100 });
 }
 
 void Player::Tick(float _DeltaTime)
@@ -80,35 +38,35 @@ void Player::Tick(float _DeltaTime)
 	// 1초에 100을 가야하는 애가 있다고 칩시다.
 	// 0.5초에 몇픽셀씩 움직여야 하나요?
 	// 100 * 0.5
+	AActor::Tick(_DeltaTime);
 
-	if (true == EngineInput::IsPress('A'))
-	{
-		AddActorLocation(FVector::Left * 500.0f * _DeltaTime);
-	}
+	//if (EngineInput::IsDown('Q'))
+	//{
+	//	Renderer->ChangeAnimation("Attack");
+	//}
 
-	if (true == EngineInput::IsPress('D'))
-	{
-		AddActorLocation(FVector::Right * 500.0f * _DeltaTime);
-	}
+	//if (true == EngineInput::IsPress('A'))
+	//{
+	//	AddActorLocation(FVector::Left * 500.0f * _DeltaTime);
+	//}
 
-	if (true == EngineInput::IsPress('W'))
-	{
-		AddActorLocation(FVector::Up * 500.0f * _DeltaTime);
-	}
+	//if (true == EngineInput::IsPress('D'))
+	//{
+	//	AddActorLocation(FVector::Right * 500.0f * _DeltaTime);
+	//}
 
-
-	if (true == EngineInput::IsPress('S'))
-	{
-		AddActorLocation(FVector::Down * 500.0f * _DeltaTime);
-	}
-
-	if (true == EngineInput::IsDown('T'))
-	{
-		HeadRenderer->Destroy();
-	}
+	//if (true == EngineInput::IsPress('W'))
+	//{
+	//	AddActorLocation(FVector::Up * 500.0f * _DeltaTime);
+	//}
 
 
+	//if (true == EngineInput::IsPress('S'))
+	//{
+	//	AddActorLocation(FVector::Down * 500.0f * _DeltaTime);
+	//}
 
+	
 	// QSkillCool += 0.1f;
 	// QSkillCool += 진짜 프레임과 프레임 사이에 소모된 현실 시간이어야 한다.;
 
