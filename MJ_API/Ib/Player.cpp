@@ -5,6 +5,7 @@
 #include <EngineBase\EngineTime.h>
 #include <vector>
 #include <list>
+#include "Helper.h"
 
 Player::Player()
 {
@@ -34,10 +35,30 @@ void Player::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 
+	EngineDebug::OutPutDebugText(Helper::GetMousePos().ToString());
+
+	AlphaTime += _DeltaTime;
+	if (1.0f <= AlphaTime)
+	{
+		Dir = !Dir;
+		AlphaTime = 0.0f;
+	}
+
+	if (true == Dir)
+	{
+		Renderer->SetAlpha(AlphaTime);
+	}
+	else
+	{
+		Renderer->SetAlpha(1.0f - AlphaTime);
+	}
+
+
 	if (EngineInput::IsDown('Q'))
 	{
 		Renderer->ChangeAnimation("Attack");
 	}
+
 
 	//if (true == EngineInput::IsPress('A'))
 	//{
