@@ -18,8 +18,8 @@ void UPlayLevel::BeginPlay()
 	ULevel::BeginPlay();
 
 	// ULevel* const This = this;
-	Player* Player = SpawnActor<Player>();
-	Player->SetActorLocation({ 200, 200 });
+	Player* NewPlayer = SpawnActor<Player>();
+	NewPlayer->SetActorLocation({ 200, 200 });
 
 	// 할일은 
 	// 플레이어

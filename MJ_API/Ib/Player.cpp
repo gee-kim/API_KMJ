@@ -19,31 +19,25 @@ void Player::BeginPlay()
 	AActor::BeginPlay();
 
 
-	//Renderer = CreateImageRenderer();
-	//Renderer->SetImage("Player_Right.png");
-	//Renderer->SetTransform({ {0,0}, {100, 100} });
-	//Renderer->SetImageCuttingTransform({ {64,64}, {32, 32} });
-	//Renderer->CreateAnimation("Idle", "Player_Right.png", 0, 17, 0.5f, true);
-	//Renderer->CreateAnimation("Attack", "Player_Right.png", 26, 32, 0.5f, true);
-	//Renderer->ChangeAnimation("Idle");
+	Renderer = CreateImageRenderer();
+	Renderer->SetImage("Blue Dolls.png");
+	Renderer->SetTransform({ {0,0}, {100, 100} });
+	Renderer->SetImageCuttingTransform({ {82,82}, {91, 91} });
+	 //971*1102
+	Renderer->CreateAnimation("Idle", "Blue Dolls.png", 0, 12, 0.5f, true);
+	Renderer->CreateAnimation("Attack", "Blue Dolls.png", 26, 32, 0.5f, true);
+	Renderer->ChangeAnimation("Idle");
 
 }
 
 void Player::Tick(float _DeltaTime)
 {
-	// 1초에 2번을 실행했다면
-	// Tick과 Tick사의 시간은? 
-	// 0.5초 일꺼다.
-
-	// 1초에 100을 가야하는 애가 있다고 칩시다.
-	// 0.5초에 몇픽셀씩 움직여야 하나요?
-	// 100 * 0.5
 	AActor::Tick(_DeltaTime);
 
-	//if (EngineInput::IsDown('Q'))
-	//{
-	//	Renderer->ChangeAnimation("Attack");
-	//}
+	if (EngineInput::IsDown('Q'))
+	{
+		Renderer->ChangeAnimation("Attack");
+	}
 
 	//if (true == EngineInput::IsPress('A'))
 	//{
@@ -74,10 +68,10 @@ void Player::Tick(float _DeltaTime)
 	// 0.5 0.5 0.5 0.5 
 	// 2차가 지나야 
 	// 초당 2번 실행된다고 칩시다.
-	if (true == EngineInput::IsDown('Q'))
-	{
-		ABullet* NewBullet = GetWorld()->SpawnActor<ABullet>();
-		NewBullet->SetActorLocation(GetActorLocation());
-		NewBullet->SetDir(FVector::Right);
-	}
+//	if (true == EngineInput::IsDown('Q'))
+//	{
+//		ABullet* NewBullet = GetWorld()->SpawnActor<ABullet>();
+//		NewBullet->SetActorLocation(GetActorLocation());
+//		NewBullet->SetDir(FVector::Right);
+//	}
 }

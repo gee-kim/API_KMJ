@@ -26,23 +26,18 @@ void IbCore::BeginPlay()
 
 	NewDir.MoveParent();
 
-	//NewDir.Move("폴더명");
-	//
-	//std::list<UEngineFile> NewList = NewDir.AllFile({ ".png", ".bmp" }, true);
+	NewDir.Move("Test_Resource");
+	NewDir.Move("1_PlayLevel0");
+	std::list<UEngineFile> NewList = NewDir.AllFile({ ".png", ".bmp" }, true);
 
-	//// 엔진만의 규칙을 정할거냐.
-	//for (UEngineFile& File : NewList)
-	//{
-	//	UEngineResourcesManager::GetInst().LoadImg(File.GetFullPath());
-	//}
+	// 엔진만의 규칙을 정할거냐.
+	for (UEngineFile& File : NewList)
+	{
+		UEngineResourcesManager::GetInst().LoadImg(File.GetFullPath());
+	}
 
-	//UEngineResourcesManager::GetInst().CuttingImage("Player_Right.png", 13, 8);
-	//UEngineResourcesManager::GetInst().LoadFolder(NewDir.AppendPath("PlayLevel\\TestFolderAnimation"));
+	UEngineResourcesManager::GetInst().CuttingImage("Blue Dolls.png", 12, 12);
 
-
-	// "Title Level" + "을 만들다가 에러가 났습니다";
-
-	SetFrame(60);
 
 	CreateLevel<UTitleLevel>("Title");
 	CreateLevel<UPlayLevel>("PlayLevel");
