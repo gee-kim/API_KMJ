@@ -74,7 +74,7 @@ private:
 	void CoreTick();
 	static void EngineEnd();
 
-	void LevelInit(ULevel* _Level);
+	void LevelInit(ULevel* _Level, std::string_view _Name);
 };
 
 extern UEngineCore* GEngine;
