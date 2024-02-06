@@ -20,14 +20,14 @@ void Player::BeginPlay()
 	AActor::BeginPlay();
 
 
-	Renderer = CreateImageRenderer();
-	Renderer->SetImage("Blue Dolls.png");
-	Renderer->SetTransform({ {0,0}, {100, 100} });
-	Renderer->SetImageCuttingTransform({ {82,82}, {91, 91} });
-	 //971*1102
-	Renderer->CreateAnimation("Idle", "Blue Dolls.png", 0, 12, 0.5f, true);
-	Renderer->CreateAnimation("Attack", "Blue Dolls.png", 26, 32, 0.5f, true);
-	Renderer->ChangeAnimation("Idle");
+	//Renderer = CreateImageRenderer();
+	//Renderer->SetImage("ib_00.png.png");
+	//Renderer->SetTransform({ {0,0}, {100, 100} });
+	//Renderer->SetImageCuttingTransform({ {82,82}, {91, 91} });
+	// //971*1102
+	//Renderer->CreateAnimation("Idle", "ib_00.png", 0, 2, 0.5f, true);
+	//Renderer->CreateAnimation("Attack", "ib_00.png", 3, 5, 0.5f, true);
+	//Renderer->ChangeAnimation("Idle");
 
 }
 

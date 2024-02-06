@@ -21,13 +21,14 @@ void IbCore::BeginPlay()
 	UEngineCore::BeginPlay();
 
 	MainWindow.SetWindowScale({ 1280, 720 });
+	MainWindow.SetWindowPosition({ 200, 50 });
 
 	UEngineDirectory NewDir;
 
 	NewDir.MoveParent();
 
 	NewDir.Move("Test_Resource");
-	NewDir.Move("1_PlayLevel0");
+	
 	std::list<UEngineFile> NewList = NewDir.AllFile({ ".png", ".bmp" }, true);
 
 	// 엔진만의 규칙을 정할거냐.
@@ -36,13 +37,13 @@ void IbCore::BeginPlay()
 		UEngineResourcesManager::GetInst().LoadImg(File.GetFullPath());
 	}
 
-	UEngineResourcesManager::GetInst().CuttingImage("Blue Dolls.png", 12, 12);
+	UEngineResourcesManager::GetInst().CuttingImage("ib_00.png", 3, 4);
 
 
 	CreateLevel<UTitleLevel>("Title");
 	CreateLevel<UPlayLevel>("PlayLevel");
 
-	ChangeLevel("PlayLevel");
+	ChangeLevel("Title");
 	// CreateLevel<UTitleLevel>("Title");
 	int a = 0;
 }

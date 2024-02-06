@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="IbCore.h" />
-    <ClInclude Include="bullet.h" />
     <ClInclude Include="PlayLevel.h">
       <Filter>Object\PlayLevel</Filter>
     </ClInclude>
@@ -16,10 +15,12 @@
     <ClInclude Include="BackGroundMap.h">
       <Filter>Object\PlayLevel\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="TitleLogo.h">
+      <Filter>Object\TitleLevel\Actor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
-    <ClCompile Include="bullet.cpp" />
     <ClCompile Include="PlayLevel.cpp">
       <Filter>Object\PlayLevel</Filter>
     </ClCompile>
@@ -32,6 +33,9 @@
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="BackGroundMap.cpp">
       <Filter>Object\PlayLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLogo.cpp">
+      <Filter>Object\TitleLevel\Actor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +50,9 @@
     </Filter>
     <Filter Include="Object\PlayLevel\Actor">
       <UniqueIdentifier>{15822336-ec7f-4824-89c8-f46f4c6beef2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\TitleLevel\Actor">
+      <UniqueIdentifier>{fdebe23f-bf66-462b-820f-9dbaa4729a06}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

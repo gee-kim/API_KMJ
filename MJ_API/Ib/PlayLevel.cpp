@@ -26,7 +26,7 @@ void UPlayLevel::BeginPlay()
 		Renderer->SetOrder(-10);
 		// 
 		Renderer->SetAlpha(100);
-		Renderer->SetImage("Title.png");
+		Renderer->SetImage("all_001.png");
 		Renderer->SetPosition(WindowScale.Half2D());
 		Renderer->SetScale(WindowScale);
 		Renderer->SetImageCuttingTransform({ { 0, 100 }, {100, 100} });

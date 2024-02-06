@@ -1,5 +1,7 @@
 #include "Helper.h"
 
+UWindowImage* Helper::ColMapImage = nullptr;
+
 Helper::Helper()
 {
 }

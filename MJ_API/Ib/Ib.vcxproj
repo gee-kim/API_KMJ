@@ -170,10 +170,6 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="bullet.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
     <ClInclude Include="Helper.h">
       <SubType>
       </SubType>
@@ -194,13 +190,13 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="TitleLogo.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BackGroundMap.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="bullet.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -221,6 +217,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="TitleLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="TitleLogo.cpp">
       <SubType>
       </SubType>
     </ClCompile>
