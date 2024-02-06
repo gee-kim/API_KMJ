@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2a471e72-5a6a-45a5-bc8d-552e7988b68e}</ProjectGuid>
+    <ProjectGuid>{35fa176c-16bb-4c2a-a672-f4ff30c1bea5}</ProjectGuid>
     <RootNamespace>EngineCore</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -97,6 +97,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -113,6 +114,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -129,6 +131,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -145,6 +148,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -154,6 +158,14 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EngineBase\EngineBase.vcxproj">
+      <Project>{ea197215-13bb-4729-9573-db483a0ee1a3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EnginePlatform\EnginePlatform.vcxproj">
+      <Project>{f0716ec2-0bc5-43ea-9046-b203e0985a67}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h">
       <SubType>
@@ -183,10 +195,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="TickObject.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
+    <ClInclude Include="TickObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp">
@@ -217,18 +226,10 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="TickObject.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="TickObject.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EngineBase\EngineBase.vcxproj">
-      <Project>{d2b26abc-2d39-47f5-aefe-3786ba7a1fed}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\EnginePlatform\EnginePlatform.vcxproj">
-      <Project>{be3370a3-e7de-4c6a-97dd-845ec8f581a4}</Project>
-    </ProjectReference>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

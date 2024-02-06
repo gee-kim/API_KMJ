@@ -8,6 +8,7 @@ class UAnimationInfo
 public:
 	// 애니메이션을 구성할때 이미지는 1장
 	UWindowImage* Image = nullptr;
+	std::string Name;
 	int Start = -1;
 	int End = -1;
 	int CurFrame = 0;
@@ -56,15 +57,15 @@ public:
 	}
 
 	void CreateAnimation(
-		std::string_view _AnimationName,
-		std::string_view _ImageName,
-		int _Start,
-		int _End,
-		float _Inter,
+		std::string_view _AnimationName, 
+		std::string_view _ImageName, 
+		int _Start, 
+		int _End, 
+		float _Inter, 
 		bool Loop = true
 	);
 
-	void ChangeAnimation(std::string_view _AnimationName);
+	void ChangeAnimation(std::string_view _AnimationName, bool _IsForce = false);
 	void AnimationReset();
 
 	void SetTransColor(Color8Bit _Color)
@@ -88,12 +89,17 @@ public:
 		TransColor.A = static_cast<char>(_Alpha * 255.0f);
 	}
 
+	UWindowImage* GetImage()
+	{
+		return Image;
+	}
+
 protected:
 	void BeginPlay() override;
 
 private:
 	int InfoIndex = 0;
-	UWindowImage* Image;
+	UWindowImage* Image = nullptr;
 	FTransform ImageCuttingTransform;
 	Color8Bit TransColor;
 

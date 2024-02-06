@@ -4,11 +4,11 @@
 #include "Level.h"
 #include <EngineCore\EngineResourcesManager.h>
 
-UImageRenderer::UImageRenderer()
+UImageRenderer::UImageRenderer() 
 {
 }
 
-UImageRenderer::~UImageRenderer()
+UImageRenderer::~UImageRenderer() 
 {
 }
 
@@ -36,13 +36,13 @@ int UAnimationInfo::Update(float _DeltaTime)
 	//int CurFrame = 0;
 	//float CurTime = 0.0f;
 	//std::vector<float> Times;
-
+	
 	//std::vector<int> Indexs;
 	//    CurFrame = 25
 	// 
 	// //            0  1  2  3  4  5 
 	//    Indexs => 20 21 22 23 24 25
-
+	
 
 	CurTime -= _DeltaTime;
 
@@ -98,6 +98,12 @@ void UImageRenderer::Render(float _DeltaTime)
 	// 컴포넌트의 위치는 부모에게서 상대적이기 때문에.
 	// 부모의 위치를 더해줘야 한다.
 	RendererTrans.AddPosition(ActorTrans.GetPosition());
+
+	AActor* Actor = GetOwner();
+	ULevel* World = Actor->GetWorld();
+	FVector CameraPos = World->GetCameraPos();
+	// RendererTrans.AddPosition(CameraPos *= -1.0f);
+	RendererTrans.AddPosition(-CameraPos);
 
 	// TransColor 원리 특정 색상과 1비트도 차이가 나지 않는 색상은 출력을 삭제한다.
 	// TransCopy 에서만 
@@ -180,6 +186,7 @@ void UImageRenderer::CreateAnimation(
 	// AnimationInfos.operator[](Key)
 
 	UAnimationInfo& Info = AnimationInfos[UpperAniName];
+	Info.Name = UpperAniName;
 	Info.Image = FindImage;
 	Info.CurFrame = 0;
 	Info.Start = _Start;
@@ -202,13 +209,19 @@ void UImageRenderer::CreateAnimation(
 	}
 }
 
-void UImageRenderer::ChangeAnimation(std::string_view _AnimationName)
+void UImageRenderer::ChangeAnimation(std::string_view _AnimationName, bool _IsForce)
 {
 	std::string UpperAniName = UEngineString::ToUpper(_AnimationName);
 
 	if (false == AnimationInfos.contains(UpperAniName))
 	{
 		MsgBoxAssert(std::string(UpperAniName) + "라는 이름의 애니메이션이 존재하지 않습니다.");
+		return;
+	}
+
+	// 지금 진행중인 애니메이션과 완전히 똑같은 애니메이션을 실행하라고하면 그걸 실행하지 않는다.
+	if (false == _IsForce && nullptr != CurAnimation && CurAnimation->Name == UpperAniName)
+	{
 		return;
 	}
 

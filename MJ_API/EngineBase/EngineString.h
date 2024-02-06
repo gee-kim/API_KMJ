@@ -8,7 +8,7 @@ class UEngineString
 {
 public:
 	static std::string ToUpper(std::string_view View);
-	// 내가 사용하려는 함수가 멀티바이트를 지원하지 않아.
+	// 내가 사용하려는 함수가 멀티바이트를 지원하지 ㅇ낳아.
 	// MultyByte는 곧 Ansi
 
 	// std::string => std::wstring으로 바꿀수 있는 함수

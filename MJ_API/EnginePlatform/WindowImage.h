@@ -22,7 +22,7 @@ enum class EWIndowImageType
 	IMG_PNG
 };
 
-class ImageInfo
+class ImageInfo 
 {
 public:
 	HBITMAP hBitMap;
@@ -76,6 +76,8 @@ public:
 	bool Create(UWindowImage* _Image, const FVector& _Scale);
 
 	void Cutting(int _X, int _Y);
+
+	Color8Bit GetColor(int _X, int _Y, Color8Bit _DefaultColor);
 
 	EWIndowImageType GetImageType()
 	{
