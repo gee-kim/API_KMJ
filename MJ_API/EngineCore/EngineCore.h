@@ -45,7 +45,7 @@ public:
 		}
 
 		LevelType* NewLevel = new LevelType();
-		LevelInit(NewLevel);
+		LevelInit(NewLevel, _Name);
 		AllLevel.insert(std::pair<std::string, ULevel*>(UpperName, NewLevel));
 	}
 

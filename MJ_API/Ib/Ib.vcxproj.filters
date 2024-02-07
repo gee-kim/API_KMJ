@@ -18,7 +18,7 @@
     <ClInclude Include="TitleLogo.h">
       <Filter>Object\TitleLevel\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="BackTItle.h">
+    <ClInclude Include="BackTitle.h">
       <Filter>Object\TitleLevel\Actor</Filter>
     </ClInclude>
   </ItemGroup>
@@ -40,7 +40,7 @@
     <ClCompile Include="TitleLogo.cpp">
       <Filter>Object\TitleLevel\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="BackTItle.cpp">
+    <ClCompile Include="BackTitle.cpp">
       <Filter>Object\TitleLevel\Actor</Filter>
     </ClCompile>
   </ItemGroup>

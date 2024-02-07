@@ -170,7 +170,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="BackTItle.h">
+    <ClInclude Include="BackTitle.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -204,7 +204,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="BackTItle.cpp">
+    <ClCompile Include="BackTitle.cpp">
       <SubType>
       </SubType>
     </ClCompile>

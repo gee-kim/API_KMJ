@@ -1,5 +1,6 @@
 #include "TitleLevel.h"
 #include "TitleLogo.h"
+#include "BackTitle.h"
 #include "EngineCore/EngineCore.h"
 
 UTitleLevel::UTitleLevel()
@@ -20,7 +21,8 @@ void UTitleLevel::Tick(float _DeltaTime)
 	ULevel::Tick(_DeltaTime);
 	
 	ATitleLogo* Logo = SpawnActor<ATitleLogo>();
-	
+
+	ABackTitle* Back = SpawnActor<ABackTitle>();
 
 	if (EngineInput::IsDown(VK_SPACE))
 	{

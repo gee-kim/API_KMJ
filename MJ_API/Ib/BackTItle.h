@@ -1,17 +1,17 @@
 #pragma once
 #include <EngineCore\Actor.h>
 
-class ABackTItle : public AActor
+class ABackTitle : public AActor
 {
 public:
-	ABackTItle();
-	~ABackTItle();
+	ABackTitle();
+	~ABackTitle();
 
 	// delete Function
-	ABackTItle(const ABackTItle& _Other) = delete;
-	ABackTItle(ABackTItle&& _Other) noexcept = delete;
-	ABackTItle& operator=(const ABackTItle& _Other) = delete;
-	ABackTItle& operator=(ABackTItle&& _Other) noexcept = delete;
+	ABackTitle(const ABackTitle& _Other) = delete;
+	ABackTitle(ABackTitle&& _Other) noexcept = delete;
+	ABackTitle& operator=(const ABackTitle& _Other) = delete;
+	ABackTitle& operator=(ABackTitle&& _Other) noexcept = delete;
 
 protected:
 	void BeginPlay() override;
