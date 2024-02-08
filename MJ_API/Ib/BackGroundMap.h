@@ -1,17 +1,17 @@
 #pragma once
 #include <EngineCore/Actor.h>
 
-class BackGroundMap : public AActor
+class ABackGroundMap : public AActor
 {
 public:
-	BackGroundMap();
-	~BackGroundMap();
+	ABackGroundMap();
+	~ABackGroundMap();
 
 	// delete Function
-	BackGroundMap(const BackGroundMap& _Other) = delete;
-	BackGroundMap(BackGroundMap&& _Other) noexcept = delete;
-	BackGroundMap& operator=(const BackGroundMap& _Other) = delete;
-	BackGroundMap& operator=(BackGroundMap&& _Other) noexcept = delete;
+	ABackGroundMap(const ABackGroundMap& _Other) = delete;
+	ABackGroundMap(ABackGroundMap&& _Other) noexcept = delete;
+	ABackGroundMap& operator=(const ABackGroundMap& _Other) = delete;
+	ABackGroundMap& operator=(ABackGroundMap&& _Other) noexcept = delete;
 
 	void SetMapImage(std::string_view _MapImageName);
 	void SetColMapImage(std::string_view _MapImageName);

@@ -1,27 +1,31 @@
 #include "Player.h"
-#include <EngineCore\EngineCore.h>
 #include <EnginePlatform\EngineInput.h>
-#include "Bullet.h"
-#include <EngineBase\EngineTime.h>
-#include <vector>
-#include <list>
+#include <EngineBase\EngineDebug.h>
 #include "Helper.h"
 
-Player::Player()
+APlayer::APlayer()
 {
 }
 
-Player::~Player()
+APlayer::~APlayer()
 {
 }
 
-void Player::BeginPlay()
+void APlayer::BeginPlay()
 {
 	AActor::BeginPlay();
 
-
-	//Renderer = CreateImageRenderer();
-	//Renderer->SetImage("ib_00.png.png");
+	UImageRenderer* Renderer = CreateImageRenderer();
+	Renderer->SetOrder(-10);
+	// 
+	Renderer->SetAlpha(100);
+	Renderer->SetImage("all_001.png");
+	Renderer->SetPosition({ 100, 100 });
+	Renderer->SetScale({1000, 720});
+	Renderer->SetImageCuttingTransform({ { 0, 100 }, {100, 100} });
+}
+//Renderer = CreateImageRenderer();
+//Renderer->SetImage("ib_00.png.png");
 	//Renderer->SetTransform({ {0,0}, {100, 100} });
 	//Renderer->SetImageCuttingTransform({ {82,82}, {91, 91} });
 	// //971*1102
@@ -29,9 +33,9 @@ void Player::BeginPlay()
 	//Renderer->CreateAnimation("Attack", "ib_00.png", 3, 5, 0.5f, true);
 	//Renderer->ChangeAnimation("Idle");
 
-}
 
-void Player::Tick(float _DeltaTime)
+
+void APlayer::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 

@@ -16,10 +16,9 @@ void ATitleLogo::BeginPlay()
 
 	Renderer->SetImage("Title0.png");
 	//이미지 위치 지정해주자
-	SetActorLocation({ 50, 50 });
 	//스크린 위치 200, 50에 있는 상태야..
-	Renderer->SetPosition({590, 310 });
-	Renderer->SetScale( {1280, 720});
+	Renderer->SetPosition({644, 362 });
+	Renderer->SetScale( {1288, 724});
 
 }
 

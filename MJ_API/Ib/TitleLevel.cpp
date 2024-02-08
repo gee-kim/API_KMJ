@@ -21,8 +21,10 @@ void UTitleLevel::Tick(float _DeltaTime)
 	ULevel::Tick(_DeltaTime);
 	
 	ATitleLogo* Logo = SpawnActor<ATitleLogo>();
-
+	Logo->SetActorLocation({0, 0});
+	
 	ABackTitle* Back = SpawnActor<ABackTitle>();
+	Back->SetActorLocation({ 0, 0 });
 
 	if (EngineInput::IsDown(VK_SPACE))
 	{

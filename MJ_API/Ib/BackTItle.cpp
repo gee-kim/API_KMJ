@@ -15,17 +15,17 @@ void ABackTitle::BeginPlay()
 {
 	AActor::BeginPlay();
 
-	//랜더러 생성하고 
+	//랜더러 생성하고 애니메이션 넣어야하는데?
 	UImageRenderer* Renderer = CreateImageRenderer(1);
 
 	Renderer->SetImage("Title1.png");
-	//Renderer->SetImageCuttingTransform({ 0,0 }, { 1000,720 });
-	SetActorLocation({ 250, 50 });
+	
 	Renderer->SetPosition({ 1294, 312 });
 	Renderer->SetScale({ 2000, 720 });
+	//Renderer->SetImageCuttingTransform({ 3, 2 });
 	Renderer->CreateAnimation("BackFlow", "Title1.png", 0, 10, 0.5f, true);
 
-	
+
 }
 
 void ABackTitle::Tick(float _DeltaTime)
