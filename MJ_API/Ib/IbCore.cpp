@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "TitleLevel.h"
 #include "PlayLevel.h"
+#include "TestLevel.h"
 #include <EngineBase\EngineDirectory.h>
 #include <EngineBase\EngineFile.h>
 #include <EngineCore\EngineResourcesManager.h>
@@ -43,9 +44,10 @@ void IbCore::BeginPlay()
 
 	CreateLevel<UTitleLevel>("Title");
 	CreateLevel<UPlayLevel>("Play");
+	CreateLevel<UTestLevel>("Test");
 
-	ChangeLevel("Play");
-	// CreateLevel<UTitleLevel>("Title");
+	ChangeLevel("Test");
+	
 	int a = 0;
 }
 

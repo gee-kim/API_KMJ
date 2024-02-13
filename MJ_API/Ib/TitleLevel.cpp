@@ -26,9 +26,9 @@ void UTitleLevel::Tick(float _DeltaTime)
 	ABackTitle* Back = SpawnActor<ABackTitle>();
 	Back->SetActorLocation({ 0, 0 });
 
-	if (EngineInput::IsDown(VK_SPACE))
+	if (UEngineInput::IsDown(VK_SPACE))
 	{
-		GEngine->ChangeLevel("PlayLevel");
+		GEngine->ChangeLevel("Play");
 	}
 
 }
