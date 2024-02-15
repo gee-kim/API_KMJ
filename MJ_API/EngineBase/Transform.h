@@ -135,7 +135,7 @@ public:
 		return Scale.hX();
 	}
 
-	// 충돌을 왜 Transform이 가질까?
+	// 충돌을 이녀석이 가질까?
 	// 위치와 크기를 가지고 있기 때문에.
 	bool Collision(ECollisionType _ThisType, ECollisionType _OtherType, const FTransform& _Other);
 
