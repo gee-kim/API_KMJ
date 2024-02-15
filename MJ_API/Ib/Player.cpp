@@ -23,15 +23,17 @@ void APlayer::BeginPlay()
 	Renderer->SetPosition({ 100, 100 });
 	Renderer->SetScale({1000, 720});
 	Renderer->SetImageCuttingTransform({ { 0, 100 }, {100, 100} });
+
+	Renderer = CreateImageRenderer();
+	Renderer->SetImage("ib_00.png.png");
+	Renderer->SetTransform({ {0,0}, {100, 100} });
+	Renderer->SetImageCuttingTransform({ {82,82}, {91, 91} });
+	//971*1102
+	Renderer->CreateAnimation("Idle", "ib_00.png", 0, 2, 0.5f, true);
+	Renderer->CreateAnimation("Attack", "ib_00.png", 3, 5, 0.5f, true);
+	Renderer->ChangeAnimation("Idle");
 }
-//Renderer = CreateImageRenderer();
-//Renderer->SetImage("ib_00.png.png");
-	//Renderer->SetTransform({ {0,0}, {100, 100} });
-	//Renderer->SetImageCuttingTransform({ {82,82}, {91, 91} });
-	// //971*1102
-	//Renderer->CreateAnimation("Idle", "ib_00.png", 0, 2, 0.5f, true);
-	//Renderer->CreateAnimation("Attack", "ib_00.png", 3, 5, 0.5f, true);
-	//Renderer->ChangeAnimation("Idle");
+
 
 
 
