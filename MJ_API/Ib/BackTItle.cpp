@@ -19,12 +19,9 @@ void ABackTitle::BeginPlay()
 	UImageRenderer* Renderer = CreateImageRenderer(1);
 
 	Renderer->SetImage("Title1.png");
-	
-	Renderer->SetPosition({ 1294, 312 });
-	Renderer->SetScale({ 2000, 720 });
-	//Renderer->SetImageCuttingTransform({ 3, 2 });
-	Renderer->CreateAnimation("BackFlow", "Title1.png", 0, 10, 0.5f, true);
-
+	Renderer->SetTransform({ {0,0}, {1020, 720} }); 
+	Renderer->CreateAnimation("BackFlow", "Title1.png", 0, 12, 1.0f, true);
+	Renderer->ChangeAnimation("BackFlow");
 
 }
 

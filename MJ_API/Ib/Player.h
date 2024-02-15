@@ -21,8 +21,6 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 	// 상태 보조 함수
-	void GravityCheck(float _DeltaTime);
-	// 각 상태마다 언제나 가장 위에 실행되어야 한다.
 	void DirCheck();
 
 	std::string GetAnimationName(std::string _Name);
@@ -35,19 +33,19 @@ protected:
 	void CameraFreeMove(float _DeltaTime);
 	void FreeMove(float _DeltaTime);
 	void Idle(float _DeltaTime);
-	void Jump(float _DeltaTime);
 	void Move(float _DeltaTime);
 
 	// 상태 시작 함수들
 	void IdleStart();
 	void MoveStart();
-	void JumpStart();
 
 	EPlayState State = EPlayState::None;
 	EActorDir DirState = EActorDir::Right;
 	std::string CurAnimationName = "None";
 
 private:
+	UCollision* BodyCollision = nullptr;
+
 	UImageRenderer* Renderer = nullptr;
 	float AnimationTime = 0.0f;
 	int AnimationFrame = 0;
@@ -55,10 +53,13 @@ private:
 	float AlphaTime = 0.0f;
 	bool Dir = false;
 	
-
 	float FreeMoveSpeed = 1000.0f;
-
 	float MoveSpeed = 500.0f;
-	float Gravity = 500.0f;
+
+	FVector MoveVector = FVector::Zero;
+	FVector LastMoveVector = FVector::Zero;
+
+	void MoveUpdate(float _DeltaTime);
 };
+
 

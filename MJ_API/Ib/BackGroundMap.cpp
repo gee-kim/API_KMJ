@@ -57,10 +57,9 @@ void ABackGroundMap::SwitchDebug()
 }
 void ABackGroundMap::BeginPlay()
 {
-	// 여기서 상수로 고정시키면.
-	//Renderer = CreateImageRenderer(MarioRenderOrder::Map);
-	//ColRenderer = CreateImageRenderer(MarioRenderOrder::Map);
-	//ColRenderer->SetActive(false);
-	// Renderer->SetImageCuttingTransform({ 0,0 }, { });
+	Renderer = CreateImageRenderer(PlayRenderOrder::Map);
+	ColRenderer = CreateImageRenderer(PlayRenderOrder::Map);
+	ColRenderer->SetActive(false);
+	//Renderer->SetImageCuttingTransform({ 0,0 }, { });
 }
 

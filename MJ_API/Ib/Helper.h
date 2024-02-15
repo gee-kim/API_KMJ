@@ -14,6 +14,8 @@ enum class EActorDir
 {
 	Left,
 	Right,
+	Up,
+	Down,
 };
 
 enum class EPlayState

@@ -13,6 +13,14 @@ UTitleLevel::~UTitleLevel()
 
 void UTitleLevel::BeginPlay()
 {
+	ULevel::BeginPlay();
+
+	ATitleLogo* Logo = SpawnActor<ATitleLogo>();
+	Logo->SetActorLocation({ 0, 0 });
+
+	ABackTitle* Back = SpawnActor<ABackTitle>();
+	Back->SetActorLocation({ 0, 0 });
+
 	int a = 0;
 }
 
@@ -20,12 +28,7 @@ void UTitleLevel::Tick(float _DeltaTime)
 {
 	ULevel::Tick(_DeltaTime);
 	
-	ATitleLogo* Logo = SpawnActor<ATitleLogo>();
-	Logo->SetActorLocation({0, 0});
 	
-	ABackTitle* Back = SpawnActor<ABackTitle>();
-	Back->SetActorLocation({ 0, 0 });
-
 	if (UEngineInput::IsDown(VK_SPACE))
 	{
 		GEngine->ChangeLevel("Play");
