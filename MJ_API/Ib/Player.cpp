@@ -20,11 +20,17 @@ void APlayer::BeginPlay()
 	Renderer->SetTransform({ {0,0}, {48, 96} });
 	//Renderer->SetImageCuttingTransform({ {82,82}, {91, 91} });
 	//971*1102
+
 	Renderer->CreateAnimation("Idle", "ib_00.png", 0, 0, 0.5f, true);
-	Renderer->CreateAnimation("Down", "ib_00.png", 0, 2, 0.5f, true);
-	Renderer->CreateAnimation("Left", "ib_00.png", 3, 5, 0.5f, true);
-	Renderer->CreateAnimation("Right", "ib_00.png", 6, 8, 0.5f, true);
-	Renderer->CreateAnimation("Up", "ib_00.png", 9, 11, 0.5f, true);
+	Renderer->CreateAnimation("Idle_Right", "ib_00.png", 0, 0, 0.5f, true);
+	Renderer->CreateAnimation("Idle_Left", "ib_00.png", 0, 0, 0.5f, true);
+	Renderer->CreateAnimation("Idle_Down", "ib_00.png", 0, 0, 0.5f, true);
+	Renderer->CreateAnimation("Idle_Up", "ib_00.png", 0, 0, 0.5f, true);
+
+	Renderer->CreateAnimation("Move_Down", "ib_00.png", 0, 2, 0.5f, true);
+	Renderer->CreateAnimation("Move_Left", "ib_00.png", 3, 5, 0.5f, true);
+	Renderer->CreateAnimation("Move_Right", "ib_00.png", 6, 8, 0.5f, true);
+	Renderer->CreateAnimation("Move_Up", "ib_00.png", 9, 11, 0.5f, true);
 	Renderer->ChangeAnimation("Idle");
 
 	StateChange(EPlayState::Idle);
@@ -158,7 +164,7 @@ std::string APlayer::GetAnimationName(std::string _Name)
 
 void APlayer::IdleStart()
 {
-	Renderer->ChangeAnimation(GetAnimationName("Idle"));
+	Renderer->ChangeAnimation("Idle");
 	DirCheck();
 }
 

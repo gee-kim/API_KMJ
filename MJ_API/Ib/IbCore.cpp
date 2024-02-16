@@ -46,7 +46,7 @@ void IbCore::BeginPlay()
 	CreateLevel<UPlayLevel>("Play");
 	//CreateLevel<UTestLevel>("Test");
 
-	ChangeLevel("Play");
+	ChangeLevel("Title");
 	
 	int a = 0;
 }
