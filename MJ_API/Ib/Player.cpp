@@ -21,19 +21,26 @@ void APlayer::BeginPlay()
 	//Renderer->SetImageCuttingTransform({ {82,82}, {91, 91} });
 	//971*1102
 
-	Renderer->CreateAnimation("Idle", "ib_00.png", 0, 0, 0.5f, true);
-	Renderer->CreateAnimation("Idle_Right", "ib_00.png", 0, 0, 0.5f, true);
-	Renderer->CreateAnimation("Idle_Left", "ib_00.png", 0, 0, 0.5f, true);
-	Renderer->CreateAnimation("Idle_Down", "ib_00.png", 0, 0, 0.5f, true);
-	Renderer->CreateAnimation("Idle_Up", "ib_00.png", 0, 0, 0.5f, true);
+	Renderer->CreateAnimation("Idle", "ib_00.png", 1, 1, 0.5f, true);
+	Renderer->CreateAnimation("Idle_Right", "ib_00.png", 7, 7, 0.1f, true);
+	Renderer->CreateAnimation("Idle_Left", "ib_00.png", 4, 4, 0.1f, true);
+	Renderer->CreateAnimation("Idle_Down", "ib_00.png", 1, 1, 0.5f, true);
+	Renderer->CreateAnimation("Idle_Up", "ib_00.png", 10, 10, 0.5f, true);
 
-	Renderer->CreateAnimation("Move_Down", "ib_00.png", 0, 2, 0.5f, true);
+	Renderer->CreateAnimation("Move_Down", "ib_00.png", 0, 2, 0.3f, true);
 	Renderer->CreateAnimation("Move_Left", "ib_00.png", 3, 5, 0.5f, true);
-	Renderer->CreateAnimation("Move_Right", "ib_00.png", 6, 8, 0.5f, true);
+	Renderer->CreateAnimation("Move_Right", "ib_00.png", 6, 8, 0.2f, true);
 	Renderer->CreateAnimation("Move_Up", "ib_00.png", 9, 11, 0.5f, true);
 	Renderer->ChangeAnimation("Idle");
 
 	StateChange(EPlayState::Idle);
+}
+
+void APlayer::Tick(float _DeltaTime)
+{
+	AActor::Tick(_DeltaTime);
+
+	StateUpdate(_DeltaTime);
 }
 
 
@@ -164,7 +171,7 @@ std::string APlayer::GetAnimationName(std::string _Name)
 
 void APlayer::IdleStart()
 {
-	Renderer->ChangeAnimation("Idle");
+	Renderer->ChangeAnimation(GetAnimationName("Idle"));
 	DirCheck();
 }
 
@@ -222,24 +229,8 @@ void APlayer::StateUpdate(float _DeltaTime)
 }
 
 
-
-void APlayer::Tick(float _DeltaTime)
-{
-	AActor::Tick(_DeltaTime);
-
-	StateUpdate(_DeltaTime);
-}
-
-
-// 이동관련
-
-
-
 void APlayer::Idle(float _DeltaTime)
 {
-	// 왼쪽 오른쪽도 안되고 있고.
-	// 여기서는 정말
-	// 가만히 있을때만 어떻게 할지 신경쓰면 됩니다.
 	if (true == UEngineInput::IsDown('1'))
 	{
 		StateChange(EPlayState::FreeMove);
@@ -266,35 +257,71 @@ void APlayer::Idle(float _DeltaTime)
 
 }
 
-
 void APlayer::Move(float _DeltaTime)
 {
 	DirCheck();
 
-	if (true == UEngineInput::IsFree(VK_LEFT) && UEngineInput::IsFree(VK_RIGHT))
+	if (true == UEngineInput::IsFree(VK_LEFT) && UEngineInput::IsFree(VK_RIGHT) && UEngineInput::IsFree(VK_UP) && UEngineInput::IsFree(VK_DOWN))
 	{
 		StateChange(EPlayState::Idle);
 		return;
 	}
 
+
 	if (UEngineInput::IsPress(VK_LEFT))
 	{
-		FVector::Left* _DeltaTime;
+		AddActorLocation(FVector::Left * _DeltaTime * MoveSpeed);
 	}
 
 	if (UEngineInput::IsPress(VK_RIGHT))
 	{
-		FVector::Right* _DeltaTime;
+		AddActorLocation(FVector::Right* _DeltaTime * MoveSpeed);
 	}
 
 	if (true == UEngineInput::IsPress(VK_UP))
 	{
-		FVector::Up* _DeltaTime;
+		AddActorLocation(FVector::Up* _DeltaTime * MoveSpeed);
 	}
 	if (true == UEngineInput::IsPress(VK_DOWN))
 	{
-		FVector::Down* _DeltaTime;
+		AddActorLocation(FVector::Down* _DeltaTime * MoveSpeed);
 	}
 
-}
+	//카메라의 위치는 
+	//플레이어의 위치에서 윈도우 크기의 Half만큼 x,y 값으로 이동한 위치
+	// 플레이어의 위치
+	// 윈도우 크기
+
+
+	FVector PlayerLocation = GetTransform().GetPosition();
+
+	UEngineWindow& Window = GEngine->MainWindow;
+
+	FVector ScreenSize = Window.GetWindowScale();
+	
+	FVector SetCameraPos;
+	SetCameraPos.X = PlayerLocation.X - ScreenSize.hX();
+	SetCameraPos.Y = PlayerLocation.Y - ScreenSize.hY();
+
+	GetWorld()->SetCameraPos(SetCameraPos);
+
+
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

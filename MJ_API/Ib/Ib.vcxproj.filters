@@ -12,9 +12,6 @@
       <Filter>Object\PlayLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="Helper.h" />
-    <ClInclude Include="BackGroundMap.h">
-      <Filter>Object\PlayLevel\Actor</Filter>
-    </ClInclude>
     <ClInclude Include="TitleLogo.h">
       <Filter>Object\TitleLevel\Actor</Filter>
     </ClInclude>
@@ -23,6 +20,9 @@
     </ClInclude>
     <ClInclude Include="TestLevel.h">
       <Filter>Object\TestLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGroundMap.h">
+      <Filter>Object\Global</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -37,9 +37,6 @@
       <Filter>Object\PlayLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="Helper.cpp" />
-    <ClCompile Include="BackGroundMap.cpp">
-      <Filter>Object\PlayLevel\Actor</Filter>
-    </ClCompile>
     <ClCompile Include="TitleLogo.cpp">
       <Filter>Object\TitleLevel\Actor</Filter>
     </ClCompile>
@@ -48,6 +45,9 @@
     </ClCompile>
     <ClCompile Include="TestLevel.cpp">
       <Filter>Object\TestLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGroundMap.cpp">
+      <Filter>Object\Global</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +68,9 @@
     </Filter>
     <Filter Include="Object\TestLevel">
       <UniqueIdentifier>{eb032c8a-0971-4b40-a214-da593a110d45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Global">
+      <UniqueIdentifier>{2bbd3d93-2499-47c0-b669-012ba8e01861}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

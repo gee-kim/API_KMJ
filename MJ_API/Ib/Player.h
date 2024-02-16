@@ -54,12 +54,8 @@ private:
 	bool Dir = false;
 	
 	float FreeMoveSpeed = 1000.0f;
-	float MoveSpeed = 500.0f;
+	float MoveSpeed = 300.0f;
 
-	FVector MoveVector = FVector::Zero;
-	FVector LastMoveVector = FVector::Zero;
-
-	void MoveUpdate(float _DeltaTime);
 };
 
 

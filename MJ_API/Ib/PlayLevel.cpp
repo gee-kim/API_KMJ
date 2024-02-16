@@ -23,19 +23,28 @@ void UPlayLevel::BeginPlay()
 	ABackGroundMap* Map = SpawnActor<ABackGroundMap>();
 	Map->SetMapImage("all_001.png");
 	Map->SetColMapImage("all_001_Col.png");
-	Map->SwitchDebug();
+	
 	
 	//플레이어 액터 생성해준다.
 	//액터로케이션 맵띄어서 확인해보고 조정해주기
 	APlayer* NewPlayer = SpawnActor<APlayer>();
-	NewPlayer->SetActorLocation({ 200, 200 });
-	
+	NewPlayer->SetActorLocation({ 640, 600 });
+
+	FVector PlayerLocation = NewPlayer->GetTransform().GetPosition();
+	UEngineWindow& Window = GEngine->MainWindow;
+	FVector ScreenSize = Window.GetWindowScale();
+	FVector CameraPos;
+	CameraPos.X = PlayerLocation.X - ScreenSize.hX();
+	CameraPos.Y = PlayerLocation.Y - ScreenSize.hY();
+	SetCameraPos(CameraPos);
+
 	
 }
 
 void UPlayLevel::Tick(float _DeltaTime)
 {
 	ULevel::Tick(_DeltaTime);
+
 }
 
 void UPlayLevel::LevelStart(ULevel* _Level)
