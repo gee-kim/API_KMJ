@@ -16,6 +16,11 @@ public:
 	APlayer& operator=(const APlayer& _Other) = delete;
 	APlayer& operator=(APlayer&& _Other) noexcept = delete;
 
+	void SetImageScale(FVector _ImageScale)
+	{
+		ImageScale = _ImageScale;
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -55,7 +60,7 @@ private:
 	
 	float FreeMoveSpeed = 1000.0f;
 	float MoveSpeed = 300.0f;
-
+	FVector ImageScale= FVector::Zero;
 };
 
 

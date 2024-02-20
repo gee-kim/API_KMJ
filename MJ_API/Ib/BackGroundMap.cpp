@@ -15,7 +15,7 @@ void ABackGroundMap::SetMapImage(std::string_view _MapImageName)
 {
 	Renderer->SetImage(_MapImageName);
 	UWindowImage* Image = Renderer->GetImage();
-	FVector ImageScale = Image->GetScale();
+	ImageScale = Image->GetScale();
 	Renderer->SetTransform({ ImageScale.Half2D(), ImageScale });
 }
 
@@ -24,7 +24,7 @@ void ABackGroundMap::SetColMapImage(std::string_view _MapImageName)
 	ColRenderer->SetImage(_MapImageName);
 	UWindowImage* Image = ColRenderer->GetImage();
 	Helper::ColMapImage = Image;
-	FVector ImageScale = Image->GetScale();
+	ImageScale = Image->GetScale();
 	ColRenderer->SetTransform({ ImageScale.Half2D(), ImageScale });
 }
 
@@ -55,6 +55,8 @@ void ABackGroundMap::SwitchDebug()
 	}
 
 }
+
+
 void ABackGroundMap::BeginPlay()
 {
 	Renderer = CreateImageRenderer(PlayRenderOrder::Map);

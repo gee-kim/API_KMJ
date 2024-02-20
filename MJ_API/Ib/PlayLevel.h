@@ -2,6 +2,8 @@
 
 #include <EngineCore\Level.h>
 
+class ABackGroundMap;
+
 // Ό³Έν :
 class UPlayLevel : public ULevel
 {
@@ -23,6 +25,6 @@ protected:
 	void LevelEnd(ULevel* _Level) override;
 
 private:
-
+	ABackGroundMap* Map;
 };
 

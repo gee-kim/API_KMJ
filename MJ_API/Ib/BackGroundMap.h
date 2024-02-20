@@ -18,6 +18,11 @@ public:
 
 	void SwitchDebug();
 
+	FVector GetImageScale() const
+	{
+		return ImageScale;
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _Deltatime) override;
@@ -25,6 +30,6 @@ protected:
 private:
 	UImageRenderer* Renderer = nullptr;
 	UImageRenderer* ColRenderer = nullptr;
-
+	FVector ImageScale;
 };
 

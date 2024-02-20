@@ -257,9 +257,11 @@ void APlayer::Idle(float _DeltaTime)
 
 }
 
+
 void APlayer::Move(float _DeltaTime)
 {
 	DirCheck();
+
 
 	if (true == UEngineInput::IsFree(VK_LEFT) && UEngineInput::IsFree(VK_RIGHT) && UEngineInput::IsFree(VK_UP) && UEngineInput::IsFree(VK_DOWN))
 	{
@@ -267,25 +269,62 @@ void APlayer::Move(float _DeltaTime)
 		return;
 	}
 
-
+	//왼쪽으로 이동하다가 픽셀충돌하면 한칸 반대방향으로 보내주기
 	if (UEngineInput::IsPress(VK_LEFT))
 	{
-		AddActorLocation(FVector::Left * _DeltaTime * MoveSpeed);
+
+		FVector NextPos = GetActorLocation() + (FVector::Left * _DeltaTime * MoveSpeed);
+
+		Color8Bit Color = Helper::ColMapImage->GetColor(NextPos.iX(), NextPos.iY(), Color8Bit::MagentaA);
+		if (Color != Color8Bit(237, 27, 225, 0))
+		{
+			AddActorLocation(FVector::Left * _DeltaTime * MoveSpeed);
+		}
+
 	}
 
 	if (UEngineInput::IsPress(VK_RIGHT))
 	{
-		AddActorLocation(FVector::Right* _DeltaTime * MoveSpeed);
+		FVector NextPos = GetActorLocation() + (FVector::Right * _DeltaTime * MoveSpeed);
+
+		Color8Bit Color = Helper::ColMapImage->GetColor(NextPos.iX(), NextPos.iY(), Color8Bit::MagentaA);
+		if (Color != Color8Bit(237, 27, 225, 0))
+		{
+			AddActorLocation(FVector::Right * _DeltaTime * MoveSpeed);
+		}
+
 	}
 
 	if (true == UEngineInput::IsPress(VK_UP))
 	{
-		AddActorLocation(FVector::Up* _DeltaTime * MoveSpeed);
+		FVector NextPos = GetActorLocation() + (FVector::Up * _DeltaTime * MoveSpeed);
+
+		Color8Bit Color = Helper::ColMapImage->GetColor(NextPos.iX(), NextPos.iY(), Color8Bit::MagentaA);
+		if (Color != Color8Bit(237, 27, 225, 0))
+		{
+			AddActorLocation(FVector::Up * _DeltaTime * MoveSpeed);
+		}
+
 	}
+
 	if (true == UEngineInput::IsPress(VK_DOWN))
 	{
-		AddActorLocation(FVector::Down* _DeltaTime * MoveSpeed);
+		FVector NextPos = GetActorLocation() + (FVector::Down * _DeltaTime * MoveSpeed);
+
+		Color8Bit Color = Helper::ColMapImage->GetColor(NextPos.iX(), NextPos.iY(), Color8Bit::MagentaA);
+		if (Color != Color8Bit(237, 27, 225, 0))
+		{
+			AddActorLocation(FVector::Down * _DeltaTime * MoveSpeed);
+		}
 	}
+
+	if (nullptr == Helper::ColMapImage)
+	{
+		MsgBoxAssert("맵 이미지가 존재하지 않으므로 충돌이 불가능합니다.");
+	}
+
+
+
 
 	//카메라의 위치는 
 	//플레이어의 위치에서 윈도우 크기의 Half만큼 x,y 값으로 이동한 위치
@@ -298,14 +337,37 @@ void APlayer::Move(float _DeltaTime)
 	UEngineWindow& Window = GEngine->MainWindow;
 
 	FVector ScreenSize = Window.GetWindowScale();
-	
-	FVector SetCameraPos;
-	SetCameraPos.X = PlayerLocation.X - ScreenSize.hX();
-	SetCameraPos.Y = PlayerLocation.Y - ScreenSize.hY();
 
-	GetWorld()->SetCameraPos(SetCameraPos);
+	FVector CameraPos;
+	CameraPos.X = PlayerLocation.X - ScreenSize.hX();
+	CameraPos.Y = PlayerLocation.Y - ScreenSize.hY();
 
 
+	// 카메라 위치 맵에서 나가지 않게 지정해주기
+
+	if (0.0 >= CameraPos.X)
+	{
+		CameraPos.X = 0.0f;
+	}
+
+	if (0.0 >= CameraPos.Y)
+	{
+		CameraPos.Y = 0.0f;
+	}
+
+
+	// 맵이미지 크기 끝점(RightBottom)까지 갔을 때 카메라의 위치는
+	// 이미지크기 - 윈도우 화면 만큼이다.
+	if (CameraPos.X >= ImageScale.X - GEngine->MainWindow.GetWindowScale().X)
+	{
+		CameraPos.X = ImageScale.X - GEngine->MainWindow.GetWindowScale().X;
+	}
+	if (CameraPos.Y >= ImageScale.Y - GEngine->MainWindow.GetWindowScale().Y)
+	{
+		CameraPos.Y = ImageScale.Y - GEngine->MainWindow.GetWindowScale().Y;
+	}
+
+	GetWorld()->SetCameraPos(CameraPos);
 
 };
 
