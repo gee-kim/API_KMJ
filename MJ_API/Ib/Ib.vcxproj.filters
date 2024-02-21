@@ -2,14 +2,14 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="IbCore.h" />
-    <ClInclude Include="PlayLevel.h">
-      <Filter>Object\PlayLevel</Filter>
+    <ClInclude Include="GalleryLevel.h">
+      <Filter>Object\GalleryLevel</Filter>
     </ClInclude>
     <ClInclude Include="TitleLevel.h">
       <Filter>Object\TitleLevel</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Object\PlayLevel\Actor</Filter>
+      <Filter>Object\GalleryLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="Helper.h" />
     <ClInclude Include="TitleLogo.h">
@@ -27,14 +27,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
-    <ClCompile Include="PlayLevel.cpp">
-      <Filter>Object\PlayLevel</Filter>
+    <ClCompile Include="GalleryLevel.cpp">
+      <Filter>Object\GalleryLevel</Filter>
     </ClCompile>
     <ClCompile Include="TitleLevel.cpp">
       <Filter>Object\TitleLevel</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Object\PlayLevel\Actor</Filter>
+      <Filter>Object\GalleryLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="TitleLogo.cpp">
@@ -57,12 +57,6 @@
     <Filter Include="Object\TitleLevel">
       <UniqueIdentifier>{0a9ca305-6f47-4077-a7f0-8730071c9185}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\PlayLevel">
-      <UniqueIdentifier>{0bfc769e-2d2e-4171-9687-1a0fba3cf00e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\PlayLevel\Actor">
-      <UniqueIdentifier>{15822336-ec7f-4824-89c8-f46f4c6beef2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Object\TitleLevel\Actor">
       <UniqueIdentifier>{fdebe23f-bf66-462b-820f-9dbaa4729a06}</UniqueIdentifier>
     </Filter>
@@ -71,6 +65,12 @@
     </Filter>
     <Filter Include="Object\Global">
       <UniqueIdentifier>{2bbd3d93-2499-47c0-b669-012ba8e01861}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\GalleryLevel">
+      <UniqueIdentifier>{0bfc769e-2d2e-4171-9687-1a0fba3cf00e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\GalleryLevel\Actor">
+      <UniqueIdentifier>{15822336-ec7f-4824-89c8-f46f4c6beef2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #include "IbCore.h"
 #include "Player.h"
 #include "TitleLevel.h"
-#include "PlayLevel.h"
+#include "GalleryLevel.h"
 #include "TestLevel.h"
 #include <EngineBase\EngineDirectory.h>
 #include <EngineBase\EngineFile.h>
@@ -43,10 +43,10 @@ void IbCore::BeginPlay()
 	UEngineResourcesManager::GetInst().CuttingImage("Title1.png", 13, 1);
 
 	CreateLevel<UTitleLevel>("Title");
-	CreateLevel<UPlayLevel>("Play");
+	CreateLevel<UGalleryLevel>("Gallery");
 	//CreateLevel<UTestLevel>("Test");
 
-	ChangeLevel("Play");
+	ChangeLevel("Gallery");
 	
 	int a = 0;
 }

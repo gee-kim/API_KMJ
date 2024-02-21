@@ -17,7 +17,7 @@ void APlayer::BeginPlay()
 
 	Renderer = CreateImageRenderer(PlayRenderOrder::Player);
 	Renderer->SetImage("ib_00.png");
-	Renderer->SetTransform({ {0,0}, {48, 96} });
+	Renderer->SetTransform({ {0,-48}, {48, 96} });
 	//Renderer->SetImageCuttingTransform({ {82,82}, {91, 91} });
 	//971*1102
 
@@ -276,7 +276,7 @@ void APlayer::Move(float _DeltaTime)
 		FVector NextPos = GetActorLocation() + (FVector::Left * _DeltaTime * MoveSpeed);
 
 		Color8Bit Color = Helper::ColMapImage->GetColor(NextPos.iX(), NextPos.iY(), Color8Bit::MagentaA);
-		if (Color != Color8Bit(237, 27, 225, 0))
+		if (Color != Color8Bit(255, 0, 255, 0))
 		{
 			AddActorLocation(FVector::Left * _DeltaTime * MoveSpeed);
 		}
@@ -288,7 +288,7 @@ void APlayer::Move(float _DeltaTime)
 		FVector NextPos = GetActorLocation() + (FVector::Right * _DeltaTime * MoveSpeed);
 
 		Color8Bit Color = Helper::ColMapImage->GetColor(NextPos.iX(), NextPos.iY(), Color8Bit::MagentaA);
-		if (Color != Color8Bit(237, 27, 225, 0))
+		if (Color != Color8Bit(255, 0, 255, 0))
 		{
 			AddActorLocation(FVector::Right * _DeltaTime * MoveSpeed);
 		}
@@ -300,7 +300,7 @@ void APlayer::Move(float _DeltaTime)
 		FVector NextPos = GetActorLocation() + (FVector::Up * _DeltaTime * MoveSpeed);
 
 		Color8Bit Color = Helper::ColMapImage->GetColor(NextPos.iX(), NextPos.iY(), Color8Bit::MagentaA);
-		if (Color != Color8Bit(237, 27, 225, 0))
+		if (Color != Color8Bit(255, 0, 255, 0))
 		{
 			AddActorLocation(FVector::Up * _DeltaTime * MoveSpeed);
 		}
@@ -312,7 +312,7 @@ void APlayer::Move(float _DeltaTime)
 		FVector NextPos = GetActorLocation() + (FVector::Down * _DeltaTime * MoveSpeed);
 
 		Color8Bit Color = Helper::ColMapImage->GetColor(NextPos.iX(), NextPos.iY(), Color8Bit::MagentaA);
-		if (Color != Color8Bit(237, 27, 225, 0))
+		if (Color != Color8Bit(255, 0, 255, 0))
 		{
 			AddActorLocation(FVector::Down * _DeltaTime * MoveSpeed);
 		}

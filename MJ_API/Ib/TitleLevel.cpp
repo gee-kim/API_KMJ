@@ -31,7 +31,7 @@ void UTitleLevel::Tick(float _DeltaTime)
 	
 	if (UEngineInput::IsAnykeyPress())
 	{
-		GEngine->ChangeLevel("Play");
+		GEngine->ChangeLevel("Gallery");
 	}
 
 }
