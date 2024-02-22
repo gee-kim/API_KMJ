@@ -8,6 +8,8 @@ enum PlayRenderOrder
 	Map,
 	Monster,
 	Player,
+	Dialog,
+	Text,
 };
 
 enum class EActorDir

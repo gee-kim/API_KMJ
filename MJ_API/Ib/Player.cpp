@@ -14,25 +14,27 @@ APlayer::~APlayer()
 void APlayer::BeginPlay()
 {
 	AActor::BeginPlay();
+	
+	{
+		Renderer = CreateImageRenderer(PlayRenderOrder::Player);
+		Renderer->SetImage("ib_00.png");
+		Renderer->SetTransform({ {0,-48}, {48, 96} });
+		//Renderer->SetImageCuttingTransform({ {82,82}, {91, 91} });
+		//971*1102
 
-	Renderer = CreateImageRenderer(PlayRenderOrder::Player);
-	Renderer->SetImage("ib_00.png");
-	Renderer->SetTransform({ {0,-48}, {48, 96} });
-	//Renderer->SetImageCuttingTransform({ {82,82}, {91, 91} });
-	//971*1102
+		Renderer->CreateAnimation("Idle", "ib_00.png", 1, 1, 0.5f, true);
+		Renderer->CreateAnimation("Idle_Right", "ib_00.png", 7, 7, 0.1f, true);
+		Renderer->CreateAnimation("Idle_Left", "ib_00.png", 4, 4, 0.1f, true);
+		Renderer->CreateAnimation("Idle_Down", "ib_00.png", 1, 1, 0.5f, true);
+		Renderer->CreateAnimation("Idle_Up", "ib_00.png", 10, 10, 0.5f, true);
 
-	Renderer->CreateAnimation("Idle", "ib_00.png", 1, 1, 0.5f, true);
-	Renderer->CreateAnimation("Idle_Right", "ib_00.png", 7, 7, 0.1f, true);
-	Renderer->CreateAnimation("Idle_Left", "ib_00.png", 4, 4, 0.1f, true);
-	Renderer->CreateAnimation("Idle_Down", "ib_00.png", 1, 1, 0.5f, true);
-	Renderer->CreateAnimation("Idle_Up", "ib_00.png", 10, 10, 0.5f, true);
-
-	Renderer->CreateAnimation("Move_Down", "ib_00.png", 0, 2, 0.3f, true);
-	Renderer->CreateAnimation("Move_Left", "ib_00.png", 3, 5, 0.5f, true);
-	Renderer->CreateAnimation("Move_Right", "ib_00.png", 6, 8, 0.2f, true);
-	Renderer->CreateAnimation("Move_Up", "ib_00.png", 9, 11, 0.5f, true);
-	Renderer->ChangeAnimation("Idle");
-
+		Renderer->CreateAnimation("Move_Down", "ib_00.png", 0, 2, 0.3f, true);
+		Renderer->CreateAnimation("Move_Left", "ib_00.png", 3, 5, 0.5f, true);
+		Renderer->CreateAnimation("Move_Right", "ib_00.png", 6, 8, 0.2f, true);
+		Renderer->CreateAnimation("Move_Up", "ib_00.png", 9, 11, 0.5f, true);
+		Renderer->ChangeAnimation("Idle");
+	}
+		
 	StateChange(EPlayState::Idle);
 }
 

@@ -8,9 +8,6 @@
     <ClInclude Include="TitleLevel.h">
       <Filter>Object\TitleLevel</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Object\GalleryLevel\Actor</Filter>
-    </ClInclude>
     <ClInclude Include="Helper.h" />
     <ClInclude Include="TitleLogo.h">
       <Filter>Object\TitleLevel\Actor</Filter>
@@ -22,6 +19,12 @@
       <Filter>Object\TestLevel</Filter>
     </ClInclude>
     <ClInclude Include="BackGroundMap.h">
+      <Filter>Object\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Object\GalleryLevel\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialog.h">
       <Filter>Object\Global</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,6 +50,9 @@
       <Filter>Object\TestLevel</Filter>
     </ClCompile>
     <ClCompile Include="BackGroundMap.cpp">
+      <Filter>Object\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialog.cpp">
       <Filter>Object\Global</Filter>
     </ClCompile>
   </ItemGroup>
