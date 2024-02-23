@@ -64,6 +64,7 @@ void AArt::Tick(float _DeltaTime)
 		{
 			Dialog->SetActive(true);
 			// 텍스트박스 출력 SetDialog()
+			
 		}
 
 	}

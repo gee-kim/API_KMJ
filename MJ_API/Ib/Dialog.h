@@ -20,7 +20,8 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	UImageRenderer* TextBoxRenderer = nullptr;
+	UImageRenderer* ArtTextBoxRenderer = nullptr;
+	UImageRenderer* CharTextBoxRenderer = nullptr;
 	UImageRenderer* TextRenderer = nullptr;
 };
 
