@@ -3,7 +3,7 @@
 #include <EngineCore\EngineCore.h>
 #include <EngineCore\ImageRenderer.h>
 
-enum PlayRenderOrder
+enum class PlayRenderOrder
 {
 	Map,
 	Monster,
@@ -12,6 +12,11 @@ enum PlayRenderOrder
 	Text,
 };
 
+enum class CollisionOrder
+{
+	Art,
+	Player,
+};
 enum class EActorDir
 {
 	Left,
@@ -33,6 +38,7 @@ enum class EPlayState
 class Helper
 {
 public:
+	static class ATestPlayer* MainPlayer;
 	static UWindowImage* ColMapImage;
 	static FVector GetMousePos();
 

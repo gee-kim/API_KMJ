@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "BackGroundMap.h"
 #include "Dialog.h"
+#include "Art.h"
 #include <EngineCore\EngineCore.h>
 #include <EngineCore\EngineResourcesManager.h>
 #include <EngineBase\EngineDirectory.h>
@@ -38,6 +39,10 @@ void UGalleryLevel::BeginPlay()
 
 	ADialog* NewDialog = SpawnActor<ADialog>();
 	NewDialog->SetActorLocation({ 640, 635 });
+
+	AArt* NewArt = SpawnActor<AArt>();
+	NewArt->SetActorLocation({ 600,400 });
+
 
 	// 카메라의 위치는 
 	// 플레이어의 위치에서 윈도우 크기의 Half만큼 x,y 값으로 이동한 위치

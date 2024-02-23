@@ -34,6 +34,13 @@ void APlayer::BeginPlay()
 		Renderer->CreateAnimation("Move_Up", "ib_00.png", 9, 11, 0.5f, true);
 		Renderer->ChangeAnimation("Idle");
 	}
+	
+	{
+		BodyCollision = CreateCollision(CollisionOrder::Player);
+		BodyCollision->SetPosition({ 0,-48 });
+		BodyCollision->SetScale({ 50,100 });
+		BodyCollision->SetColType(ECollisionType::CirCle);
+	}
 		
 	StateChange(EPlayState::Idle);
 }

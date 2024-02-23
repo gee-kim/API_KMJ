@@ -53,6 +53,12 @@ void IbCore::BeginPlay()
 
 void IbCore::Tick(float _DeltaTime)
 {
+
+	if (true == UEngineInput::IsDown(VK_F2))
+	{
+		GEngine->EngineDebugSwitch();
+	}
+	
 	int a = 0;
 }
 
