@@ -42,7 +42,7 @@ void UGalleryLevel::BeginPlay()
 
 	AArt* NewArt = SpawnActor<AArt>();
 	NewArt->SetActorLocation({ 600,400 });
-
+	NewArt->SetDialog(NewDialog);
 
 	// 카메라의 위치는 
 	// 플레이어의 위치에서 윈도우 크기의 Half만큼 x,y 값으로 이동한 위치

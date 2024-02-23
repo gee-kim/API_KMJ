@@ -31,6 +31,7 @@ void ADialog::BeginPlay()
 	TextRenderer->SetFont("°íµñ");
 	//TextRenderer->SetPosition({ 440,635 });
 	
+	SetActive(false);
 }
 
 void ADialog::Tick(float _DeltaTime)

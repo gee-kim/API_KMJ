@@ -14,6 +14,7 @@ public:
 	ADialog& operator=(const ADialog& _Other) = delete;
 	ADialog& operator=(ADialog&& _Other) noexcept = delete;
 
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
