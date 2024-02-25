@@ -21,26 +21,31 @@ void UTitleLevel::BeginPlay()
 	ABackTitle* Back = SpawnActor<ABackTitle>();
 	Back->SetActorLocation({ 0, 0 });
 
-	int a = 0;
+	{
+		//BGMPlayer = UEngineSound::SoundPlay("ib_title.ogg");
+		//BGMPlayer.Loop();
+		//
+		int a = 0;
+	}
 }
 
-void UTitleLevel::Tick(float _DeltaTime)
-{
-	ULevel::Tick(_DeltaTime);
-	
-	
-	if (UEngineInput::IsAnykeyPress())
+	void UTitleLevel::Tick(float _DeltaTime)
 	{
-		GEngine->ChangeLevel("Gallery");
+		ULevel::Tick(_DeltaTime);
+
+
+		if (UEngineInput::IsAnykeyPress())
+		{
+			GEngine->ChangeLevel("Gallery");
+		}
+
 	}
 
-}
-
-void UTitleLevel::LevelStart(ULevel* _Level)
-{
-	int a = 0;
-}
-void UTitleLevel::LevelEnd(ULevel* _Level)
-{
-	int a = 0;
-}
+	void UTitleLevel::LevelStart(ULevel * _Level)
+	{
+		int a = 0;
+	}
+	void UTitleLevel::LevelEnd(ULevel * _Level)
+	{
+		int a = 0;
+	}

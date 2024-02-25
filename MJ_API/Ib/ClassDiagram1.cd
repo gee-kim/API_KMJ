@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ABackGroundMap" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAgAAAAAgAAAAAAAAQAAAAAAACAACgAAAiRAA=</HashCode>
+      <FileName>BackGroundMap.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ADialog" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEAAAAAAAACAIAAAEAAAAAAAAAgAAAgQAA=</HashCode>
+      <FileName>Dialog.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UTestLevel" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAACAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>TestLevel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABackTitle" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAgAgSAA=</HashCode>
+      <FileName>BackTitle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATitleLogo" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAgAAAAAAAAAAAAAAAAAAAAgAAAgQAA=</HashCode>
+      <FileName>TitleLogo.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UTitleLevel" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAgAAAAgAACkQAA=</HashCode>
+      <FileName>TitleLevel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AArt">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAEAAAAAAEAAEAAgECAgQBA=</HashCode>
+      <FileName>Art.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APlayer" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACgACABAgOEAADAgAAIAAACQAAAIAAAAAACkDAAgSiQ=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UGalleryLevel" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAABAAAAAAAAAAAAAAAAAAAAgAABAgAAAkQAA=</HashCode>
+      <FileName>GalleryLevel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IbCore" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABIAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAgAAAgQAA=</HashCode>
+      <FileName>IbCore.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Helper" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABBAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAEQAA=</HashCode>
+      <FileName>Helper.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="PlayRenderOrder" Collapsed="true">
+    <Position X="5.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAEgAACQAAAAA=</HashCode>
+      <FileName>Helper.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CollisionOrder" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAQAAAAA=</HashCode>
+      <FileName>Helper.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EActorDir" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAI=</HashCode>
+      <FileName>Helper.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EPlayState" Collapsed="true">
+    <Position X="4" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAABAAIAAAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAA=</HashCode>
+      <FileName>Helper.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

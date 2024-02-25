@@ -3,6 +3,9 @@
 #include "TitleLevel.h"
 #include "GalleryLevel.h"
 #include "TestLevel.h"
+#include <EnginePlatform\EngineInput.h>
+#include <EnginePlatform\EngineSound.h>
+#include <EnginePlatform\WindowImage.h>
 #include <EngineBase\EngineDirectory.h>
 #include <EngineBase\EngineFile.h>
 #include <EngineCore\EngineResourcesManager.h>
@@ -28,26 +31,41 @@ void IbCore::BeginPlay()
 
 	NewDir.MoveParent();
 
-	NewDir.Move("Test_Resource");
-	
-	std::list<UEngineFile> NewList = NewDir.AllFile({ ".png", ".bmp" }, true);
-
-	// 엔진만의 규칙을 정할거냐.
-	for (UEngineFile& File : NewList)
+	NewDir.Move("Ib_Resource");
 	{
-		UEngineResourcesManager::GetInst().LoadImg(File.GetFullPath());
+		//이미지로드
+		std::list<UEngineFile> NewList = NewDir.AllFile({ ".png", ".bmp" }, true);
+
+		// 엔진만의 규칙을 정할거냐.
+		for (UEngineFile& File : NewList)
+		{
+			UEngineResourcesManager::GetInst().LoadImg(File.GetFullPath());
+		}
+
+		//캐릭터 이미지 1장으로 된거 애니메이션 돌려주기 위해서 cutting 해주기.
+		UEngineResourcesManager::GetInst().CuttingImage("Title1.png", 13, 1);
+		UEngineResourcesManager::GetInst().CuttingImage("ib_00.png", 3, 4);
+		//다른캐릭터도 넣어줘야함.
 	}
 
-	//캐릭터 이미지 1장으로 된거 애니메이션 돌려주기 위해서 cutting 해주기.
-	UEngineResourcesManager::GetInst().CuttingImage("ib_00.png", 3, 4);
-	UEngineResourcesManager::GetInst().CuttingImage("Title1.png", 13, 1);
+	{
+		//사운드로드
+
+		//std::list<UEngineFile> NewList = NewDir.AllFile({ ".wav", ".mp3" }, true);
+		//
+		//for (UEngineFile& File : NewList)
+		//{
+		//	UEngineSound::Load(File.GetFullPath());
+		//}
+
+	}
 
 	CreateLevel<UTitleLevel>("Title");
 	CreateLevel<UGalleryLevel>("Gallery");
 	//CreateLevel<UTestLevel>("Test");
 
-	ChangeLevel("Gallery");
-	
+	ChangeLevel("Title");
+
 	int a = 0;
 }
 
@@ -58,7 +76,7 @@ void IbCore::Tick(float _DeltaTime)
 	{
 		GEngine->EngineDebugSwitch();
 	}
-	
+
 	int a = 0;
 }
 
