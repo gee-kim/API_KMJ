@@ -51,13 +51,14 @@ void IbCore::BeginPlay()
 	{
 		//사운드로드
 
-		//std::list<UEngineFile> NewList = NewDir.AllFile({ ".wav", ".mp3" }, true);
-		//
-		//for (UEngineFile& File : NewList)
-		//{
-		//	UEngineSound::Load(File.GetFullPath());
-		//}
+		std::list<UEngineFile> NewList = NewDir.AllFile({ ".wav", ".mp3", ".ogg"}, true);
+		
+		for (UEngineFile& File : NewList)
+		{
+			UEngineSound::Load(File.GetFullPath());
+		}
 
+		int a = 0;
 	}
 
 	CreateLevel<UTitleLevel>("Title");

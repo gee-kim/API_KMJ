@@ -87,6 +87,7 @@ void UEngineCore::CoreTick()
 		MainTimer.TimeCheckStart();
 		DeltaTime = MainTimer.TimeCheck();
 		CurFrameTime = 0.0f;
+		UEngineInput::Reset();
 	}
 
 

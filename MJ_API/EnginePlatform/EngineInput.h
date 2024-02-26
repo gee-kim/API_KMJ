@@ -140,6 +140,8 @@ public:
 
 	static void KeyCheckTick(float _DeltaTime);
 
+	static void Reset();
+
 protected:
 	//              'A'  상태가 어때?
 	static std::map<int, EngineKey> AllKeys;

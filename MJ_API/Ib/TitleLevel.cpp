@@ -22,9 +22,9 @@ void UTitleLevel::BeginPlay()
 	Back->SetActorLocation({ 0, 0 });
 
 	{
-		//BGMPlayer = UEngineSound::SoundPlay("ib_title.ogg");
-		//BGMPlayer.Loop();
-		//
+		BGMPlayer = UEngineSound::SoundPlay("ib_title.ogg");
+		BGMPlayer.Loop();
+		
 		int a = 0;
 	}
 }
