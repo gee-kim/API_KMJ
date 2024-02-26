@@ -36,6 +36,7 @@ void UTitleLevel::BeginPlay()
 
 		if (UEngineInput::IsAnykeyPress())
 		{
+			BGMPlayer.Off();
 			GEngine->ChangeLevel("Gallery");
 		}
 

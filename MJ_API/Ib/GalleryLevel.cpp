@@ -44,6 +44,8 @@ void UGalleryLevel::BeginPlay()
 	NewArt->SetActorLocation({ 600,400 });
 	NewArt->SetDialog(NewDialog);
 
+	
+
 	// 카메라의 위치는 
 	// 플레이어의 위치에서 윈도우 크기의 Half만큼 x,y 값으로 이동한 위치
 	// 플레이어의 위치
@@ -63,6 +65,9 @@ void UGalleryLevel::BeginPlay()
 void UGalleryLevel::Tick(float _DeltaTime)
 {
 	ULevel::Tick(_DeltaTime);
+
+	BGMPlayer = UEngineSound::SoundPlay("La_Follia.ogg");
+	BGMPlayer.Loop();
 
 }
 

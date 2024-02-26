@@ -1,6 +1,6 @@
 #pragma once
-
 #include <EngineCore\Level.h>
+#include <EnginePlatform/EngineSound.h>
 
 class ABackGroundMap;
 
@@ -26,5 +26,6 @@ protected:
 
 private:
 	ABackGroundMap* Map;
+	UEngineSoundPlayer BGMPlayer;
 };
 
