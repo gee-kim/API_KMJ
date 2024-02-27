@@ -26,6 +26,7 @@ public:
 	void EndDialogue();
 	void CharTextBox();
 	void ArtTextBox();
+	void SwitchDebug();
 
 protected:
 	void BeginPlay() override;

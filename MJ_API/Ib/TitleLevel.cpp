@@ -34,7 +34,7 @@ void UTitleLevel::BeginPlay()
 		ULevel::Tick(_DeltaTime);
 
 
-		if (UEngineInput::IsAnykeyPress())
+		if (UEngineInput::IsDown(VK_SPACE))
 		{
 			BGMPlayer.Off();
 			GEngine->ChangeLevel("Gallery");
