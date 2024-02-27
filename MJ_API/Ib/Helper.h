@@ -8,7 +8,7 @@ enum class PlayRenderOrder
 	Map,
 	Monster,
 	Player,
-	Dialog,
+	Dialogue,
 	Text,
 };
 

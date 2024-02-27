@@ -2,7 +2,7 @@
 #include <EngineCore/Actor.h>
 #include "Helper.h"
 #include "Player.h"
-#include "Dialog.h"
+#include "Dialogue.h"
 
 class AArt : public AActor
 {
@@ -16,9 +16,9 @@ public:
 	AArt& operator=(const AArt& _Other) = delete;
 	AArt& operator=(AArt&& _Other) noexcept = delete;
 
-	void SetDialog(ADialog* _Dialog)
+	void SetDialogue(ADialogue* _Dialogue)
 	{
-		Dialog = _Dialog;
+		Dialogue = _Dialogue;
 	}
 
 protected:
@@ -31,7 +31,7 @@ private:
 	UCollision* BodyCollision2 = nullptr;
 	UCollision* BodyCollision3 = nullptr;
 
-	ADialog* Dialog = nullptr;
+	ADialogue* Dialogue = nullptr;
 
 };
 

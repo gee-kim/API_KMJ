@@ -1,7 +1,7 @@
 #include "GalleryLevel.h"
 #include "Player.h"
 #include "BackGroundMap.h"
-#include "Dialog.h"
+#include "Dialogue.h"
 #include "Art.h"
 #include <EngineCore\EngineCore.h>
 #include <EngineCore\EngineResourcesManager.h>
@@ -37,12 +37,12 @@ void UGalleryLevel::BeginPlay()
 	NewPlayer->SetImageScale(ImageScale);
 
 
-	ADialog* NewDialog = SpawnActor<ADialog>();
-	NewDialog->SetActorLocation({ 640, 635 });
+	ADialogue* NewDialogue = SpawnActor<ADialogue>();
+	NewDialogue->SetActorLocation({ 640, 635 });
 
 	AArt* NewArt = SpawnActor<AArt>();
 	NewArt->SetActorLocation({ 600,400 });
-	NewArt->SetDialog(NewDialog);
+	NewArt->SetDialogue(NewDialogue);
 
 	
 

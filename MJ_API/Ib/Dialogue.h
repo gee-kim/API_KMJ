@@ -1,26 +1,25 @@
 #pragma once
 #include <EngineCore\Actor.h>
 #include "Helper.h"
-#include "Helper.h"
 
-class ADialogInfo
+class ADialogueInfo
 {
 public:
 
 };
 
 
-class ADialog : public AActor
+class ADialogue : public AActor
 {
 public:
-	ADialog();
-	~ADialog();
+	ADialogue();
+	~ADialogue();
 
 	// delete Function
-	ADialog(const ADialog& _Other) = delete;
-	ADialog(ADialog&& _Other) noexcept = delete;
-	ADialog& operator=(const ADialog& _Other) = delete;
-	ADialog& operator=(ADialog&& _Other) noexcept = delete;
+	ADialogue(const ADialogue& _Other) = delete;
+	ADialogue(ADialogue&& _Other) noexcept = delete;
+	ADialogue& operator=(const ADialogue& _Other) = delete;
+	ADialogue& operator=(ADialogue&& _Other) noexcept = delete;
 
 
 protected:
@@ -31,7 +30,7 @@ private:
 	void CharTextBox();
 	void ArtTextBox();
 	void CreateText();
-	//std::map<std::string, std::vector<ADialogInfo*>>;
+	//std::map<std::string, std::vector<ADialogueInfo*>>;
 	UImageRenderer* CharfaceImageRenderer = nullptr;
 	UImageRenderer* ArtTextBoxRenderer = nullptr;
 	UImageRenderer* CharTextBoxRenderer = nullptr;

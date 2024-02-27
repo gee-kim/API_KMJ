@@ -171,7 +171,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Dialog.h">
+    <ClInclude Include="Dialogue.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -217,7 +217,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Dialog.cpp">
+    <ClCompile Include="Dialogue.cpp">
       <SubType>
       </SubType>
     </ClCompile>

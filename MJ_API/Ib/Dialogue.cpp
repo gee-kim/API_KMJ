@@ -1,34 +1,36 @@
-#include "Dialog.h"
+#include "Dialogue.h"
 #include <EnginePlatform\EngineInput.h>
 #include <EngineBase\EngineDebug.h>
 #include "Helper.h"
+#include "Windows.h"
 
 
-ADialog::ADialog()
+ADialogue::ADialogue()
 {
 }
 
-ADialog::~ADialog()
+ADialogue::~ADialogue()
 {
 }
 
-
-void ADialog::CharTextBox()
+void ADialogue::CharTextBox()
 {
-	CharTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialog);
-	CharTextBoxRenderer->SetTransform({ {0,0}, {1280, 164} });
-
+	CharTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
 	CharTextBoxRenderer->SetImage("msw_00.png");
+	CharTextBoxRenderer->SetTransform({ {0, 0}, { 1280, 164 } });
+	CharTextBoxRenderer->CameraEffectOff();
+
 }
 
-void ADialog::ArtTextBox()
+void ADialogue::ArtTextBox()
 {
-	ArtTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialog);
+	ArtTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
 	ArtTextBoxRenderer->SetTransform({ {0,0}, {1280, 164} });
 	ArtTextBoxRenderer->SetImage("msw_02.png");
+	ArtTextBoxRenderer->CameraEffectOff();
 }
 
-void ADialog::CreateText()
+void ADialogue::CreateText()
 {
 	TextRenderer = CreateImageRenderer(PlayRenderOrder::Text);
 	TextRenderer->SetText("이브 텍스트 문구입니당");
@@ -40,16 +42,19 @@ void ADialog::CreateText()
 	//TextRenderer->SetPosition({ 440,635 });
 }
 
-void ADialog::BeginPlay()
+void ADialogue::BeginPlay()
 {
 	AActor::BeginPlay();
 	
+	//CharTextBox();
+	ArtTextBox();
+	CreateText();
 	
-		SetActive(false);
+	SetActive(false);
 		//TestPlayer에 있는 StateChange 하는 방식 보고 로직 짜보자
 }
 
-void ADialog::Tick(float _DeltaTime)
+void ADialogue::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 

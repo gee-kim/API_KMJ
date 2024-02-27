@@ -1,5 +1,7 @@
 #include "IbCore.h"
 #include "Player.h"
+#include "Art.h"
+#include "Dialogue.h"
 #include "TitleLevel.h"
 #include "GalleryLevel.h"
 #include "TestLevel.h"
@@ -25,7 +27,7 @@ void IbCore::BeginPlay()
 	UEngineCore::BeginPlay();
 
 	MainWindow.SetWindowScale({ 1280, 720 });
-	MainWindow.SetWindowPosition({ 200, 50 });
+	MainWindow.SetWindowPosition({ 200, 0 });
 
 	UEngineDirectory NewDir;
 

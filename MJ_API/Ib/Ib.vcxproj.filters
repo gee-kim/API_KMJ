@@ -24,12 +24,10 @@
     <ClInclude Include="Player.h">
       <Filter>Object\GalleryLevel\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="Dialog.h">
-      <Filter>Object\Global</Filter>
-    </ClInclude>
     <ClInclude Include="Art.h">
       <Filter>Object\GalleryLevel\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="Dialogue.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -55,12 +53,10 @@
     <ClCompile Include="BackGroundMap.cpp">
       <Filter>Object\Global</Filter>
     </ClCompile>
-    <ClCompile Include="Dialog.cpp">
-      <Filter>Object\Global</Filter>
-    </ClCompile>
     <ClCompile Include="Art.cpp">
       <Filter>Object\GalleryLevel\Actor</Filter>
     </ClCompile>
+    <ClCompile Include="Dialogue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
