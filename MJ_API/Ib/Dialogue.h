@@ -21,15 +21,17 @@ public:
 	ADialogue& operator=(const ADialogue& _Other) = delete;
 	ADialogue& operator=(ADialogue&& _Other) noexcept = delete;
 
+	void CreateText(std::string Text);
+	void CreateTextBox(std::string Text);
+	void EndDialogue();
+	void CharTextBox();
+	void ArtTextBox();
 
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
 private:
-	void CharTextBox();
-	void ArtTextBox();
-	void CreateText();
 	//std::map<std::string, std::vector<ADialogueInfo*>>;
 	UImageRenderer* CharfaceImageRenderer = nullptr;
 	UImageRenderer* ArtTextBoxRenderer = nullptr;

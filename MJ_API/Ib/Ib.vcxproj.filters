@@ -27,7 +27,9 @@
     <ClInclude Include="Art.h">
       <Filter>Object\GalleryLevel\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="Dialogue.h" />
+    <ClInclude Include="Dialogue.h">
+      <Filter>Object\Global</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -56,7 +58,9 @@
     <ClCompile Include="Art.cpp">
       <Filter>Object\GalleryLevel\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="Dialogue.cpp" />
+    <ClCompile Include="Dialogue.cpp">
+      <Filter>Object\Global</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">

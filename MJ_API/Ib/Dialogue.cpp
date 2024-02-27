@@ -30,10 +30,19 @@ void ADialogue::ArtTextBox()
 	ArtTextBoxRenderer->CameraEffectOff();
 }
 
-void ADialogue::CreateText()
+void ADialogue::CreateTextBox(std::string Text)
+{
+	//switch(Text)
+	//{
+	//case(CollisionOrder::Art):
+	//	break;
+	//}
+}
+
+void ADialogue::CreateText(std::string Text)
 {
 	TextRenderer = CreateImageRenderer(PlayRenderOrder::Text);
-	TextRenderer->SetText("이브 텍스트 문구입니당");
+	TextRenderer->SetText(Text);
 	TextRenderer->CameraEffectOff();
 	//텍스트 사이즈,폰트, 색깔 체크 필요..
 	TextRenderer->SetTextSize(20);
@@ -42,21 +51,32 @@ void ADialogue::CreateText()
 	//TextRenderer->SetPosition({ 440,635 });
 }
 
+void ADialogue::EndDialogue()
+{
+	SetActive(false);
+}
+
 void ADialogue::BeginPlay()
 {
 	AActor::BeginPlay();
 	
-	//CharTextBox();
-	ArtTextBox();
-	CreateText();
-	
 	SetActive(false);
+	
+	//키
+		if (true == UEngineInput::IsDown(VK_SPACE))
+		{
+			SetActive(false);
+			return;
+		}
+		
 		//TestPlayer에 있는 StateChange 하는 방식 보고 로직 짜보자
 }
 
 void ADialogue::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
+
+	
 
 }
 

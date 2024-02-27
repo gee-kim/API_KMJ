@@ -62,9 +62,31 @@ void AArt::Tick(float _DeltaTime)
 		//키가 눌린다면 Textbox가 출력되게 만들기
 		if (true == UEngineInput::IsDown(VK_SPACE))
 		{
+			Dialogue->ArtTextBox();
+			Dialogue->CreateText("0번 그림입니다");
+			//CreateDialogue("Art", "0번 그림입니다");
+			//CreateDialogue("Character", "0번 그림입니다");
 			Dialogue->SetActive(true);
-			// 텍스트박스 출력 SetDialogue()
+			// SetActive 디버그기능처럼 바꿔야 하나?..
 			
+		}
+
+	}
+
+
+	if (true == BodyCollision1->CollisionCheck(CollisionOrder::Player, Result))
+	{
+		//플레이어와 충돌이 일어나면 키가눌리는거 체크하고,
+		//키가 눌린다면 Textbox가 출력되게 만들기
+		if (true == UEngineInput::IsDown(VK_SPACE))
+		{
+			Dialogue->CharTextBox();
+			Dialogue->CreateText("1번 캐릭터입니다");
+			//CreateDialogue("Art", "0번 그림입니다");
+			//CreateDialogue("Character", "0번 그림입니다");
+			Dialogue->SetActive(true);
+			// SetActive 디버그기능처럼 바꿔야 하나?..
+
 		}
 
 	}
