@@ -45,7 +45,6 @@ void AArt::BeginPlay()
 
 }
 
-
 void AArt::Tick(float _DeltaTime)
 {
 	if (nullptr == Dialogue)
@@ -67,14 +66,9 @@ void AArt::Tick(float _DeltaTime)
 			Dialogue->CreateText("0번 그림입니다");
 			//CreateDialogue("Art", "0번 그림입니다");
 			//CreateDialogue("Character", "0번 그림입니다");
-
-			if (true == UEngineInput::IsDown(VK_SPACE))
-			{
-				Dialogue->SetActive(true);
-				Dialogue->SwitchDebug();
-			}
+			Dialogue->SetActive(true);
 			// SetActive 디버그기능처럼 바꿔야 하나?..
-
+			
 		}
 
 	}

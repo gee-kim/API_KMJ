@@ -18,7 +18,8 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	UImageRenderer* Renderer = nullptr;
+	UImageRenderer* Renderer1 = nullptr;
+	UImageRenderer* Renderer2 = nullptr;
 	float AnimationTime = 0.0f;
 	int AnimationFrame = 0;
 

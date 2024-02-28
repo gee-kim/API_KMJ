@@ -30,6 +30,9 @@
     <ClInclude Include="Dialogue.h">
       <Filter>Object\Global</Filter>
     </ClInclude>
+    <ClInclude Include="TitleMenu.h">
+      <Filter>Object\TitleLevel\Actor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -60,6 +63,9 @@
     </ClCompile>
     <ClCompile Include="Dialogue.cpp">
       <Filter>Object\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleMenu.cpp">
+      <Filter>Object\TitleLevel\Actor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -45,7 +45,6 @@ void IbCore::BeginPlay()
 		}
 
 		//캐릭터 이미지 1장으로 된거 애니메이션 돌려주기 위해서 cutting 해주기.
-		UEngineResourcesManager::GetInst().CuttingImage("Title1.png", 13, 1);
 		UEngineResourcesManager::GetInst().CuttingImage("ib_00.png", 3, 4);
 		//다른캐릭터도 넣어줘야함.
 	}

@@ -16,7 +16,7 @@ ADialogue::~ADialogue()
 void ADialogue::CharTextBox()
 {
 	CharTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
-	CharTextBoxRenderer->SetImage("msw_02.png");
+	CharTextBoxRenderer->SetImage("msw_00.png");
 	CharTextBoxRenderer->SetTransform({ {0, 0}, { 1280, 164 } });
 	CharTextBoxRenderer->CameraEffectOff();
 
@@ -26,7 +26,7 @@ void ADialogue::ArtTextBox()
 {
 	ArtTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
 	ArtTextBoxRenderer->SetTransform({ {0,0}, {1280, 164} });
-	ArtTextBoxRenderer->SetImage("msw_00.png");
+	ArtTextBoxRenderer->SetImage("msw_02.png");
 	ArtTextBoxRenderer->CameraEffectOff();
 }
 
@@ -51,19 +51,6 @@ void ADialogue::CreateText(std::string Text)
 	//TextRenderer->SetPosition({ 440,635 });
 }
 
-void ADialogue::SwitchDebug()
-{
-	if (true == IsActive())
-	{
-		SetActive(false);
-	}
-	else
-	{
-		SetActive(true);
-	}
-}
-
-
 void ADialogue::EndDialogue()
 {
 	SetActive(false);
@@ -75,7 +62,13 @@ void ADialogue::BeginPlay()
 	
 	SetActive(false);
 	
-	
+	//키
+		if (true == UEngineInput::IsDown(VK_SPACE))
+		{
+			SetActive(false);
+			return;
+		}
+		
 		//TestPlayer에 있는 StateChange 하는 방식 보고 로직 짜보자
 }
 
@@ -83,10 +76,7 @@ void ADialogue::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 
-	if (UEngineInput::IsDown(VK_SPACE))
-	{
-		SwitchDebug();
-	}
+	
 
 }
 

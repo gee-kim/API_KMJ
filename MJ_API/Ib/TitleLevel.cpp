@@ -1,6 +1,7 @@
 #include "TitleLevel.h"
 #include "TitleLogo.h"
 #include "BackTitle.h"
+#include "TitleMenu.h"
 #include "EngineCore/EngineCore.h"
 
 UTitleLevel::UTitleLevel()
@@ -21,6 +22,8 @@ void UTitleLevel::BeginPlay()
 	ABackTitle* Back = SpawnActor<ABackTitle>();
 	Back->SetActorLocation({ 0, 0 });
 
+	ATitleMenu* StarMenu = SpawnActor<ATitleMenu>();
+
 	{
 		BGMPlayer = UEngineSound::SoundPlay("ib_title.ogg");
 		BGMPlayer.Loop();
@@ -37,7 +40,7 @@ void UTitleLevel::BeginPlay()
 		if (UEngineInput::IsDown(VK_SPACE))
 		{
 			BGMPlayer.Off();
-			GEngine->ChangeLevel("Gallery");
+			//GEngine->ChangeLevel("Gallery");
 		}
 
 	}
