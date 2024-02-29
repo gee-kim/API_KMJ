@@ -95,6 +95,12 @@ void ATitleMenu::Tick(float _DeltaTime)
 		{
 		case 0:
 			GEngine->ChangeLevel("Gallery");
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			GEngine->MainWindow.Off();
 
 		default:
 			break;
