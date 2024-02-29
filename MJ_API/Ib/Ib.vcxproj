@@ -159,7 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Art.h">
+    <ClInclude Include="GalleryCollision.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -209,7 +209,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Art.cpp">
+    <ClCompile Include="GalleryCollision.cpp">
       <SubType>
       </SubType>
     </ClCompile>

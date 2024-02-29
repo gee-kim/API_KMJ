@@ -4,17 +4,17 @@
 #include "Player.h"
 #include "Dialogue.h"
 
-class AArt : public AActor
+class AGalleryCollision : public AActor
 {
 public:
-	AArt();
-	~AArt();
+	AGalleryCollision();
+	~AGalleryCollision();
 
 	// delete Function
-	AArt(const AArt& _Other) = delete;
-	AArt(AArt&& _Other) noexcept = delete;
-	AArt& operator=(const AArt& _Other) = delete;
-	AArt& operator=(AArt&& _Other) noexcept = delete;
+	AGalleryCollision(const AGalleryCollision& _Other) = delete;
+	AGalleryCollision(AGalleryCollision&& _Other) noexcept = delete;
+	AGalleryCollision& operator=(const AGalleryCollision& _Other) = delete;
+	AGalleryCollision& operator=(AGalleryCollision&& _Other) noexcept = delete;
 
 	void SetDialogue(ADialogue* _Dialogue)
 	{
@@ -26,6 +26,9 @@ protected:
 	void Tick(float _Deltatime) override;
 
 private:
+	std::vector<UImageRenderer*> Renderers;
+	std::vector<UCollision*> Collisions;
+
 	UCollision* BodyCollision0 = nullptr;
 	UCollision* BodyCollision1 = nullptr;
 	UCollision* BodyCollision2 = nullptr;

@@ -2,7 +2,7 @@
 #include "Player.h"
 #include "BackGroundMap.h"
 #include "Dialogue.h"
-#include "Art.h"
+#include "GalleryCollision.h"
 #include <EngineCore\EngineCore.h>
 #include <EngineCore\EngineResourcesManager.h>
 #include <EngineBase\EngineDirectory.h>
@@ -40,7 +40,7 @@ void UGalleryLevel::BeginPlay()
 	ADialogue* NewDialogue = SpawnActor<ADialogue>();
 	NewDialogue->SetActorLocation({ 640, 635 });
 
-	AArt* NewArt = SpawnActor<AArt>();
+	AGalleryCollision* NewArt = SpawnActor<AGalleryCollision>();
 	NewArt->SetActorLocation({ 600,400 });
 	NewArt->SetDialogue(NewDialogue);
 

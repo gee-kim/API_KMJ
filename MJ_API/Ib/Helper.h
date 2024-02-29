@@ -5,9 +5,12 @@
 
 enum class PlayRenderOrder
 {
+	Back,
 	Map,
 	Monster,
+	Art,
 	Player,
+	Characters,
 	Dialogue,
 	Text,
 };

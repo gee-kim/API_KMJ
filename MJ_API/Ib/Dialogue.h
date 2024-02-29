@@ -22,7 +22,7 @@ public:
 	ADialogue& operator=(ADialogue&& _Other) noexcept = delete;
 
 	void CreateText(std::string Text);
-	void CreateTextBox(std::string Text);
+	void CreateDialogue(int _value);
 	void EndDialogue();
 	void CharTextBox();
 	void ArtTextBox();

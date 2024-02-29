@@ -55,7 +55,7 @@ void ATitleMenu::SelectChange(int _Index)
 	// 랜더러의 사이즈만큼 for문 돌면서 인덱스번호가 1인 이미지를 셋팅해주기
 	for (size_t i = 0; i < Renderers.size(); i++)
 	{
-		//
+		//000000
 		Renderers[i]->SetImageIndex(1);
 	}
 	// 인덱스번호가 0번인 이미지로 초기 셋팅

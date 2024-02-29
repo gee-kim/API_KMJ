@@ -1,6 +1,6 @@
 #include "IbCore.h"
 #include "Player.h"
-#include "Art.h"
+#include "GalleryCollision.h"
 #include "Dialogue.h"
 #include "TitleLevel.h"
 #include "GalleryLevel.h"
@@ -66,7 +66,7 @@ void IbCore::BeginPlay()
 	CreateLevel<UGalleryLevel>("Gallery");
 	//CreateLevel<UTestLevel>("Test");
 
-	ChangeLevel("Title");
+	ChangeLevel("Gallery");
 
 	int a = 0;
 }
