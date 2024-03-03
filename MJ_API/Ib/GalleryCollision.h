@@ -18,7 +18,7 @@ public:
 
 	void SetDialogue(ADialogue* _Dialogue)
 	{
-		Dialogue = _Dialogue;
+		Dialogues.push_back(_Dialogue);
 	}
 
 protected:
@@ -26,15 +26,9 @@ protected:
 	void Tick(float _Deltatime) override;
 
 private:
+	std::vector<ADialogue*> Dialogues;
 	std::vector<UImageRenderer*> Renderers;
 	std::vector<UCollision*> Collisions;
-
-	UCollision* BodyCollision0 = nullptr;
-	UCollision* BodyCollision1 = nullptr;
-	UCollision* BodyCollision2 = nullptr;
-	UCollision* BodyCollision3 = nullptr;
-
-	ADialogue* Dialogue = nullptr;
 
 };
 

@@ -41,7 +41,7 @@ enum class EPlayState
 class Helper
 {
 public:
-	static class ATestPlayer* MainPlayer;
+	static class APlayer* MainPlayer;
 	static UWindowImage* ColMapImage;
 	static FVector GetMousePos();
 

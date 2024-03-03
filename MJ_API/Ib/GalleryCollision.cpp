@@ -66,6 +66,16 @@ void AGalleryCollision::BeginPlay()
 		CurCreateCollsions->SetColType(ECollisionType::Rect);
 		Collisions.push_back(CurCreateCollsions);
 
+		ADialogue* CurDialogues = nullptr;
+		//CurDialogues->CharTextBox();
+		CurDialogues->CreateText("담배나 피러 나갈까...");
+		Dialogues.push_back(CurDialogues);
+		CurDialogues->SetActive(false);
+
+		//CurDialogues->CharTextBox();
+		CurDialogues->CreateText("Collision 1번");
+		Dialogues.push_back(CurDialogues);
+		CurDialogues->SetActive(false);
 	}
 
 }
@@ -73,7 +83,8 @@ void AGalleryCollision::BeginPlay()
 
 void AGalleryCollision::Tick(float _DeltaTime)
 {
-	if (nullptr == Dialogue)
+	//for문 돌면서 다 체크해줘야해
+	if (nullptr == Dialogues.data())
 	{
 		MsgBoxAssert("Dialogue가 셋팅되지 않아서 동작이 불가능합니다.");
 		return;
@@ -95,13 +106,13 @@ void AGalleryCollision::Tick(float _DeltaTime)
 	{
 		//플레이어와 충돌이 일어나면 키가눌리는거 체크하고,
 		//키가 눌린다면 Textbox가 출력되게 만들기
-		if (true == UEngineInput::IsDown(VK_SPACE) && false == Dialogue->IsActive())
+		if (true == UEngineInput::IsDown(VK_SPACE) && false == Dialogues[0]->IsActive())
 		{
-			Dialogue->SetActive(true);
+			Dialogues[0]->SetActive(true);
 		}
-		else if(true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
+		else if(true == UEngineInput::IsDown(VK_SPACE) && true == Dialogues[0]->IsActive())
 		{
-			Dialogue->SetActive(false);
+			Dialogues[0]->SetActive(false);
 		}
 	}
 
@@ -111,7 +122,7 @@ void AGalleryCollision::Tick(float _DeltaTime)
 		//키가 눌린다면 Textbox가 출력되게 만들기
 		if (true == UEngineInput::IsDown(VK_SPACE))
 		{
-			Dialogue->SetActive(true);
+			Dialogues[1]->SetActive(true);
 
 		}
 	}
@@ -122,7 +133,7 @@ void AGalleryCollision::Tick(float _DeltaTime)
 		//키가 눌린다면 Textbox가 출력되게 만들기
 		if (true == UEngineInput::IsDown(VK_SPACE))
 		{
-			Dialogue->SetActive(true);
+			Dialogues[2]->SetActive(true);
 
 		}
 	}
@@ -133,7 +144,7 @@ void AGalleryCollision::Tick(float _DeltaTime)
 		//키가 눌린다면 Textbox가 출력되게 만들기
 		if (true == UEngineInput::IsDown(VK_SPACE))
 		{
-			Dialogue->SetActive(true);
+			Dialogues[3]->SetActive(true);
 
 		}
 	}

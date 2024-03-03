@@ -39,12 +39,12 @@ void UGalleryLevel::BeginPlay()
 
 	ADialogue* NewDialogue = SpawnActor<ADialogue>();
 	NewDialogue->SetActorLocation({ 640, 635 });
+	//NewDialogue->SetName("Window_Man");
 
 	AGalleryCollision* NewArt = SpawnActor<AGalleryCollision>();
 	NewArt->SetActorLocation({ 600,400 });
 	NewArt->SetDialogue(NewDialogue);
-
-	
+		
 
 	// 카메라의 위치는 
 	// 플레이어의 위치에서 윈도우 크기의 Half만큼 x,y 값으로 이동한 위치
@@ -66,8 +66,8 @@ void UGalleryLevel::Tick(float _DeltaTime)
 {
 	ULevel::Tick(_DeltaTime);
 
-	BGMPlayer = UEngineSound::SoundPlay("La_Follia.ogg");
-	BGMPlayer.Loop();
+	// BGMPlayer = UEngineSound::SoundPlay("La_Follia.ogg");
+	// BGMPlayer.Loop();
 
 }
 
