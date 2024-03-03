@@ -24,7 +24,7 @@ void UGalleryLevel::BeginPlay()
 
 	//눈에 보이는 맵이랑, 충돌용 맵 넣어준다.
 	Map = SpawnActor<ABackGroundMap>();
-	Map->SetMapImage("gallery_map.png");
+	Map->SetMapImage("galleryandArts.png");
 	Map->SetColMapImage("gallery_colmap.png");
 
 	FVector ImageScale = Map->GetImageScale();
@@ -36,9 +36,12 @@ void UGalleryLevel::BeginPlay()
 	NewPlayer->SetActorLocation({ 640, 660 });
 	NewPlayer->SetImageScale(ImageScale);
 
-
 	ADialogue* NewDialogue = SpawnActor<ADialogue>();
 	NewDialogue->SetActorLocation({ 640, 635 });
+	NewDialogue->SetName("Window_Man");
+	NewDialogue->CharTextBox();
+
+
 	//NewDialogue->SetName("Window_Man");
 
 	AGalleryCollision* NewArt = SpawnActor<AGalleryCollision>();
