@@ -11,6 +11,14 @@ APlayer::~APlayer()
 {
 }
 
+APlayer* APlayer::MainPlayer = nullptr;
+
+APlayer* APlayer::GetMainPlayer()
+{
+	return MainPlayer;
+}
+
+
 void APlayer::BeginPlay()
 {
 	AActor::BeginPlay();

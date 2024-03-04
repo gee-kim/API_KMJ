@@ -4,17 +4,17 @@
 #include "Player.h"
 #include "Dialogue.h"
 
-class AGalleryCollision : public AActor
+class AGalleryButler : public AActor
 {
 public:
-	AGalleryCollision();
-	~AGalleryCollision();
+	AGalleryButler();
+	~AGalleryButler();
 
 	// delete Function
-	AGalleryCollision(const AGalleryCollision& _Other) = delete;
-	AGalleryCollision(AGalleryCollision&& _Other) noexcept = delete;
-	AGalleryCollision& operator=(const AGalleryCollision& _Other) = delete;
-	AGalleryCollision& operator=(AGalleryCollision&& _Other) noexcept = delete;
+	AGalleryButler(const AGalleryButler& _Other) = delete;
+	AGalleryButler(AGalleryButler&& _Other) noexcept = delete;
+	AGalleryButler& operator=(const AGalleryButler& _Other) = delete;
+	AGalleryButler& operator=(AGalleryButler&& _Other) noexcept = delete;
 
 	//void SetCollision();
 	

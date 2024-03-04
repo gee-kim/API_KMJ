@@ -5,7 +5,12 @@
 
 class APlayer : public AActor
 {
+private:
+	static APlayer* MainPlayer;
+
 public:
+	static APlayer* GetMainPlayer();
+
 	// constrcuter destructer
 	APlayer();
 	~APlayer();

@@ -2,7 +2,8 @@
 #include "Player.h"
 #include "BackGroundMap.h"
 #include "Dialogue.h"
-#include "GalleryCollision.h"
+#include "GalleryButler.h"
+#include "Gallery_Window.h"
 #include <EngineCore\EngineCore.h>
 #include <EngineCore\EngineResourcesManager.h>
 #include <EngineBase\EngineDirectory.h>
@@ -40,9 +41,19 @@ void UGalleryLevel::BeginPlay()
 	ADialogue* NewDialogue = SpawnActor<ADialogue>();
 	NewDialogue->SetActorLocation({ 640, 635 });
 
-	AGalleryCollision* NewCollision = SpawnActor<AGalleryCollision>();
-	NewCollision->SetActorLocation({ 600,400 });
-	NewCollision->SetDialogue(NewDialogue);
+	//갤러리맵에 실제로 위치하고 콜리젼을 담당하는 객체들
+	{
+	AGallery_Window* GalleryWindow = SpawnActor<AGallery_Window>();
+	GalleryWindow->SetActorLocation({ 600, 400 });
+	GalleryWindow->SetDialogue(NewDialogue);
+
+	AGalleryButler* NewButler = SpawnActor<AGalleryButler>();
+	NewButler->SetActorLocation({ 800,400 });
+	NewButler->SetDialogue(NewDialogue);
+
+
+
+	}
 
 
 	// 카메라의 위치는 

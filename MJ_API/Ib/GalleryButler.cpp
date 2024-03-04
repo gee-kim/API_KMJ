@@ -1,18 +1,18 @@
-#include "GalleryCollision.h"
+#include "GalleryButler.h"
 #include <EnginePlatform\EngineInput.h>
 #include <EngineBase\EngineDebug.h>
 #include "Helper.h"
 #include <EngineCore/EngineResourcesManager.h>
 
-AGalleryCollision::AGalleryCollision()
+AGalleryButler::AGalleryButler()
 {
 }
 
-AGalleryCollision::~AGalleryCollision()
+AGalleryButler::~AGalleryButler()
 {
 }
 
-void AGalleryCollision::BeginPlay()
+void AGalleryButler::BeginPlay()
 {
 	AActor::BeginPlay();
 	{
@@ -44,36 +44,17 @@ void AGalleryCollision::BeginPlay()
 		UCollision* CurCreateCollsions = nullptr;
 
 		CurCreateCollsions = CreateCollision(CollisionOrder::Art);
-		CurCreateCollsions->SetScale({ 100, 100 });
-		CurCreateCollsions->SetColType(ECollisionType::Rect);
-		Collisions.push_back(CurCreateCollsions);
-
-		CurCreateCollsions = CreateCollision(CollisionOrder::Art);
 		CurCreateCollsions->SetPosition({ 300, 0 });
 		CurCreateCollsions->SetScale({ 100, 100 });
 		CurCreateCollsions->SetColType(ECollisionType::Rect);
 		Collisions.push_back(CurCreateCollsions);
-
-		CurCreateCollsions = CreateCollision(CollisionOrder::Art);
-		CurCreateCollsions->SetPosition({ 400,0 });
-		CurCreateCollsions->SetScale({ 100, 100 });
-		CurCreateCollsions->SetColType(ECollisionType::Rect);
-		Collisions.push_back(CurCreateCollsions);
-
-		CurCreateCollsions = CreateCollision(CollisionOrder::Art);
-		CurCreateCollsions->SetPosition({ 600, 0 });
-		CurCreateCollsions->SetScale({ 100, 100 });
-		CurCreateCollsions->SetColType(ECollisionType::Rect);
-		Collisions.push_back(CurCreateCollsions);
-
-		
-
+			
 	}
 
 }
 
 
-void AGalleryCollision::Tick(float _DeltaTime)
+void AGalleryButler::Tick(float _DeltaTime)
 {
 	if (nullptr == Dialogue)
 	{
@@ -83,15 +64,7 @@ void AGalleryCollision::Tick(float _DeltaTime)
 
 	AActor::Tick(_DeltaTime);
 
-	//if (true == Dialogue->IsActive())
-	//{
-	//	if (true == UEngineInput::IsDown(VK_SPACE))
-	//	{
-	//		Dialogue->SetActive(false);
-	//	}
-	//}
-
-	std::vector<UCollision*> Result;
+		std::vector<UCollision*> Result;
 
 	if (true == Collisions[0]->CollisionCheck(CollisionOrder::Player, Result))
 	{
@@ -99,46 +72,13 @@ void AGalleryCollision::Tick(float _DeltaTime)
 		//키가 눌린다면 Textbox가 출력되게 만들기
 		if (true == UEngineInput::IsDown(VK_SPACE) && false == Dialogue->IsActive())
 		{
-			Dialogue->CharTextBoxRendererOn();
-			Dialogue->SetText("");
 			Dialogue->SetActive(true);
+			Dialogue->ArtTextBoxRendererOn();
+			Dialogue->SetText("1번 아트 그림입니당");
 		}
 		else if(true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{
 			Dialogue->SetActive(false);
-		}
-	}
-
-	if (true == Collisions[1]->CollisionCheck(CollisionOrder::Player, Result))
-	{
-		//플레이어와 충돌이 일어나면 키가눌리는거 체크하고,
-		//키가 눌린다면 Textbox가 출력되게 만들기
-		if (true == UEngineInput::IsDown(VK_SPACE))
-		{
-			Dialogue->SetActive(true);
-
-		}
-	}
-
-	if (true == Collisions[2]->CollisionCheck(CollisionOrder::Player, Result))
-	{
-		//플레이어와 충돌이 일어나면 키가눌리는거 체크하고,
-		//키가 눌린다면 Textbox가 출력되게 만들기
-		if (true == UEngineInput::IsDown(VK_SPACE))
-		{
-			Dialogue->SetActive(true);
-
-		}
-	}
-
-	if (true == Collisions[3]->CollisionCheck(CollisionOrder::Player, Result))
-	{
-		//플레이어와 충돌이 일어나면 키가눌리는거 체크하고,
-		//키가 눌린다면 Textbox가 출력되게 만들기
-		if (true == UEngineInput::IsDown(VK_SPACE))
-		{
-			Dialogue->SetActive(true);
-
 		}
 	}
 

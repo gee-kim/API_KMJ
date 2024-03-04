@@ -25,14 +25,14 @@ void ADialogue::SetText(std::string _Text, float _Value /*= 20*/, Color8Bit _Col
 
 void ADialogue::CharTextBoxRendererOn()
 {
-	SetActive(true);
+	//SetActive(true);
 	CharTextBoxRenderer->ActiveOn();
 	ArtTextBoxRenderer->ActiveOff();
 }
 
 void ADialogue::ArtTextBoxRendererOn()
 {
-	SetActive(true);
+	//SetActive(true);
 	CharTextBoxRenderer->ActiveOff();
 	ArtTextBoxRenderer->ActiveOn();
 }
@@ -45,6 +45,7 @@ void ADialogue::BeginPlay()
 	CharTextBoxRenderer->SetImage("msw_00.png");
 	CharTextBoxRenderer->SetTransform({ {0, 0}, { 1280, 164 } });
 	CharTextBoxRenderer->CameraEffectOff();
+	CharTextBoxRenderer->ActiveOff();
 
 	ArtTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
 	ArtTextBoxRenderer->SetTransform({ {0,0}, {1280, 164} });

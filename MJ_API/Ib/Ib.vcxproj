@@ -159,7 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="GalleryCollision.h">
+    <ClInclude Include="GalleryButler.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -172,6 +172,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Dialogue.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Gallery_Window.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -209,7 +213,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GalleryCollision.cpp">
+    <ClCompile Include="GalleryButler.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -222,6 +226,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="Dialogue.cpp" />
+    <ClCompile Include="Gallery_Window.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Helper.cpp">
       <SubType>
       </SubType>
