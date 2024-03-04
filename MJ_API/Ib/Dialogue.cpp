@@ -13,55 +13,49 @@ ADialogue::~ADialogue()
 {
 }
 
-void ADialogue::CharTextBox()
-{
-	CharTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
-	CharTextBoxRenderer->SetImage("msw_00.png");
-	CharTextBoxRenderer->SetTransform({ {0, 0}, { 1280, 164 } });
-	CharTextBoxRenderer->CameraEffectOff();
 
-}
-
-void ADialogue::ArtTextBox()
+void ADialogue::SetText(std::string _Text, float _Value /*= 20*/, Color8Bit _Color /*= Color8Bit::White*/)
 {
-	ArtTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
-	ArtTextBoxRenderer->SetTransform({ {0,0}, {1280, 164} });
-	ArtTextBoxRenderer->SetImage("msw_02.png");
-	ArtTextBoxRenderer->CameraEffectOff();
-}
-
-void ADialogue::CreateText(std::string Text)
-{
-	TextRenderer = CreateImageRenderer(PlayRenderOrder::Text);
-	TextRenderer->SetText(Text);
-	TextRenderer->CameraEffectOff();
-	//텍스트 사이즈,폰트, 색깔 체크 필요..
-	TextRenderer->SetTextSize(20);
-	TextRenderer->SetTextColor({ 255,255,255,0 });
+	TextRenderer->ActiveOn();
+	TextRenderer->SetText(_Text);
+	TextRenderer->SetTextSize(_Value);
+	TextRenderer->SetTextColor(_Color);
 	TextRenderer->SetFont("고딕");
-	//TextRenderer->SetPosition({ 440,635 });
 }
 
-void ADialogue::CreateDialogue(int _value)
+void ADialogue::CharTextBoxRendererOn()
 {
-	switch(_value)
-	{
-	case 0:
-		break;
-	}
+	SetActive(true);
+	CharTextBoxRenderer->ActiveOn();
+	ArtTextBoxRenderer->ActiveOff();
 }
 
-void ADialogue::EndDialogue()
+void ADialogue::ArtTextBoxRendererOn()
 {
-	SetActive(false);
+	SetActive(true);
+	CharTextBoxRenderer->ActiveOff();
+	ArtTextBoxRenderer->ActiveOn();
 }
 
 void ADialogue::BeginPlay()
 {
 	AActor::BeginPlay();
 	
-	CharTextBox();
-	CreateText("텍스트 생성");
+	CharTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
+	CharTextBoxRenderer->SetImage("msw_00.png");
+	CharTextBoxRenderer->SetTransform({ {0, 0}, { 1280, 164 } });
+	CharTextBoxRenderer->CameraEffectOff();
+
+	ArtTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
+	ArtTextBoxRenderer->SetTransform({ {0,0}, {1280, 164} });
+	ArtTextBoxRenderer->SetImage("msw_02.png");
+	ArtTextBoxRenderer->CameraEffectOff();
+	ArtTextBoxRenderer->ActiveOff();
+
+	TextRenderer = CreateImageRenderer(PlayRenderOrder::Text);
+	TextRenderer->CameraEffectOff();
+	TextRenderer->ActiveOff();
+
 	SetActive(false);
 	
 }

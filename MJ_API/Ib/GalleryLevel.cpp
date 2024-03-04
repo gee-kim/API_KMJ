@@ -36,15 +36,14 @@ void UGalleryLevel::BeginPlay()
 	NewPlayer->SetActorLocation({ 640, 660 });
 	NewPlayer->SetImageScale(ImageScale);
 
-
+	//갤러리에 있는 콜리젼과 충돌했을 때 뜨는 다이얼로그
 	ADialogue* NewDialogue = SpawnActor<ADialogue>();
 	NewDialogue->SetActorLocation({ 640, 635 });
 
-	AGalleryCollision* NewArt = SpawnActor<AGalleryCollision>();
-	NewArt->SetActorLocation({ 600,400 });
-	NewArt->SetDialogue(NewDialogue);
+	AGalleryCollision* NewCollision = SpawnActor<AGalleryCollision>();
+	NewCollision->SetActorLocation({ 600,400 });
+	NewCollision->SetDialogue(NewDialogue);
 
-	
 
 	// 카메라의 위치는 
 	// 플레이어의 위치에서 윈도우 크기의 Half만큼 x,y 값으로 이동한 위치

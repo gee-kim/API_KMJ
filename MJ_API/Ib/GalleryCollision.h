@@ -16,6 +16,9 @@ public:
 	AGalleryCollision& operator=(const AGalleryCollision& _Other) = delete;
 	AGalleryCollision& operator=(AGalleryCollision&& _Other) noexcept = delete;
 
+	//void SetCollision();
+	
+
 	void SetDialogue(ADialogue* _Dialogue)
 	{
 		Dialogue = _Dialogue;
@@ -28,11 +31,6 @@ protected:
 private:
 	std::vector<UImageRenderer*> Renderers;
 	std::vector<UCollision*> Collisions;
-
-	UCollision* BodyCollision0 = nullptr;
-	UCollision* BodyCollision1 = nullptr;
-	UCollision* BodyCollision2 = nullptr;
-	UCollision* BodyCollision3 = nullptr;
 
 	ADialogue* Dialogue = nullptr;
 

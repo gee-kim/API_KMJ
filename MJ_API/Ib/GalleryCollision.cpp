@@ -49,22 +49,24 @@ void AGalleryCollision::BeginPlay()
 		Collisions.push_back(CurCreateCollsions);
 
 		CurCreateCollsions = CreateCollision(CollisionOrder::Art);
-		CurCreateCollsions->SetPosition({ 2000, 0 });
+		CurCreateCollsions->SetPosition({ 300, 0 });
 		CurCreateCollsions->SetScale({ 100, 100 });
 		CurCreateCollsions->SetColType(ECollisionType::Rect);
 		Collisions.push_back(CurCreateCollsions);
 
 		CurCreateCollsions = CreateCollision(CollisionOrder::Art);
-		CurCreateCollsions->SetPosition({ 4000,0 });
+		CurCreateCollsions->SetPosition({ 400,0 });
 		CurCreateCollsions->SetScale({ 100, 100 });
 		CurCreateCollsions->SetColType(ECollisionType::Rect);
 		Collisions.push_back(CurCreateCollsions);
 
 		CurCreateCollsions = CreateCollision(CollisionOrder::Art);
-		CurCreateCollsions->SetPosition({ 6000, 0 });
+		CurCreateCollsions->SetPosition({ 600, 0 });
 		CurCreateCollsions->SetScale({ 100, 100 });
 		CurCreateCollsions->SetColType(ECollisionType::Rect);
 		Collisions.push_back(CurCreateCollsions);
+
+		
 
 	}
 
@@ -97,6 +99,8 @@ void AGalleryCollision::Tick(float _DeltaTime)
 		//키가 눌린다면 Textbox가 출력되게 만들기
 		if (true == UEngineInput::IsDown(VK_SPACE) && false == Dialogue->IsActive())
 		{
+			Dialogue->CharTextBoxRendererOn();
+			Dialogue->SetText("");
 			Dialogue->SetActive(true);
 		}
 		else if(true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
