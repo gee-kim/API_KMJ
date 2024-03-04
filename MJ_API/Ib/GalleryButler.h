@@ -18,11 +18,12 @@ public:
 
 	//void SetCollision();
 	
-
 	void SetDialogue(ADialogue* _Dialogue)
 	{
 		Dialogue = _Dialogue;
 	}
+
+	void StateChange();
 
 protected:
 	void BeginPlay() override;

@@ -26,7 +26,7 @@ void APlayer::BeginPlay()
 	{
 		Renderer = CreateImageRenderer(PlayRenderOrder::Player);
 		Renderer->SetImage("ib_00.png");
-		Renderer->SetTransform({ {0,-48}, {48, 96} });
+		Renderer->SetTransform({ {0,-38}, {48, 96} });
 		//Renderer->SetImageCuttingTransform({ {82,82}, {91, 91} });
 		//971*1102
 
