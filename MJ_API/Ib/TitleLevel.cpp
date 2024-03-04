@@ -22,7 +22,7 @@ void UTitleLevel::BeginPlay()
 	ABackTitle* Back = SpawnActor<ABackTitle>();
 	Back->SetActorLocation({ 0, 0 });
 
-	ATitleMenu* StarMenu = SpawnActor<ATitleMenu>();
+	ATitleMenu* StartMenu = SpawnActor<ATitleMenu>();
 
 	{
 		BGMPlayer = UEngineSound::SoundPlay("ib_title.ogg");

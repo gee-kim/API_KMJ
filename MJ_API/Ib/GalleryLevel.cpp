@@ -25,7 +25,7 @@ void UGalleryLevel::BeginPlay()
 
 	//눈에 보이는 맵이랑, 충돌용 맵 넣어준다.
 	Map = SpawnActor<ABackGroundMap>();
-	Map->SetMapImage("gallery_map.png");
+	Map->SetMapImage("galleryandArts.png");
 	Map->SetColMapImage("gallery_colmap.png");
 
 	FVector ImageScale = Map->GetImageScale();
@@ -40,6 +40,9 @@ void UGalleryLevel::BeginPlay()
 	//갤러리에 있는 콜리젼과 충돌했을 때 뜨는 다이얼로그
 	ADialogue* NewDialogue = SpawnActor<ADialogue>();
 	NewDialogue->SetActorLocation({ 640, 635 });
+	NewDialogue->SetName("Window_Man");
+	NewDialogue->CharTextBox();
+
 
 	//갤러리맵에 실제로 위치하고 콜리젼을 담당하는 객체들
 	{
@@ -76,8 +79,8 @@ void UGalleryLevel::Tick(float _DeltaTime)
 {
 	ULevel::Tick(_DeltaTime);
 
-	BGMPlayer = UEngineSound::SoundPlay("La_Follia.ogg");
-	BGMPlayer.Loop();
+	// BGMPlayer = UEngineSound::SoundPlay("La_Follia.ogg");
+	// BGMPlayer.Loop();
 
 }
 
