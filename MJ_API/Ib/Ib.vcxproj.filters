@@ -48,6 +48,12 @@
     <ClInclude Include="WallArt_Sea.h">
       <Filter>Object\GalleryLevel\Actor\Art</Filter>
     </ClInclude>
+    <ClInclude Include="GallerySign.h">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClInclude>
+    <ClInclude Include="WallArt_Lines.h">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -95,6 +101,12 @@
       <Filter>Object\GalleryLevel\Actor\Art</Filter>
     </ClCompile>
     <ClCompile Include="WallArt_Sea.cpp">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClCompile>
+    <ClCompile Include="GallerySign.cpp">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClCompile>
+    <ClCompile Include="WallArt_Lines.cpp">
       <Filter>Object\GalleryLevel\Actor\Art</Filter>
     </ClCompile>
   </ItemGroup>

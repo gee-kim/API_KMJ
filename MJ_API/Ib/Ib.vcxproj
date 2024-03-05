@@ -159,6 +159,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="WallArt_Lines.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="GallerySign.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="WallArt_Sea.h">
       <SubType>
       </SubType>
@@ -229,6 +237,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="WallArt_Lines.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="GallerySign.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="WallArt_Sea.cpp">
       <SubType>
       </SubType>

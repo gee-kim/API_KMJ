@@ -1,18 +1,14 @@
-#include "WallArt_Sea.h"
-#include <EngineBase\EngineDebug.h>
-#include <EnginePlatform\EngineInput.h>
-#include <EngineCore/EngineResourcesManager.h>
-#include "Helper.h"
+#include "WallArt_Lines.h"
 
-AWallArt_Sea::AWallArt_Sea()
+AWallArt_Lines::AWallArt_Lines()
 {
 }
 
-AWallArt_Sea::~AWallArt_Sea()
+AWallArt_Lines::~AWallArt_Lines()
 {
 }
 
-void AWallArt_Sea::BeginPlay()
+void AWallArt_Lines::BeginPlay()
 {
 	AActor::BeginPlay();
 	{
@@ -30,7 +26,7 @@ void AWallArt_Sea::BeginPlay()
 }
 
 
-void AWallArt_Sea::Tick(float _DeltaTime)
+void AWallArt_Lines::Tick(float _DeltaTime)
 {
 	if (nullptr == Dialogue)
 	{
@@ -51,7 +47,7 @@ void AWallArt_Sea::Tick(float _DeltaTime)
 			//StateChange("Talk");
 			Dialogue->SetActive(true);
 			Dialogue->ArtTextBoxRendererOn();
-			Dialogue->SetText("¹Ù´å°¡°¡ ¾îµò°¡ Ãß¿öº¸¿©..");
+			Dialogue->SetText("Èò ¹ÙÅÁ¿¡ °ËÀº ¼±µéÀÌ ÃãÀ» Ãß°íÀÖ¾î..");
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{

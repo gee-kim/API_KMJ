@@ -8,6 +8,8 @@
 #include "LeftBigArt.h"
 #include "RightBigArt.h"
 #include "WallArt_Sea.h"
+#include "GallerySign.h"
+#include "WallArt_Lines.h"
 #include <EngineCore\EngineCore.h>
 #include <EngineCore\EngineResourcesManager.h>
 #include <EngineBase\EngineDirectory.h>
@@ -59,6 +61,10 @@ void UGalleryLevel::BeginPlay()
 	NewPoster->SetActorLocation({ 940, 440 });
 	NewPoster->SetDialogue(NewDialogue);
 
+	AGallerySign* NewSign = SpawnActor<AGallerySign>();
+	NewSign->SetActorLocation({ 1240,540 });
+	NewSign->SetDialogue(NewDialogue);
+
 	ALeftBigArt* LeftBig = SpawnActor<ALeftBigArt>();
 	LeftBig->SetActorLocation({ 1360, 1400 });
 	LeftBig->SetDialogue(NewDialogue);
@@ -70,6 +76,12 @@ void UGalleryLevel::BeginPlay()
 	AWallArt_Sea* SeaArt = SpawnActor<AWallArt_Sea>();
 	SeaArt->SetActorLocation({ 2180, 520 });
 	SeaArt->SetDialogue(NewDialogue);
+
+	AWallArt_Lines* Lines = SpawnActor<AWallArt_Lines>();
+	Lines->SetActorLocation({ 2380, 520 });
+	Lines->SetDialogue(NewDialogue);
+
+
 
 	}
 

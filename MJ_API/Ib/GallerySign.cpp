@@ -1,18 +1,19 @@
-#include "WallArt_Sea.h"
+#include "GallerySign.h"
 #include <EngineBase\EngineDebug.h>
 #include <EnginePlatform\EngineInput.h>
 #include <EngineCore/EngineResourcesManager.h>
 #include "Helper.h"
 
-AWallArt_Sea::AWallArt_Sea()
+
+AGallerySign::AGallerySign()
 {
 }
 
-AWallArt_Sea::~AWallArt_Sea()
+AGallerySign::~AGallerySign()
 {
 }
 
-void AWallArt_Sea::BeginPlay()
+void AGallerySign::BeginPlay()
 {
 	AActor::BeginPlay();
 	{
@@ -21,7 +22,7 @@ void AWallArt_Sea::BeginPlay()
 
 		CurCreateCollsions = CreateCollision(CollisionOrder::Art);
 		CurCreateCollsions->SetPosition(GetActorLocation());
-		CurCreateCollsions->SetScale({ 50, 30 });
+		CurCreateCollsions->SetScale({ 50, 50 });
 		CurCreateCollsions->SetColType(ECollisionType::Rect);
 		Collisions.push_back(CurCreateCollsions);
 
@@ -29,8 +30,15 @@ void AWallArt_Sea::BeginPlay()
 
 }
 
+void AGallerySign::TextChange(ADialogue* _Dialogue)
+{
+	
+}
+//std::vector<std::string> Sing_Script;
+//처음 키입력 settext(script[0]) 넣고
+//CurText, NextText 변수 생성해서 
 
-void AWallArt_Sea::Tick(float _DeltaTime)
+void AGallerySign::Tick(float _DeltaTime)
 {
 	if (nullptr == Dialogue)
 	{
@@ -51,7 +59,7 @@ void AWallArt_Sea::Tick(float _DeltaTime)
 			//StateChange("Talk");
 			Dialogue->SetActive(true);
 			Dialogue->ArtTextBoxRendererOn();
-			Dialogue->SetText("바닷가가 어딘가 추워보여..");
+			Dialogue->SetText("게르테나전에 방문에 주셔서 감사합니다..");
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{
