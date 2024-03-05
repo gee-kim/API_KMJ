@@ -48,7 +48,7 @@ void UGalleryLevel::BeginPlay()
 	GalleryWindow->SetDialogue(NewDialogue);
 
 	AGalleryButler* NewButler = SpawnActor<AGalleryButler>();
-	NewButler->SetActorLocation({ 800,400 });
+	NewButler->SetActorLocation({ 860,460 });
 	NewButler->SetDialogue(NewDialogue);
 
 	}

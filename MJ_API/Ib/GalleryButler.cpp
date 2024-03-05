@@ -24,7 +24,9 @@ void AGalleryButler::BeginPlay()
 
 		CurRenderer = CreateImageRenderer(PlayRenderOrder::Characters);
 		CurRenderer->SetImage("$mob_03.png");
-		CurRenderer->SetTransform({ {0,60}, {48, 96} });
+		CurRenderer->AutoImageScale();
+		//CurRenderer->SetPosition({ 60, 60 });
+		//CurRenderer->SetTransform({ {0,60}, {48, 96} });
 		Renderers.push_back(CurRenderer);
 		CurRenderer->CreateAnimation("Idle", "$mob_03.png", 0, 2, 1.0f, true);
 		CurRenderer->CreateAnimation("Talk", "$mob_03.png", 6, 8, 0.0f, true);
@@ -34,7 +36,7 @@ void AGalleryButler::BeginPlay()
 		UCollision* CurCreateCollsions = nullptr;
 
 		CurCreateCollsions = CreateCollision(CollisionOrder::Art);
-		CurCreateCollsions->SetPosition({0,50 });
+		CurCreateCollsions->SetPosition(GetActorLocation());
 		CurCreateCollsions->SetScale({ 50, 100 });
 		CurCreateCollsions->SetColType(ECollisionType::CirCle);
 		Collisions.push_back(CurCreateCollsions);
@@ -70,7 +72,7 @@ void AGalleryButler::Tick(float _DeltaTime)
 			//StateChange("Talk");
 			Dialogue->SetActive(true);
 			Dialogue->ArtTextBoxRendererOn();
-			Dialogue->SetText("1번 아트 그림입니당");
+			Dialogue->SetText("이곳은 들어오면 안된단다~~");
 		}
 		else if(true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{

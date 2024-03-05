@@ -1,6 +1,5 @@
 #include "IbCore.h"
 #include "Player.h"
-#include "GalleryCollision.h"
 #include "Dialogue.h"
 #include "TitleLevel.h"
 #include "GalleryLevel.h"
