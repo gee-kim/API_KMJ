@@ -4,6 +4,10 @@
 #include "Dialogue.h"
 #include "GalleryButler.h"
 #include "Gallery_Window.h"
+#include "Poster.h"
+#include "LeftBigArt.h"
+#include "RightBigArt.h"
+#include "WallArt_Sea.h"
 #include <EngineCore\EngineCore.h>
 #include <EngineCore\EngineResourcesManager.h>
 #include <EngineBase\EngineDirectory.h>
@@ -25,7 +29,7 @@ void UGalleryLevel::BeginPlay()
 
 	//´«¿¡ º¸ÀÌ´Â ¸ÊÀÌ¶û, Ãæµ¹¿ë ¸Ê ³Ö¾îÁØ´Ù.
 	Map = SpawnActor<ABackGroundMap>();
-	Map->SetMapImage("galleryandArts.png");
+	Map->SetMapImage("galleryandArts_(1).png");
 	Map->SetColMapImage("gallery_colmap.png");
 
 	FVector ImageScale = Map->GetImageScale();
@@ -50,6 +54,22 @@ void UGalleryLevel::BeginPlay()
 	AGalleryButler* NewButler = SpawnActor<AGalleryButler>();
 	NewButler->SetActorLocation({ 860,460 });
 	NewButler->SetDialogue(NewDialogue);
+
+	APoster* NewPoster = SpawnActor<APoster>();
+	NewPoster->SetActorLocation({ 940, 440 });
+	NewPoster->SetDialogue(NewDialogue);
+
+	ALeftBigArt* LeftBig = SpawnActor<ALeftBigArt>();
+	LeftBig->SetActorLocation({ 1360, 1400 });
+	LeftBig->SetDialogue(NewDialogue);
+
+	ARightBigArt* RightBig = SpawnActor<ARightBigArt>();
+	RightBig->SetActorLocation({ 2625, 1225 });
+	RightBig->SetDialogue(NewDialogue);
+
+	AWallArt_Sea* SeaArt = SpawnActor<AWallArt_Sea>();
+	SeaArt->SetActorLocation({ 2180, 520 });
+	SeaArt->SetDialogue(NewDialogue);
 
 	}
 

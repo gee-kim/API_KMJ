@@ -1,7 +1,7 @@
 #include "Gallery_Window.h"
-#include <EnginePlatform\EngineInput.h>
-#include <EngineBase\EngineDebug.h>
 #include "Helper.h"
+#include <EngineBase\EngineDebug.h>
+#include <EnginePlatform\EngineInput.h>
 #include <EngineCore/EngineResourcesManager.h>
 
 AGallery_Window::AGallery_Window()
@@ -32,7 +32,7 @@ void AGallery_Window::BeginPlay()
 		CurRenderer->CreateAnimation("Window_Man", "$mob_00.png", 2, 2, 0.0f, true);
 		CurRenderer->ChangeAnimation("Window_Man");
 
-		CurRenderer = CreateImageRenderer(PlayRenderOrder::Art);
+		CurRenderer = CreateImageRenderer(PlayRenderOrder::Art_Back);
 		CurRenderer->SetImage("!$w_00.png");
 		CurRenderer->SetTransform({ {0,20}, {80, 90} });
 		Renderers.push_back(CurRenderer);

@@ -8,9 +8,10 @@ enum class PlayRenderOrder
 	Back,
 	Map,
 	Monster,
-	Art,
-	Player,
+	Art_Back,
 	Characters,
+	Player,
+	Art_Front,
 	Dialogue,
 	Text,
 };

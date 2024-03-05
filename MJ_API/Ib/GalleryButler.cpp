@@ -52,7 +52,6 @@ void AGalleryButler::StateChange()
 
 void AGalleryButler::Tick(float _DeltaTime)
 {
-	//for문 돌면서 다 체크해줘야해
 	if (nullptr == Dialogue)
 	{
 		MsgBoxAssert("Dialogue가 셋팅되지 않아서 동작이 불가능합니다.");
@@ -80,7 +79,5 @@ void AGalleryButler::Tick(float _DeltaTime)
 			Dialogue->SetActive(false);
 		}
 	}
-
-
 
 }

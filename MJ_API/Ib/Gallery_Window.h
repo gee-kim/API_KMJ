@@ -3,7 +3,7 @@
 #include "Helper.h"
 #include "Dialogue.h"
 
-static 
+
 class AGallery_Window : public AActor
 {
 public:

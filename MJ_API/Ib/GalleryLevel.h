@@ -25,7 +25,7 @@ protected:
 	void LevelEnd(ULevel* _Level) override;
 
 private:
-	ABackGroundMap* Map;
+	ABackGroundMap* Map = nullptr;
 	UEngineSoundPlayer BGMPlayer;
 };
 

@@ -159,6 +159,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="WallArt_Sea.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="LeftBigArt.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="GalleryButler.h">
       <SubType>
       </SubType>
@@ -195,6 +203,14 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Poster.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="RightBigArt.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="TestLevel.h">
       <SubType>
       </SubType>
@@ -213,6 +229,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="WallArt_Sea.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="LeftBigArt.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="GalleryButler.cpp">
       <SubType>
       </SubType>
@@ -243,6 +267,14 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="GalleryLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Poster.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="RightBigArt.cpp">
       <SubType>
       </SubType>
     </ClCompile>

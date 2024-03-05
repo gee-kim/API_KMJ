@@ -63,7 +63,7 @@ private:
 	float AlphaTime = 0.0f;
 	bool Dir = false;
 	
-	float FreeMoveSpeed = 1000.0f;
+	float FreeMoveSpeed = 3000.0f;
 	float MoveSpeed = 300.0f;
 	FVector ImageScale= FVector::Zero;
 };

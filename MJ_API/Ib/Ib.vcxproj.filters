@@ -36,6 +36,18 @@
     <ClInclude Include="GalleryButler.h">
       <Filter>Object\GalleryLevel\Actor\Character</Filter>
     </ClInclude>
+    <ClInclude Include="Poster.h">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClInclude>
+    <ClInclude Include="LeftBigArt.h">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClInclude>
+    <ClInclude Include="RightBigArt.h">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClInclude>
+    <ClInclude Include="WallArt_Sea.h">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -72,6 +84,18 @@
     </ClCompile>
     <ClCompile Include="GalleryButler.cpp">
       <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Poster.cpp">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClCompile>
+    <ClCompile Include="LeftBigArt.cpp">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClCompile>
+    <ClCompile Include="RightBigArt.cpp">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClCompile>
+    <ClCompile Include="WallArt_Sea.cpp">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
