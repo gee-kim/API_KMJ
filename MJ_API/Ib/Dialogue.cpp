@@ -16,46 +16,53 @@ ADialogue::~ADialogue()
 
 void ADialogue::SetText(std::string _Text, float _Value /*= 20*/, Color8Bit _Color /*= Color8Bit::White*/)
 {
-	TextRenderer->ActiveOn();
-	TextRenderer->SetText(_Text);
-	TextRenderer->SetTextSize(_Value);
-	TextRenderer->SetTextColor(_Color);
-	TextRenderer->SetFont("°íµñ");
+	Renderers[2]->ActiveOn();
+	Renderers[2]->SetText(_Text);
+	Renderers[2]->SetTextSize(_Value);
+	Renderers[2]->SetTextColor(_Color);
+	Renderers[2]->SetFont("°íµñ");
 }
 
 void ADialogue::CharTextBoxRendererOn()
 {
 	//SetActive(true);
-	CharTextBoxRenderer->ActiveOn();
-	ArtTextBoxRenderer->ActiveOff();
+	Renderers[0]->ActiveOn();
+	Renderers[1]->ActiveOff();
 }
 
 void ADialogue::ArtTextBoxRendererOn()
 {
 	//SetActive(true);
-	CharTextBoxRenderer->ActiveOff();
-	ArtTextBoxRenderer->ActiveOn();
+	Renderers[0]->ActiveOff();
+	Renderers[1]->ActiveOn();
 }
 
 void ADialogue::BeginPlay()
 {
 	AActor::BeginPlay();
 	
-	CharTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
+	UImageRenderer* CharTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
 	CharTextBoxRenderer->SetImage("msw_02.png");
 	CharTextBoxRenderer->SetTransform({ {0, 0}, { 1280, 164 } });
 	CharTextBoxRenderer->CameraEffectOff();
 	CharTextBoxRenderer->ActiveOff();
+	Renderers.push_back(CharTextBoxRenderer);
 
-	ArtTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
+	UImageRenderer*	ArtTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
 	ArtTextBoxRenderer->SetTransform({ {0,0}, {1280, 164} });
 	ArtTextBoxRenderer->SetImage("msw_00.png");
 	ArtTextBoxRenderer->CameraEffectOff();
 	ArtTextBoxRenderer->ActiveOff();
-
-	TextRenderer = CreateImageRenderer(PlayRenderOrder::Text);
+	Renderers.push_back(ArtTextBoxRenderer);
+	
+	UImageRenderer* TextRenderer = CreateImageRenderer(PlayRenderOrder::Text);
+	TextRenderer->SetPosition({ -50,0 });
 	TextRenderer->CameraEffectOff();
 	TextRenderer->ActiveOff();
+	Renderers.push_back(TextRenderer);
+
+	//UImageRenderer* MovingBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
+	//MovingBoxRenderer->SetImage("");
 
 	SetActive(false);
 	

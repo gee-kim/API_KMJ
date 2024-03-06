@@ -144,5 +144,8 @@
     <Filter Include="Object\GalleryLevel\Actor\Character">
       <UniqueIdentifier>{e888b7d0-d124-48b6-9696-911b4628e0ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\OpeningLevel">
+      <UniqueIdentifier>{f52881b9-fc04-45ea-85fa-5cdf6f0529b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

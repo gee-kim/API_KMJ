@@ -32,9 +32,11 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	UImageRenderer* CharfaceImageRenderer = nullptr;
-	UImageRenderer* ArtTextBoxRenderer = nullptr;
-	UImageRenderer* CharTextBoxRenderer = nullptr;
-	UImageRenderer* TextRenderer = nullptr;
+	std::vector<UImageRenderer*> Renderers;
+//	UImageRenderer* CharfaceImageRenderer = nullptr;
+//	UImageRenderer* MovingBoxRenderer = nullptr;
+//	UImageRenderer* ArtTextBoxRenderer = nullptr;
+//	UImageRenderer* CharTextBoxRenderer = nullptr;
+//	UImageRenderer* TextRenderer = nullptr;
 };
 

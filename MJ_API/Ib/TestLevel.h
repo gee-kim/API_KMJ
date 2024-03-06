@@ -1,5 +1,7 @@
 #pragma once
-class UTestLevel
+#include "Dialogue.h"
+
+class UTestLevel : public ULevel
 {
 public:
 	UTestLevel();
@@ -11,9 +13,22 @@ public:
 	UTestLevel& operator=(const UTestLevel& _Other) = delete;
 	UTestLevel& operator=(UTestLevel&& _Other) noexcept = delete;
 
-protected:
 
+	void SetDialogue(ADialogue* _Dialogue)
+	{
+		Dialogue = _Dialogue;
+	}
+
+protected:
+	
 private:
+	std::vector<UImageRenderer*> Renderers;
+	std::vector<UCollision*> Collisions;
+
+	int CurTextIndex = 0;
+	std::vector<std::string> Script;
+
+	ADialogue* Dialogue = nullptr;
 
 
 };
