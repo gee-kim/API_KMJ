@@ -198,6 +198,12 @@ void APlayer::MoveStart()
 	DirCheck();
 }
 
+void APlayer::TalkStart()
+{
+	Renderer->ChangeAnimation(GetAnimationName("Idle"));
+	DirCheck();
+}
+
 void APlayer::StateChange(EPlayState _State)
 {
 	// 이전상태와 지금 상태가 같지 않아
@@ -212,6 +218,8 @@ void APlayer::StateChange(EPlayState _State)
 		case EPlayState::Move:
 			MoveStart();
 			break;
+		case EPlayState::Talk:
+			TalkStart();
 		default:
 			break;
 		}
@@ -238,10 +246,40 @@ void APlayer::StateUpdate(float _DeltaTime)
 	case EPlayState::Move:
 		Move(_DeltaTime);
 		break;
+	case EPlayState::Talk:
+		Talk(_DeltaTime);
 	default:
 		break;
 	}
 
+
+}
+
+void APlayer::Talk(float _DeltaTime)
+{
+	//if (true == UEngineInput::IsDown('1'))
+	//{
+	//	StateChange(EPlayState::FreeMove);
+	//	return;
+	//}
+
+	//if (true == UEngineInput::IsDown('2'))
+	//{
+	//	StateChange(EPlayState::CameraFreeMove);
+	//	return;
+	//}
+
+
+	//if (
+	//	true == UEngineInput::IsPress(VK_LEFT) ||
+	//	true == UEngineInput::IsPress(VK_RIGHT) ||
+	//	true == UEngineInput::IsPress(VK_UP) ||
+	//	true == UEngineInput::IsPress(VK_DOWN)
+	//	)
+	//{
+	//	StateChange(EPlayState::Move);
+	//	return;
+	//}
 
 }
 

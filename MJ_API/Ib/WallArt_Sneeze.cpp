@@ -1,55 +1,51 @@
-#include "GalleryButler.h"
+#include "WallArt_Sneeze.h"
 #include <EnginePlatform\EngineInput.h>
 #include <EngineBase\EngineDebug.h>
-#include "Helper.h"
 #include <EngineCore/EngineResourcesManager.h>
 
-AGalleryButler::AGalleryButler()
+AWallArt_Sneeze::AWallArt_Sneeze()
 {
 }
 
-AGalleryButler::~AGalleryButler()
+AWallArt_Sneeze::~AWallArt_Sneeze()
 {
 }
 
-void AGalleryButler::BeginPlay()
+
+void AWallArt_Sneeze::BeginPlay()
 {
 	AActor::BeginPlay();
 	{
 		// 이미지컷팅하기(애니메이션용)
-		UEngineResourcesManager::GetInst().CuttingImage("$mob_03.png", 3, 4);
+		UEngineResourcesManager::GetInst().CuttingImage("!$anm_00.png", 3, 4);
 
 		// 화면에 아트와 캐릭터들 이미지랜더
 		UImageRenderer* CurRenderer = nullptr;
 
-		CurRenderer = CreateImageRenderer(PlayRenderOrder::Characters);
-		CurRenderer->SetImage("$mob_03.png");
+		CurRenderer = CreateImageRenderer(PlayRenderOrder::Art_Back);
+		CurRenderer->SetImage("!$anm_00.png");
 		CurRenderer->AutoImageScale();
 		//CurRenderer->SetPosition({ 60, 60 });
 		//CurRenderer->SetTransform({ {0,60}, {48, 96} });
 		Renderers.push_back(CurRenderer);
-		CurRenderer->CreateAnimation("Idle", "$mob_03.png", 0, 2, 1.0f, true);
-		CurRenderer->CreateAnimation("Talk", "$mob_03.png", 6, 8, 0.0f, true);
+		CurRenderer->CreateAnimation("Idle", "!$anm_00.png", 0, 0, 0.0f, true);
+		CurRenderer->CreateAnimation("Sneeze", "!$anm_00.png", {0, 3, 6, 0}, 0.3f, false);
 		CurRenderer->ChangeAnimation("Idle");
 
 		// 플레이어와 충돌체랜더
 		UCollision* CurCreateCollsions = nullptr;
 
 		CurCreateCollsions = CreateCollision(CollisionOrder::Art);
-		CurCreateCollsions->SetScale({ 50, 100 });
-		CurCreateCollsions->SetColType(ECollisionType::CirCle);
+		CurCreateCollsions->SetScale({ 50, 50 });
+		CurCreateCollsions->SetPosition({ 0,30 });
+		CurCreateCollsions->SetColType(ECollisionType::Rect);
 		Collisions.push_back(CurCreateCollsions);
 
 	}
 
-	Texts.push_back("이곳은 들어오면 안된단다~~");
-	Texts.push_back("두번째 대사");
-	Texts.push_back("세번째 대사");
-
 }
 
-
-void AGalleryButler::Tick(float _DeltaTime)
+void AWallArt_Sneeze::Tick(float _DeltaTime)
 {
 	if (nullptr == Dialogue)
 	{
@@ -67,28 +63,17 @@ void AGalleryButler::Tick(float _DeltaTime)
 		//키가 눌린다면 Textbox가 출력되게 만들기
 		if (true == UEngineInput::IsDown(VK_SPACE) && false == Dialogue->IsActive())
 		{
-			// 키체크가 들어오면 플레이어는 움직이지 못하는 상태가 됨.
-			// 그리고 다른 액터들도 정지되는 상태로 만들어주기.
+			//StateChange("Talk");
 			Dialogue->SetActive(true);
 			Dialogue->ArtTextBoxRendererOn();
-			Dialogue->SetText(Texts[CurTextIndex]);
-			
+			Dialogue->SetText("어린아이");
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{
-			++CurTextIndex;
-
-			if (CurTextIndex >= Texts.size())
-			{
-				CurTextIndex = 0;
-				Dialogue->SetActive(false);
-				return;
-			}
-
-			Dialogue->SetText(Texts[CurTextIndex]);
-
+			//StateChange("Ilde");
+			Dialogue->SetActive(false);
 		}
-
 	}
 
 }
+

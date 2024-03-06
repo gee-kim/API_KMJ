@@ -44,10 +44,12 @@ protected:
 	void FreeMove(float _DeltaTime);
 	void Idle(float _DeltaTime);
 	void Move(float _DeltaTime);
+	void Talk(float _DeltaTime);
 
 	// 상태 시작 함수들
 	void IdleStart();
 	void MoveStart();
+	void TalkStart();
 
 	EPlayState State = EPlayState::None;
 	EActorDir DirState = EActorDir::Right;

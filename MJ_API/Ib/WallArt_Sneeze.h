@@ -4,24 +4,23 @@
 #include "Player.h"
 #include "Dialogue.h"
 
-class AGalleryButler : public AActor
+class AWallArt_Sneeze : public AActor
 {
 public:
-	AGalleryButler();
-	~AGalleryButler();
+	AWallArt_Sneeze();
+	~AWallArt_Sneeze();
 
 	// delete Function
-	AGalleryButler(const AGalleryButler& _Other) = delete;
-	AGalleryButler(AGalleryButler&& _Other) noexcept = delete;
-	AGalleryButler& operator=(const AGalleryButler& _Other) = delete;
-	AGalleryButler& operator=(AGalleryButler&& _Other) noexcept = delete;
+	AWallArt_Sneeze(const AWallArt_Sneeze& _Other) = delete;
+	AWallArt_Sneeze(AWallArt_Sneeze&& _Other) noexcept = delete;
+	AWallArt_Sneeze& operator=(const AWallArt_Sneeze& _Other) = delete;
+	AWallArt_Sneeze& operator=(AWallArt_Sneeze&& _Other) noexcept = delete;
 
-	
 	void SetDialogue(ADialogue* _Dialogue)
 	{
 		Dialogue = _Dialogue;
 	}
-	
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _Deltatime) override;
@@ -29,9 +28,6 @@ protected:
 private:
 	std::vector<UImageRenderer*> Renderers;
 	std::vector<UCollision*> Collisions;
-
-	int CurTextIndex = 0;
-	std::vector<std::string> Texts;
 
 	ADialogue* Dialogue = nullptr;
 

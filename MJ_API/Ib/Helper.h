@@ -36,6 +36,7 @@ enum class EPlayState
 	FreeMove,
 	Idle,
 	Move,
+	Talk,
 };
 
 

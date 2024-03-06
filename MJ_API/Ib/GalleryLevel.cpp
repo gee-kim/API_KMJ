@@ -10,6 +10,7 @@
 #include "WallArt_Sea.h"
 #include "GallerySign.h"
 #include "WallArt_Lines.h"
+#include "WallArt_Sneeze.h"
 #include <EngineCore\EngineCore.h>
 #include <EngineCore\EngineResourcesManager.h>
 #include <EngineBase\EngineDirectory.h>
@@ -81,7 +82,10 @@ void UGalleryLevel::BeginPlay()
 	Lines->SetActorLocation({ 2380, 520 });
 	Lines->SetDialogue(NewDialogue);
 
-
+	AWallArt_Sneeze* Sneeze = SpawnActor<AWallArt_Sneeze>();
+	//Sneeze->SetActorLocation({ 660, 660 });
+	Sneeze->SetActorLocation({ 1895, 1305 });
+	Sneeze->SetDialogue(NewDialogue);
 
 	}
 

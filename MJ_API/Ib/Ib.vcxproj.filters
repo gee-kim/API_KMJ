@@ -54,6 +54,9 @@
     <ClInclude Include="WallArt_Lines.h">
       <Filter>Object\GalleryLevel\Actor\Art</Filter>
     </ClInclude>
+    <ClInclude Include="WallArt_Sneeze.h">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -107,6 +110,9 @@
       <Filter>Object\GalleryLevel\Actor\Art</Filter>
     </ClCompile>
     <ClCompile Include="WallArt_Lines.cpp">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClCompile>
+    <ClCompile Include="WallArt_Sneeze.cpp">
       <Filter>Object\GalleryLevel\Actor\Art</Filter>
     </ClCompile>
   </ItemGroup>

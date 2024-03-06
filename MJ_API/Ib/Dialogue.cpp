@@ -42,14 +42,14 @@ void ADialogue::BeginPlay()
 	AActor::BeginPlay();
 	
 	CharTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
-	CharTextBoxRenderer->SetImage("msw_00.png");
+	CharTextBoxRenderer->SetImage("msw_02.png");
 	CharTextBoxRenderer->SetTransform({ {0, 0}, { 1280, 164 } });
 	CharTextBoxRenderer->CameraEffectOff();
 	CharTextBoxRenderer->ActiveOff();
 
 	ArtTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
 	ArtTextBoxRenderer->SetTransform({ {0,0}, {1280, 164} });
-	ArtTextBoxRenderer->SetImage("msw_02.png");
+	ArtTextBoxRenderer->SetImage("msw_00.png");
 	ArtTextBoxRenderer->CameraEffectOff();
 	ArtTextBoxRenderer->ActiveOff();
 
