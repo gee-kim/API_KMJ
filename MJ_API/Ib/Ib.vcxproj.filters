@@ -60,6 +60,9 @@
     <ClInclude Include="OpeningLevel.h">
       <Filter>Object\Opening</Filter>
     </ClInclude>
+    <ClInclude Include="Intro.h">
+      <Filter>Object\Opening\Actor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -121,6 +124,9 @@
     <ClCompile Include="OpeningLevel.cpp">
       <Filter>Object\Opening</Filter>
     </ClCompile>
+    <ClCompile Include="Intro.cpp">
+      <Filter>Object\Opening\Actor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
@@ -155,6 +161,9 @@
     </Filter>
     <Filter Include="Object\Opening">
       <UniqueIdentifier>{2d88db23-7890-4dfc-b945-cc250b7c88b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Opening\Actor">
+      <UniqueIdentifier>{ac3b0d53-7a40-4966-a45f-509ee1e39b25}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

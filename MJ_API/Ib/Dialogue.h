@@ -25,7 +25,7 @@ public:
 
 	void CharTextBoxRendererOn();
 	void ArtTextBoxRendererOn();
-
+	void AllTextBoxRendererOff();
 
 protected:
 	void BeginPlay() override;

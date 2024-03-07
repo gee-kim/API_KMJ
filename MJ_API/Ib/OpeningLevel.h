@@ -21,6 +21,7 @@ protected:
 	void LevelEnd(ULevel* _Level) override;
 
 private:
+
 	UEngineSoundPlayer BGMPlayer;
 };
 

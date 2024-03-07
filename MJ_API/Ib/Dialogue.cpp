@@ -3,6 +3,7 @@
 #include <EngineBase\EngineDebug.h>
 #include "Helper.h"
 #include "Windows.h"
+#include <EngineCore/EngineResourcesManager.h>
 
 
 ADialogue::ADialogue()
@@ -37,9 +38,17 @@ void ADialogue::ArtTextBoxRendererOn()
 	Renderers[1]->ActiveOn();
 }
 
+void ADialogue::AllTextBoxRendererOff()
+{
+	Renderers[0]->ActiveOff();
+	Renderers[1]->ActiveOff();
+}
+
 void ADialogue::BeginPlay()
 {
 	AActor::BeginPlay();
+
+	UEngineResourcesManager::GetInst().CuttingImage("MovingBox.png", 2, 2);
 	
 	UImageRenderer* CharTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
 	CharTextBoxRenderer->SetImage("msw_02.png");
@@ -61,6 +70,16 @@ void ADialogue::BeginPlay()
 	TextRenderer->ActiveOff();
 	Renderers.push_back(TextRenderer);
 
+	UImageRenderer* MovingBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
+	MovingBoxRenderer->SetImage("MovingBox.png");
+	MovingBoxRenderer->AutoImageScale();
+	MovingBoxRenderer->SetPosition({ 0,30 });
+	//MovingBoxRenderer->SetTransform({ {0, 0}, { 1280, 194 } });
+	MovingBoxRenderer->CameraEffectOff();
+	MovingBoxRenderer->ActiveOff();
+	Renderers.push_back(CharTextBoxRenderer);
+	MovingBoxRenderer->CreateAnimation("Moving", "MovingBox.png", 0, 3, 0.5, true);
+	MovingBoxRenderer->ChangeAnimation("Moving");
 	//UImageRenderer* MovingBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
 	//MovingBoxRenderer->SetImage("");
 

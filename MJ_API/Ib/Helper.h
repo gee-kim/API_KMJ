@@ -14,6 +14,7 @@ enum class PlayRenderOrder
 	Art_Front,
 	Dialogue,
 	Text,
+	Fade,
 };
 
 enum class CollisionOrder

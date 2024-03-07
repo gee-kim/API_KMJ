@@ -4,6 +4,7 @@
 #include "TitleLevel.h"
 #include "GalleryLevel.h"
 #include "TestLevel.h"
+#include "OpeningLevel.h"
 #include <EnginePlatform\EngineInput.h>
 #include <EnginePlatform\EngineSound.h>
 #include <EnginePlatform\WindowImage.h>
@@ -62,10 +63,10 @@ void IbCore::BeginPlay()
 	}
 
 	CreateLevel<UTitleLevel>("Title");
+	CreateLevel<UOpeningLevel>("Opening");
 	CreateLevel<UGalleryLevel>("Gallery");
-	//CreateLevel<UTestLevel>("Test");
 
-	ChangeLevel("Gallery");
+	ChangeLevel("Opening");
 
 	int a = 0;
 }
