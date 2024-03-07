@@ -57,6 +57,9 @@
     <ClInclude Include="WallArt_Sneeze.h">
       <Filter>Object\GalleryLevel\Actor\Art</Filter>
     </ClInclude>
+    <ClInclude Include="OpeningLevel.h">
+      <Filter>Object\Opening</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -115,6 +118,9 @@
     <ClCompile Include="WallArt_Sneeze.cpp">
       <Filter>Object\GalleryLevel\Actor\Art</Filter>
     </ClCompile>
+    <ClCompile Include="OpeningLevel.cpp">
+      <Filter>Object\Opening</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
@@ -146,6 +152,9 @@
     </Filter>
     <Filter Include="Object\OpeningLevel">
       <UniqueIdentifier>{f52881b9-fc04-45ea-85fa-5cdf6f0529b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Opening">
+      <UniqueIdentifier>{2d88db23-7890-4dfc-b945-cc250b7c88b0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

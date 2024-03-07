@@ -33,7 +33,7 @@ void UGalleryLevel::BeginPlay()
 	//눈에 보이는 맵이랑, 충돌용 맵 넣어준다.
 	Map = SpawnActor<ABackGroundMap>();
 	Map->SetMapImage("galleryandArts_(1).png");
-	Map->SetColMapImage("gallery_colmap.png");
+	Map->SetColMapImage("gallery_colmap(1).png");
 
 	FVector ImageScale = Map->GetImageScale();
 
