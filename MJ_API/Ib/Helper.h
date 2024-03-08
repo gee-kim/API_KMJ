@@ -9,6 +9,7 @@ enum class PlayRenderOrder
 	Map,
 	Monster,
 	Art_Back,
+	Characters_Back,
 	Characters,
 	Player,
 	Art_Front,
@@ -20,6 +21,7 @@ enum class PlayRenderOrder
 enum class CollisionOrder
 {
 	Art,
+	Characters,
 	Player,
 };
 enum class EActorDir
@@ -38,6 +40,7 @@ enum class EPlayState
 	Idle,
 	Move,
 	Talk,
+	Event,
 };
 
 

@@ -26,6 +26,14 @@ public:
 		ImageScale = _ImageScale;
 	}
 
+	void SetAnimation(std::string_view _AnimationName)
+	{
+		Renderer->ChangeAnimation(_AnimationName);
+	}
+
+	void StateChange(EPlayState _State);
+
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -36,7 +44,6 @@ protected:
 	std::string GetAnimationName(std::string _Name);
 
 	// 상태 주요 업데이트
-	void StateChange(EPlayState _State);
 	void StateUpdate(float _DeltaTime);
 
 	// 상태 함수들
@@ -44,12 +51,12 @@ protected:
 	void FreeMove(float _DeltaTime);
 	void Idle(float _DeltaTime);
 	void Move(float _DeltaTime);
-	void Talk(float _DeltaTime);
+	void Event(float _DeltaTime);
 
 	// 상태 시작 함수들
 	void IdleStart();
 	void MoveStart();
-	void TalkStart();
+	void EventStart();
 
 	EPlayState State = EPlayState::None;
 	EActorDir DirState = EActorDir::Right;
@@ -57,8 +64,8 @@ protected:
 
 private:
 	UCollision* BodyCollision = nullptr;
-
 	UImageRenderer* Renderer = nullptr;
+
 	float AnimationTime = 0.0f;
 	int AnimationFrame = 0;
 

@@ -63,6 +63,12 @@
     <ClInclude Include="Intro.h">
       <Filter>Object\Opening\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="Mom.h">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Dad.h">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -126,6 +132,12 @@
     </ClCompile>
     <ClCompile Include="Intro.cpp">
       <Filter>Object\Opening\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Mom.cpp">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Dad.cpp">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

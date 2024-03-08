@@ -198,7 +198,7 @@ void APlayer::MoveStart()
 	DirCheck();
 }
 
-void APlayer::TalkStart()
+void APlayer::EventStart()
 {
 	Renderer->ChangeAnimation(GetAnimationName("Idle"));
 	DirCheck();
@@ -218,8 +218,8 @@ void APlayer::StateChange(EPlayState _State)
 		case EPlayState::Move:
 			MoveStart();
 			break;
-		case EPlayState::Talk:
-			TalkStart();
+		case EPlayState::Event:
+			EventStart();
 		default:
 			break;
 		}
@@ -246,8 +246,8 @@ void APlayer::StateUpdate(float _DeltaTime)
 	case EPlayState::Move:
 		Move(_DeltaTime);
 		break;
-	case EPlayState::Talk:
-		Talk(_DeltaTime);
+	case EPlayState::Event:
+		Event(_DeltaTime);
 	default:
 		break;
 	}
@@ -255,31 +255,8 @@ void APlayer::StateUpdate(float _DeltaTime)
 
 }
 
-void APlayer::Talk(float _DeltaTime)
+void APlayer::Event(float _DeltaTime)
 {
-	//if (true == UEngineInput::IsDown('1'))
-	//{
-	//	StateChange(EPlayState::FreeMove);
-	//	return;
-	//}
-
-	//if (true == UEngineInput::IsDown('2'))
-	//{
-	//	StateChange(EPlayState::CameraFreeMove);
-	//	return;
-	//}
-
-
-	//if (
-	//	true == UEngineInput::IsPress(VK_LEFT) ||
-	//	true == UEngineInput::IsPress(VK_RIGHT) ||
-	//	true == UEngineInput::IsPress(VK_UP) ||
-	//	true == UEngineInput::IsPress(VK_DOWN)
-	//	)
-	//{
-	//	StateChange(EPlayState::Move);
-	//	return;
-	//}
 
 }
 
