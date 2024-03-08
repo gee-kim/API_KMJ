@@ -218,10 +218,26 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 			IbMom->SetAnimation("Idle_Right");
 			IbDad->SetAnimation("Idle_Right");
 			NewPlayer->SetAnimation("Idle_Right");
+			StartEventState = EStartEventState::Talk;
+		}
+	}
+	
+	if (StartEventState == EStartEventState::Talk)
+	{
+		IbMom->SetAnimation("Idle_Down");
+		ADialogue* MomDialogue = SpawnActor<ADialogue>();
+		IbMom->SetDialogue(MomDialogue);
+		MomDialogue->SetActorLocation({ 640, 620 });
+		MomDialogue->CharTextBoxRendererOn();
+		MomDialogue->SetText("이브엄마대사");
+		MomDialogue->SetActive(true);
+
+		if (true == UEngineInput::IsDown(VK_SPACE) && true == MomDialogue->IsActive())
+		{
+			MomDialogue->SetActive(false);
 			StartEventState = EStartEventState::End;
 		}
 	}
-
 
 	if (StartEventState == EStartEventState::End)
 	{

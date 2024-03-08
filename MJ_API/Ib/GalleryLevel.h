@@ -14,6 +14,8 @@ enum class EStartEventState
 {
 	// 앞으로 걸어나가야 하는 상태
 	Walk,
+	// 대화창에 대사가 나오는 상태
+	Talk,
 	// 플레이어가 조작할수 있는 상태
 	End,
 };
