@@ -46,7 +46,7 @@ void UGalleryLevel::BeginPlay()
 
 	//갤러리에 있는 콜리젼과 충돌했을 때 뜨는 다이얼로그
 	ADialogue* NewDialogue = SpawnActor<ADialogue>();
-	NewDialogue->SetActorLocation({ 640, 635 });
+	NewDialogue->SetActorLocation({ 640, 620 });
 
 	//갤러리맵에 실제로 위치하고 콜리젼을 담당하는 객체들
 	{

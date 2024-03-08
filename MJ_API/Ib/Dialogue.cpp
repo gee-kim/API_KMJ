@@ -43,12 +43,16 @@ void ADialogue::AllTextBoxRendererOff()
 	Renderers[0]->ActiveOff();
 	Renderers[1]->ActiveOff();
 }
+void ADialogue::SetMovingBoxPosition(FVector _Value)
+{
+	Renderers[3]->SetPosition(_Value);
+}
 
 void ADialogue::BeginPlay()
 {
 	AActor::BeginPlay();
 
-	UEngineResourcesManager::GetInst().CuttingImage("MovingBox.png", 2, 2);
+	UEngineResourcesManager::GetInst().CuttingImage("moving.png", 5, 1);
 	
 	UImageRenderer* CharTextBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
 	CharTextBoxRenderer->SetImage("msw_02.png");
@@ -71,14 +75,14 @@ void ADialogue::BeginPlay()
 	Renderers.push_back(TextRenderer);
 
 	UImageRenderer* MovingBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
-	MovingBoxRenderer->SetImage("MovingBox.png");
+	MovingBoxRenderer->SetImage("moving.png");
 	MovingBoxRenderer->AutoImageScale();
-	MovingBoxRenderer->SetPosition({ 0,30 });
+	MovingBoxRenderer->SetPosition({ 0,80 });
 	//MovingBoxRenderer->SetTransform({ {0, 0}, { 1280, 194 } });
 	MovingBoxRenderer->CameraEffectOff();
 	MovingBoxRenderer->ActiveOff();
 	Renderers.push_back(CharTextBoxRenderer);
-	MovingBoxRenderer->CreateAnimation("Moving", "MovingBox.png", 0, 3, 0.5, true);
+	MovingBoxRenderer->CreateAnimation("Moving", "moving.png", 0, 3, 0.5, true);
 	MovingBoxRenderer->ChangeAnimation("Moving");
 	//UImageRenderer* MovingBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
 	//MovingBoxRenderer->SetImage("");

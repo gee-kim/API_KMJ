@@ -26,6 +26,7 @@ public:
 	void CharTextBoxRendererOn();
 	void ArtTextBoxRendererOn();
 	void AllTextBoxRendererOff();
+	void SetMovingBoxPosition(FVector _Value);
 
 protected:
 	void BeginPlay() override;

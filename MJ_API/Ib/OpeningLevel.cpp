@@ -15,11 +15,13 @@ void UOpeningLevel::BeginPlay()
 	ULevel::BeginPlay();
 
 	ADialogue* IntroDialogue = SpawnActor<ADialogue>();
-	IntroDialogue->SetActorLocation({ 640, 335 });
+	IntroDialogue->SetActorLocation({ 640, 300 });
+	IntroDialogue->SetMovingBoxPosition({ 0,30 });
 
 	AIntro* Intro = SpawnActor<AIntro>();
 	Intro->SetActorLocation({ 0, 0 });
 	Intro->SetDialogue(IntroDialogue);
+
 
 	{
 		//BGMPlayer = UEngineSound::SoundPlay("ib_title.ogg");
