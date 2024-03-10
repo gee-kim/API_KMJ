@@ -45,6 +45,7 @@ void UGalleryLevel::BeginPlay()
 	NewPlayer = SpawnActor<APlayer>();
 	NewPlayer->SetActorLocation({ 470, 690 });
 	NewPlayer->SetImageScale(ImageScale);
+	// 플레이어는 이벤트상태일때는 아무것도 안한다.
 	NewPlayer->StateChange(EPlayState::Event);
 
 	//갤러리에 있는 콜리젼과 충돌했을 때 뜨는 다이얼로그
@@ -140,6 +141,9 @@ void UGalleryLevel::BeginPlay()
 
 	SetCameraPos(CameraPos);
 
+	StateChange(EEventState::PlayerControll);
+	NewPlayer->StateChange(EPlayState::Idle);
+
 
 }
 
@@ -200,9 +204,28 @@ void UGalleryLevel::StateUpdate(float _DeltaTime)
 
 void UGalleryLevel::StartEvent(float _DeltaTime)
 {
+	// 대본
+	// 엄마 오른쪽에서 이브쪽 바라본 후 대사
+	Script.push_back("자. 도착했네\n......이브는 미술관 처음 와보지?");//엄마 살짝 웃는표정
+	Script.push_back("오늘 보러 온 건\n'게르테나'라는 사람의 전시회인데......");//엄마 입벌린 표정
+	Script.push_back("그림 말고도 조각이라든가......\n여러 재미있는 작품들이 있는 것 같으니까");//엄마 살짝 웃는표정
+	Script.push_back("분명 이브도 재밌게 볼 수 있을 거야");//엄마 활짝 웃는 표정
+	//아빠 뒤돌고 대사
+	Script.push_back("접수하고 올까?");//아빠 살짝 웃는 표정
+	Script.push_back("그래\n그리고 전단지도 받아가자");//엄마 살짝 웃는표정
+
+	//엄마 아빠 걸어나와서 프론트에 나란히 선다.
+	//이후에 이브도 엄마 옆으로 가서 나란히 선다.
+	//이브가 오른쪽 엄마쪽으로 돌아서고, 엄마도 이브를 돌아 본 후
+	Script.push_back("응? 먼저 보고 있겠다고?\n정말, 이브도 참......어쩔 수 없네");//엄마 살짝 당황표정
+	Script.push_back("미술관 안에서는 조용히 해야한다??\n알겠지?");//엄마 단호한 표정
+	Script.push_back("......뭐, 너라면 걱정 없지만");//엄마 살짝 웃는표정
+	Script.push_back("다른 사람들한테 민폐를 끼치지 않도록 주의하렴");//엄마 살짝 웃는표정
+	//엄마 앞을 본다. 이브 자유시간
+
 	// 세명의 캐릭터가 앞으로걸어가면 된다.
 
-	if (StartEventState == EStartEventState::Walk)
+	if (CurEventState == EStartEventState::Walk)
 	{
 		IbMom->SetAnimation("Move_Right");
 		IbDad->SetAnimation("Move_Right");
@@ -218,28 +241,39 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 			IbMom->SetAnimation("Idle_Right");
 			IbDad->SetAnimation("Idle_Right");
 			NewPlayer->SetAnimation("Idle_Right");
-			StartEventState = EStartEventState::Talk;
+			CurEventState = EStartEventState::MomTalk;
 		}
 	}
-	
-	if (StartEventState == EStartEventState::Talk)
+
+	if (CurEventState == EStartEventState::MomTalk)
 	{
 		IbMom->SetAnimation("Idle_Down");
+		//이브엄마랑 이브 아빠 스페이스키 눌러도 충돌일으키지 않아야 하는 상태로 만들기
+
 		ADialogue* MomDialogue = SpawnActor<ADialogue>();
 		IbMom->SetDialogue(MomDialogue);
+		MomDialogue->SetActive(true, 1.0f);
 		MomDialogue->SetActorLocation({ 640, 620 });
 		MomDialogue->CharTextBoxRendererOn();
-		MomDialogue->SetText("이브엄마대사");
-		MomDialogue->SetActive(true);
+		MomDialogue->SetText(Script[CurTextIndex]);
 
-		if (true == UEngineInput::IsDown(VK_SPACE) && true == MomDialogue->IsActive())
+		if (true == UEngineInput::IsDown(VK_SPACE) /*&& true == MomDialogue->IsActive()*/)
 		{
-			MomDialogue->SetActive(false);
-			StartEventState = EStartEventState::End;
+			++CurTextIndex;
+			if (CurTextIndex <= 4)
+			{
+				MomDialogue->SetActive(false);
+				CurEventState = EStartEventState::DadTalk;
+				return;
+			}
+			MomDialogue->SetText(Script[CurTextIndex]);
+
 		}
+
+
 	}
 
-	if (StartEventState == EStartEventState::End)
+	if (CurEventState == EStartEventState::End)
 	{
 		NewPlayer->StateChange(EPlayState::Idle);
 		StateChange(EEventState::PlayerControll);

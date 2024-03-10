@@ -257,9 +257,7 @@ void APlayer::StateUpdate(float _DeltaTime)
 
 void APlayer::Event(float _DeltaTime)
 {
-
 }
-
 
 void APlayer::Idle(float _DeltaTime)
 {

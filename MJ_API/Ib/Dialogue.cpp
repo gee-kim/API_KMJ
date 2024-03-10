@@ -82,7 +82,7 @@ void ADialogue::BeginPlay()
 	MovingBoxRenderer->CameraEffectOff();
 	MovingBoxRenderer->ActiveOff();
 	Renderers.push_back(CharTextBoxRenderer);
-	MovingBoxRenderer->CreateAnimation("Moving", "moving.png", 0, 3, 0.5, true);
+	MovingBoxRenderer->CreateAnimation("Moving", "moving.png", 0, 3, 0.2, true);
 	MovingBoxRenderer->ChangeAnimation("Moving");
 	//UImageRenderer* MovingBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
 	//MovingBoxRenderer->SetImage("");

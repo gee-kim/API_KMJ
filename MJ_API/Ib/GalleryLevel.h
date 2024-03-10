@@ -15,7 +15,8 @@ enum class EStartEventState
 	// 앞으로 걸어나가야 하는 상태
 	Walk,
 	// 대화창에 대사가 나오는 상태
-	Talk,
+	MomTalk,
+	DadTalk,
 	// 플레이어가 조작할수 있는 상태
 	End,
 };
@@ -44,7 +45,7 @@ protected:
 	void LevelEnd(ULevel* _Level) override;
 
 
-	EStartEventState StartEventState = EStartEventState::Walk;
+	EStartEventState CurEventState = EStartEventState::Walk;
 	float WalkTime = 2.0f;
 
 	void StateChange(EEventState _State);
@@ -54,8 +55,12 @@ protected:
 private:
 	EEventState CurState = EEventState::StartEvent;
 
+
 	ABackGroundMap* Map = nullptr;
 	UEngineSoundPlayer BGMPlayer;
+	
+	int CurTextIndex = 0;
+	std::vector<std::string> Script;
 
 	class APlayer* NewPlayer = nullptr;
 	class AMom* IbMom = nullptr;
