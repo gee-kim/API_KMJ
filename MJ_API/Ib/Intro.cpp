@@ -54,7 +54,7 @@ void AIntro::Tick(float _DeltaTime)
 	AActor::Tick(_DeltaTime);
 
 	BGMPlayer = UEngineSound::SoundPlay("Prologue.ogg");
-	BGMPlayer.SetVolume(0.5);
+	BGMPlayer.SetVolume(0.5f);
 	BGMPlayer.Loop();
 
 	FadeTime -= _DeltaTime;

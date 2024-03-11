@@ -75,6 +75,9 @@
     <ClInclude Include="SecondGalleryArt.h">
       <Filter>Object\SecondGalleryLevel</Filter>
     </ClInclude>
+    <ClInclude Include="FadeIntro.h">
+      <Filter>Object\GalleryLevel\Actor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -151,6 +154,9 @@
     <ClCompile Include="SecondGalleryArt.cpp">
       <Filter>Object\SecondGalleryLevel</Filter>
     </ClCompile>
+    <ClCompile Include="FadeIntro.cpp">
+      <Filter>Object\GalleryLevel\Actor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
@@ -179,9 +185,6 @@
     </Filter>
     <Filter Include="Object\GalleryLevel\Actor\Character">
       <UniqueIdentifier>{e888b7d0-d124-48b6-9696-911b4628e0ff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\OpeningLevel">
-      <UniqueIdentifier>{f52881b9-fc04-45ea-85fa-5cdf6f0529b2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object\Opening">
       <UniqueIdentifier>{2d88db23-7890-4dfc-b945-cc250b7c88b0}</UniqueIdentifier>

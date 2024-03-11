@@ -73,6 +73,7 @@ void ATitleMenu::Tick(float _DeltaTime)
 	if (UEngineInput::IsDown(VK_UP))
 	{
 		--SelectIndex;
+		BGMSound = UEngineSound::SoundPlay("s_se01.ogg");
 
 		if (SelectIndex <= 0)
 		{
@@ -84,6 +85,7 @@ void ATitleMenu::Tick(float _DeltaTime)
 	if (UEngineInput::IsDown(VK_DOWN))
 	{
 		++SelectIndex;
+		BGMSound = UEngineSound::SoundPlay("s_se01.ogg");
 
 		if (SelectIndex >= 3)
 		{

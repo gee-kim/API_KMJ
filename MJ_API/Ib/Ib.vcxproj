@@ -159,6 +159,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="FadeIntro.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="SecondGalleryArt.h">
       <SubType>
       </SubType>
@@ -265,6 +269,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FadeIntro.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="SecondGalleryArt.cpp">
       <SubType>
       </SubType>

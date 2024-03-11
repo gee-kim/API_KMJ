@@ -55,7 +55,6 @@ protected:
 private:
 	EEventState CurState = EEventState::StartEvent;
 
-
 	ABackGroundMap* Map = nullptr;
 	UEngineSoundPlayer BGMPlayer;
 	

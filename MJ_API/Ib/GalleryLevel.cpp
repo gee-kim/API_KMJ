@@ -13,6 +13,7 @@
 #include "WallArt_Sneeze.h"
 #include "Mom.h"
 #include "Dad.h"
+#include "FadeIntro.h"
 #include <EngineCore\EngineCore.h>
 #include <EngineCore\EngineResourcesManager.h>
 #include <EngineBase\EngineDirectory.h>
@@ -38,6 +39,8 @@ void UGalleryLevel::BeginPlay()
 	Map->SetColMapImage("gallery_colmap(1).png");
 
 	FVector ImageScale = Map->GetImageScale();
+
+	AFadeIntro* FadeIntro = SpawnActor<AFadeIntro>();
 
 
 	// 플레이어 액터 생성해준다.
