@@ -30,13 +30,7 @@ void AGallerySign::BeginPlay()
 
 }
 
-void AGallerySign::TextChange(ADialogue* _Dialogue)
-{
-	
-}
-//std::vector<std::string> Sing_Script;
-//처음 키입력 settext(script[0]) 넣고
-//CurText, NextText 변수 생성해서 
+
 
 void AGallerySign::Tick(float _DeltaTime)
 {

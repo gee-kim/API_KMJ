@@ -159,6 +159,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="SecondGalleryArt.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Dad.h">
       <SubType>
       </SubType>
@@ -172,6 +176,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="OpeningLevel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="SecondGalleryLevel.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -257,6 +265,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="SecondGalleryArt.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Dad.cpp">
       <SubType>
       </SubType>
@@ -270,6 +282,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="OpeningLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="SecondGalleryLevel.cpp">
       <SubType>
       </SubType>
     </ClCompile>

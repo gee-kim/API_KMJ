@@ -5,6 +5,7 @@
 #include "GalleryLevel.h"
 #include "TestLevel.h"
 #include "OpeningLevel.h"
+#include "SecondGalleryLevel.h"
 #include <EnginePlatform\EngineInput.h>
 #include <EnginePlatform\EngineSound.h>
 #include <EnginePlatform\WindowImage.h>
@@ -65,8 +66,9 @@ void IbCore::BeginPlay()
 	CreateLevel<UTitleLevel>("Title");
 	CreateLevel<UOpeningLevel>("Opening");
 	CreateLevel<UGalleryLevel>("Gallery");
+	CreateLevel<USecondGalleryLevel>("Second_Gallery");
 
-	ChangeLevel("Gallery");
+	ChangeLevel("Second_Gallery");
 
 	int a = 0;
 }

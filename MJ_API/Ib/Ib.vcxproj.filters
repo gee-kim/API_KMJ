@@ -69,6 +69,12 @@
     <ClInclude Include="Dad.h">
       <Filter>Object\GalleryLevel\Actor\Character</Filter>
     </ClInclude>
+    <ClInclude Include="SecondGalleryLevel.h">
+      <Filter>Object\SecondGalleryLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="SecondGalleryArt.h">
+      <Filter>Object\SecondGalleryLevel</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -139,6 +145,12 @@
     <ClCompile Include="Dad.cpp">
       <Filter>Object\GalleryLevel\Actor\Character</Filter>
     </ClCompile>
+    <ClCompile Include="SecondGalleryLevel.cpp">
+      <Filter>Object\SecondGalleryLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="SecondGalleryArt.cpp">
+      <Filter>Object\SecondGalleryLevel</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
@@ -176,6 +188,9 @@
     </Filter>
     <Filter Include="Object\Opening\Actor">
       <UniqueIdentifier>{ac3b0d53-7a40-4966-a45f-509ee1e39b25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\SecondGalleryLevel">
+      <UniqueIdentifier>{4568ca1d-5688-437a-9e76-a59aa7e39ed5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

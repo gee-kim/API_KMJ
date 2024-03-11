@@ -19,8 +19,6 @@ public:
 		Dialogue = _Dialogue;
 	}
 
-	void TextChange(ADialogue* _Dialogue);
-
 protected:
 	void BeginPlay() override;
 	void Tick(float _Deltatime) override;
