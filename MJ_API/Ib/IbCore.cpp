@@ -64,8 +64,8 @@ void IbCore::BeginPlay()
 	}
 
 	CreateLevel<UTitleLevel>("Title");
-	CreateLevel<UOpeningLevel>("Opening");
-	CreateLevel<UGalleryLevel>("Gallery");
+	//CreateLevel<UOpeningLevel>("Opening");
+	//CreateLevel<UGalleryLevel>("Gallery");
 	//CreateLevel<USecondGalleryLevel>("Second_Gallery");
 	
 	

@@ -22,24 +22,12 @@ void UOpeningLevel::BeginPlay()
 	Intro->SetActorLocation({ 0, 0 });
 	Intro->SetDialogue(IntroDialogue);
 
-
-	{
-		//BGMPlayer = UEngineSound::SoundPlay("ib_title.ogg");
-		//BGMPlayer.Loop();
-
-	}
 }
 
 void UOpeningLevel::Tick(float _DeltaTime)
 {
 	ULevel::Tick(_DeltaTime);
 
-
-	//if (UEngineInput::IsDown(VK_SPACE) && true == )
-	//{
-	//	BGMPlayer.Off();
-	//	GEngine->ChangeLevel("Gallery");
-	//}
 
 }
 

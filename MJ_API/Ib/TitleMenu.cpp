@@ -3,13 +3,16 @@
 #include <EngineBase\EngineDebug.h>
 #include "Helper.h"
 #include <EngineCore/EngineResourcesManager.h>
+#include "OpeningLevel.h"
 
 ATitleMenu::ATitleMenu()
 {
+
 }
 
 ATitleMenu::~ATitleMenu()
 {
+	
 }
 
 
@@ -100,6 +103,7 @@ void ATitleMenu::Tick(float _DeltaTime)
 		{
 		case 0:
 			BGMPlayer.Off();
+			GEngine->CreateLevel<UOpeningLevel>("Opening");
 			GEngine->ChangeLevel("Opening");
 			// 풍덩 효과음 넣어주기
 			BGMPlayer = UEngineSound::SoundPlay("sink.ogg");

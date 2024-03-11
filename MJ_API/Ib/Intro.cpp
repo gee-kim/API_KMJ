@@ -3,6 +3,7 @@
 #include <EnginePlatform\EngineInput.h>
 #include <EngineCore/EngineResourcesManager.h>
 #include "Helper.h"
+#include "GalleryLevel.h"
 
 AIntro::AIntro()
 {
@@ -19,6 +20,9 @@ void AIntro::BeginPlay()
 
 	AActor::BeginPlay();
 	{
+		BGMPlayer = UEngineSound::SoundPlay("Prologue.ogg");
+		BGMPlayer.Loop();
+
 		// 화면에 검정색 바탕 깔아주기
 		BackGround = CreateImageRenderer(PlayRenderOrder::Map);
 		//setalpha 값 바꿔줘서 fade 효과 넣어주기
@@ -53,10 +57,7 @@ void AIntro::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 
-	BGMPlayer = UEngineSound::SoundPlay("Prologue.ogg");
-	BGMPlayer.SetVolume(0.5f);
-	BGMPlayer.Loop();
-
+	
 	FadeTime -= _DeltaTime;
 	FadeImage->SetAlpha(FadeTime);
 
@@ -80,6 +81,7 @@ void AIntro::Tick(float _DeltaTime)
 		if (CurTextIndex >= Script.size())
 		{
 			BGMPlayer.Off();
+			GEngine->CreateLevel<UGalleryLevel>("Gallery");
 			GEngine->ChangeLevel("Gallery");
 			return;
 		}

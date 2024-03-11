@@ -4,6 +4,8 @@
 #include <vector>
 #include <EnginePlatform\EngineSound.h>
 
+class UOpeningLevel;
+
 class ATitleMenu : public AActor
 {
 public:

@@ -31,13 +31,6 @@ void UTitleLevel::BeginPlay()
 	{
 		ULevel::Tick(_DeltaTime);
 
-
-		//if (UEngineInput::IsDown(VK_SPACE))
-		//{
-		//	BGMPlayer.Off();
-		//	GEngine->ChangeLevel("Gallery");
-		//}
-
 	}
 
 	void UTitleLevel::LevelStart(ULevel * _Level)

@@ -46,7 +46,9 @@ protected:
 
 
 	EStartEventState CurEventState = EStartEventState::Walk;
-	float WalkTime = 2.0f;
+	float WalkTime = 4.0f;
+
+	float PlayTime = 2.0f;
 
 	void StateChange(EEventState _State);
 	void StateUpdate(float _DeltaTime);
@@ -57,6 +59,7 @@ private:
 
 	ABackGroundMap* Map = nullptr;
 	UEngineSoundPlayer BGMPlayer;
+	UEngineSoundPlayer BGMSound;
 	
 	int CurTextIndex = 0;
 	std::vector<std::string> Script;

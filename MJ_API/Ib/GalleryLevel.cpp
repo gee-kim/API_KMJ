@@ -33,6 +33,10 @@ void UGalleryLevel::BeginPlay()
 {
 	ULevel::BeginPlay();
 
+		BGMPlayer = UEngineSound::SoundPlay("La_Follia.ogg");
+		BGMPlayer.Off();
+		BGMPlayer.Loop();
+
 	//눈에 보이는 맵이랑, 충돌용 맵 넣어준다.
 	Map = SpawnActor<ABackGroundMap>();
 	Map->SetMapImage("galleryandArts_(1).png");
@@ -41,7 +45,7 @@ void UGalleryLevel::BeginPlay()
 	FVector ImageScale = Map->GetImageScale();
 
 	AFadeIntro* FadeIntro = SpawnActor<AFadeIntro>();
-
+	//FadeIntro->SetActorLocation({})
 
 	// 플레이어 액터 생성해준다.
 	// 액터로케이션 맵띄어서 확인해보고 조정해주기
@@ -144,8 +148,8 @@ void UGalleryLevel::BeginPlay()
 
 	SetCameraPos(CameraPos);
 
-	StateChange(EEventState::PlayerControll);
-	NewPlayer->StateChange(EPlayState::Idle);
+	//StateChange(EEventState::PlayerControll);
+	//NewPlayer->StateChange(EPlayState::Idle);
 
 
 }
@@ -156,9 +160,6 @@ void UGalleryLevel::Tick(float _DeltaTime)
 	ULevel::Tick(_DeltaTime);
 
 	StateUpdate(_DeltaTime);
-
-	 BGMPlayer = UEngineSound::SoundPlay("La_Follia.ogg");
-	 //BGMPlayer.Loop();
 
 }
 
@@ -206,7 +207,15 @@ void UGalleryLevel::StateUpdate(float _DeltaTime)
 }
 
 void UGalleryLevel::StartEvent(float _DeltaTime)
+
 {
+	PlayTime -= _DeltaTime;
+
+	if (PlayTime <= 0)
+	{
+		BGMPlayer.On();
+	}
+
 	// 대본
 	// 엄마 오른쪽에서 이브쪽 바라본 후 대사
 	Script.push_back("자. 도착했네\n......이브는 미술관 처음 와보지?");//엄마 살짝 웃는표정
@@ -230,13 +239,13 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 
 	if (CurEventState == EStartEventState::Walk)
 	{
-		IbMom->SetAnimation("Move_Right");
+ 		IbMom->SetAnimation("Move_Right");
 		IbDad->SetAnimation("Move_Right");
 		NewPlayer->SetAnimation("Move_Right");
 
-		IbMom->AddActorLocation(FVector::Right * 100.0f * _DeltaTime);
-		IbDad->AddActorLocation(FVector::Right * 100.0f * _DeltaTime);
-		NewPlayer->AddActorLocation(FVector::Right * 100.0f * _DeltaTime);
+		IbMom->AddActorLocation(FVector::Right * 60.0f * _DeltaTime);
+		IbDad->AddActorLocation(FVector::Right * 60.0f * _DeltaTime);
+		NewPlayer->AddActorLocation(FVector::Right * 60.0f * _DeltaTime);
 
 		WalkTime -= _DeltaTime;
 		if (0.0f >= WalkTime)
@@ -251,6 +260,8 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 	if (CurEventState == EStartEventState::MomTalk)
 	{
 		IbMom->SetAnimation("Idle_Down");
+		//BGMSound = UEngineSound::SoundPlay("put_00.ogg");
+
 		//이브엄마랑 이브 아빠 스페이스키 눌러도 충돌일으키지 않아야 하는 상태로 만들기
 
 		ADialogue* MomDialogue = SpawnActor<ADialogue>();
@@ -260,13 +271,13 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 		MomDialogue->CharTextBoxRendererOn();
 		MomDialogue->SetText(Script[CurTextIndex]);
 
-		if (true == UEngineInput::IsDown(VK_SPACE) /*&& true == MomDialogue->IsActive()*/)
+		if (true == UEngineInput::IsDown(VK_SPACE)/* && true == MomDialogue->IsActive()*/)
 		{
 			++CurTextIndex;
-			if (CurTextIndex <= 4)
+			if (CurTextIndex >= 4)
 			{
 				MomDialogue->SetActive(false);
-				CurEventState = EStartEventState::DadTalk;
+				CurEventState = EStartEventState::End;
 				return;
 			}
 			MomDialogue->SetText(Script[CurTextIndex]);

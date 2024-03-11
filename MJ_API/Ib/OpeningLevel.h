@@ -22,6 +22,5 @@ protected:
 
 private:
 
-	UEngineSoundPlayer BGMPlayer;
 };
 

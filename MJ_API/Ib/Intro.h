@@ -3,6 +3,8 @@
 #include "Dialogue.h"
 #include <EnginePlatform\EngineSound.h>
 
+class UGalleryLevel;
+
 class AIntro : public AActor
 {
 public:

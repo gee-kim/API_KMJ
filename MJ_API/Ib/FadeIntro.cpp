@@ -35,5 +35,6 @@ void AFadeIntro::Tick(float _Deltatime)
 	FadeTime -= _Deltatime;
 	FadeImage->SetAlpha(FadeTime);
 
+	
 
 }
