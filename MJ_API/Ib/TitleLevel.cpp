@@ -24,12 +24,7 @@ void UTitleLevel::BeginPlay()
 
 	ATitleMenu* StartMenu = SpawnActor<ATitleMenu>();
 
-	{
-		BGMPlayer = UEngineSound::SoundPlay("ib_title.ogg");
-		BGMPlayer.Loop();
-		
-		int a = 0;
-	}
+	
 }
 
 	void UTitleLevel::Tick(float _DeltaTime)
@@ -37,11 +32,11 @@ void UTitleLevel::BeginPlay()
 		ULevel::Tick(_DeltaTime);
 
 
-		if (UEngineInput::IsDown(VK_SPACE))
-		{
-			BGMPlayer.Off();
-			//GEngine->ChangeLevel("Gallery");
-		}
+		//if (UEngineInput::IsDown(VK_SPACE))
+		//{
+		//	BGMPlayer.Off();
+		//	GEngine->ChangeLevel("Gallery");
+		//}
 
 	}
 

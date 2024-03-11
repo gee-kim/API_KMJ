@@ -154,8 +154,8 @@ void UGalleryLevel::Tick(float _DeltaTime)
 
 	StateUpdate(_DeltaTime);
 
-	// BGMPlayer = UEngineSound::SoundPlay("La_Follia.ogg");
-	// BGMPlayer.Loop();
+	 BGMPlayer = UEngineSound::SoundPlay("La_Follia.ogg");
+	 //BGMPlayer.Loop();
 
 }
 

@@ -12,20 +12,11 @@ AIntro::~AIntro()
 {
 }
 
-//인트로에서 키체크 받고 넘어가는 상황들을 state로 넣기?
-// 우선 대화 돌리는건?
-
-void AIntro::FadeIn()
-{
-
-}
-void AIntro::FadeOut()
-{
-
-}
 
 void AIntro::BeginPlay()
 {
+
+
 	AActor::BeginPlay();
 	{
 		// 화면에 검정색 바탕 깔아주기
@@ -61,7 +52,11 @@ void AIntro::BeginPlay()
 void AIntro::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
-	
+
+	BGMPlayer = UEngineSound::SoundPlay("Prologue.ogg");
+	BGMPlayer.SetVolume(0.5);
+	BGMPlayer.Loop();
+
 	FadeTime -= _DeltaTime;
 	FadeImage->SetAlpha(FadeTime);
 
@@ -84,6 +79,7 @@ void AIntro::Tick(float _DeltaTime)
 
 		if (CurTextIndex >= Script.size())
 		{
+			BGMPlayer.Off();
 			GEngine->ChangeLevel("Gallery");
 			return;
 		}

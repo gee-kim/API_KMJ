@@ -1,6 +1,7 @@
 #pragma once
 #include <EngineCore\Actor.h>
 #include "Dialogue.h"
+#include <EnginePlatform\EngineSound.h>
 
 class AIntro : public AActor
 {
@@ -18,8 +19,6 @@ public:
 	{
 		Dialogue = _Dialogue;
 	}
-	void FadeIn();
-	void FadeOut();
 
 protected:
 	void BeginPlay() override;
@@ -36,6 +35,8 @@ private:
 	FVector ImageScale;
 	float Timer;
 	float FadeTime = 3.0f;
+
+	UEngineSoundPlayer BGMPlayer;
 	
 };
 

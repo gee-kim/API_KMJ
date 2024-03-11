@@ -15,6 +15,9 @@ ATitleMenu::~ATitleMenu()
 
 void ATitleMenu::BeginPlay()
 {
+	BGMPlayer = UEngineSound::SoundPlay("ib_title.ogg");
+	BGMPlayer.Loop();
+
 	AActor::BeginPlay();
 	{
 		UEngineResourcesManager::GetInst().CuttingImage("Command_0.png", 1, 2);
@@ -94,7 +97,10 @@ void ATitleMenu::Tick(float _DeltaTime)
 		switch (SelectIndex)
 		{
 		case 0:
-			GEngine->ChangeLevel("Gallery");
+			BGMPlayer.Off();
+			GEngine->ChangeLevel("Opening");
+			// 풍덩 효과음 넣어주기
+			BGMPlayer = UEngineSound::SoundPlay("sink.ogg");
 		case 1:
 			break;
 		case 2:

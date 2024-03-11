@@ -2,6 +2,7 @@
 #include <EngineCore/Actor.h>
 #include "Helper.h"
 #include <vector>
+#include <EnginePlatform\EngineSound.h>
 
 class ATitleMenu : public AActor
 {
@@ -25,6 +26,8 @@ private:
 	std::vector<UImageRenderer*> Renderers;
 	int SelectIndex = 0;
 
+	UEngineSoundPlayer BGMPlayer;
+	UEngineSoundPlayer BGMSound;
 
 };
 

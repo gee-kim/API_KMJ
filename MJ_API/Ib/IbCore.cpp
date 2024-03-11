@@ -67,8 +67,10 @@ void IbCore::BeginPlay()
 	CreateLevel<UOpeningLevel>("Opening");
 	CreateLevel<UGalleryLevel>("Gallery");
 	CreateLevel<USecondGalleryLevel>("Second_Gallery");
-
-	ChangeLevel("Second_Gallery");
+	
+	
+	ChangeLevel("Title");
+	//ChangeLevel("Second_Gallery");
 
 	int a = 0;
 }
