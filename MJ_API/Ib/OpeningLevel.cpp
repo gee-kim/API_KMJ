@@ -16,7 +16,7 @@ void UOpeningLevel::BeginPlay()
 
 	ADialogue* IntroDialogue = SpawnActor<ADialogue>();
 	IntroDialogue->SetActorLocation({ 640, 300 });
-	IntroDialogue->SetMovingBoxPosition({ 0,30 });
+	IntroDialogue->SetMovingBoxPosition({ 0,80 });
 
 	AIntro* Intro = SpawnActor<AIntro>();
 	Intro->SetActorLocation({ 0, 0 });

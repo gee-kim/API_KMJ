@@ -78,6 +78,12 @@
     <ClInclude Include="FadeIntro.h">
       <Filter>Object\GalleryLevel\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="NextLevel.h">
+      <Filter>Object\GalleryLevel\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="APrevLevel.h">
+      <Filter>Object\SecondGalleryLevel</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -101,9 +107,6 @@
       <Filter>Object\TestLevel</Filter>
     </ClCompile>
     <ClCompile Include="BackGroundMap.cpp">
-      <Filter>Object\Global</Filter>
-    </ClCompile>
-    <ClCompile Include="Dialogue.cpp">
       <Filter>Object\Global</Filter>
     </ClCompile>
     <ClCompile Include="TitleMenu.cpp">
@@ -156,6 +159,15 @@
     </ClCompile>
     <ClCompile Include="FadeIntro.cpp">
       <Filter>Object\GalleryLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogue.cpp">
+      <Filter>Object\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="NextLevel.cpp">
+      <Filter>Object\GalleryLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="APrevLevel.cpp">
+      <Filter>Object\SecondGalleryLevel</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -23,6 +23,7 @@ enum class EStartEventState
 
 
 class ABackGroundMap;
+class ADialogue;
 
 // Ό³Έν :
 class UGalleryLevel : public ULevel
@@ -60,6 +61,8 @@ private:
 	ABackGroundMap* Map = nullptr;
 	UEngineSoundPlayer BGMPlayer;
 	UEngineSoundPlayer BGMSound;
+
+	ADialogue* NewDialogue = nullptr;
 	
 	int CurTextIndex = 0;
 	std::vector<std::string> Script;

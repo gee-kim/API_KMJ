@@ -50,14 +50,59 @@ void AMom::BeginPlay()
 	//Script.push_back("'작은따옴표 나오나?'\n 줄바꿈은 되나?\n띄어쓰기는?");
 	//Script.push_back("세번째 대사");
 
+	StateChange(EPlayState::Event);
+
 }
 
-//void AMom::CollisionOff()
-//{
-//	Collision->
-//}
 
 void AMom::Tick(float _DeltaTime)
+{
+	
+	AActor::Tick(_DeltaTime);
+
+	StateUpdate(_DeltaTime);
+
+}
+
+
+void AMom::StateChange(EPlayState _State)
+{
+	switch (_State)
+	{
+	case EPlayState::Idle:
+		break;
+	case EPlayState::Event:
+		break;
+	default:
+		break;
+	}
+
+
+	State = _State;
+
+}
+
+void AMom::StateUpdate(float _DeltaTime)
+{
+	switch (State)
+	{
+	case EPlayState::Idle:
+		Idle(_DeltaTime);
+	case EPlayState::Event:
+		Event(_DeltaTime);
+	default:
+		break;
+	}
+
+
+}
+
+void AMom::Event(float _DeltaTime)
+{
+   	int a = 0;
+}
+
+void AMom::Idle(float _DeltaTime)
 {
 	if (nullptr == Dialogue)
 	{
@@ -65,38 +110,38 @@ void AMom::Tick(float _DeltaTime)
 		return;
 	}
 
-	AActor::Tick(_DeltaTime);
 
 	std::vector<UCollision*> Result;
 
-	//if (true == Collision->CollisionCheck(CollisionOrder::Player, Result))
-	//{
-	//	//플레이어와 충돌이 일어나면 키가눌리는거 체크하고,
-	//	//키가 눌린다면 Textbox가 출력되게 만들기
-	//	if (true == UEngineInput::IsDown(VK_SPACE) && false == Dialogue->IsActive())
-	//	{
-	//		// 키체크가 들어오면 플레이어는 움직이지 못하는 상태가 됨.
-	//		// 그리고 다른 액터들도 정지되는 상태로 만들어주기.
-	//		Dialogue->SetActive(true);
-	//		Dialogue->ArtTextBoxRendererOn();
-	//		Dialogue->SetText(Script[CurTextIndex]);
+	if (true == Collision->CollisionCheck(CollisionOrder::Player, Result))
+	{
+		//플레이어와 충돌이 일어나면 키가눌리는거 체크하고,
+		//키가 눌린다면 Textbox가 출력되게 만들기
+		if (true == UEngineInput::IsDown(VK_SPACE) && false == Dialogue->IsActive())
+		{
+			// 키체크가 들어오면 플레이어는 움직이지 못하는 상태가 됨.
+			// 그리고 다른 액터들도 정지되는 상태로 만들어주기.
+			Dialogue->SetActive(true);
+			Dialogue->CharTextBoxRendererOn();
+			Dialogue->SetText(Script[CurTextIndex]);
 
-	//	}
-	//	else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
-	//	{
-	//		++CurTextIndex;
+		}
+		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
+		{
+			++CurTextIndex;
 
-	//		if (CurTextIndex >= Script.size())
-	//		{
-	//			CurTextIndex = 0;
-	//			Dialogue->SetActive(false);
-	//			return;
-	//		}
+			if (CurTextIndex >= Script.size())
+			{
+				CurTextIndex = 0;
+				Dialogue->SetActive(false);
+				return;
+			}
 
-	//		Dialogue->SetText(Script[CurTextIndex]);
+			Dialogue->SetText(Script[CurTextIndex]);
 
-	//	}
+		}
 
-	//}
+	}
+	
+	int a = 0;
 }
-

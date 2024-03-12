@@ -70,7 +70,7 @@ void AGalleryButler::Tick(float _DeltaTime)
 			// 키체크가 들어오면 플레이어는 움직이지 못하는 상태가 됨.
 			// 그리고 다른 액터들도 정지되는 상태로 만들어주기.
 			Dialogue->SetActive(true);
-			Dialogue->ArtTextBoxRendererOn();
+			Dialogue->CharTextBoxRendererOn();
 			Dialogue->SetText(Texts[CurTextIndex]);
 			
 		}

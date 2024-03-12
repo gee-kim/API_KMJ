@@ -4,6 +4,17 @@
 #include "Player.h"
 #include "Dialogue.h"
 
+//enum class EEventState
+//{
+//	StartEvent,
+//	Idle,
+//};
+//
+//enum class EStartEventState
+//{
+//	Mom
+//};
+
 class AMom : public AActor
 {
 public:
@@ -27,10 +38,19 @@ public:
 		Renderer->ChangeAnimation(_AnimationName);
 	}
 
+	void StateChange(EPlayState _State);
 
 protected:
 	void BeginPlay() override;
 	void Tick(float _Deltatime) override;
+
+	void StateUpdate(float _DeltaTime);
+
+	// 상태 함수
+	void Idle(float _DeltaTime);
+	void Event(float _DeltaTime);
+
+	EPlayState State = EPlayState::Event;
 
 private:
 	UCollision* Collision = nullptr;

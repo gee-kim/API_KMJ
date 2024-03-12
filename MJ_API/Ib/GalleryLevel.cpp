@@ -14,6 +14,7 @@
 #include "Mom.h"
 #include "Dad.h"
 #include "FadeIntro.h"
+#include "NextLevel.h"
 #include <EngineCore\EngineCore.h>
 #include <EngineCore\EngineResourcesManager.h>
 #include <EngineBase\EngineDirectory.h>
@@ -33,9 +34,12 @@ void UGalleryLevel::BeginPlay()
 {
 	ULevel::BeginPlay();
 
-		BGMPlayer = UEngineSound::SoundPlay("La_Follia.ogg");
-		BGMPlayer.Off();
-		BGMPlayer.Loop();
+	BGMPlayer = UEngineSound::SoundPlay("La_Follia.ogg");
+	BGMPlayer.Off();
+	BGMPlayer.Loop();
+
+	ANextLevel* NextLevel = SpawnActor<ANextLevel>();
+	NextLevel->SetActorLocation({ 1000,240 });
 
 	//눈에 보이는 맵이랑, 충돌용 맵 넣어준다.
 	Map = SpawnActor<ABackGroundMap>();
@@ -56,7 +60,7 @@ void UGalleryLevel::BeginPlay()
 	NewPlayer->StateChange(EPlayState::Event);
 
 	//갤러리에 있는 콜리젼과 충돌했을 때 뜨는 다이얼로그
-	ADialogue* NewDialogue = SpawnActor<ADialogue>();
+	NewDialogue = SpawnActor<ADialogue>();
 	NewDialogue->SetActorLocation({ 640, 620 });
 
 	//갤러리맵에 실제로 위치하고 콜리젼을 담당하는 객체들
@@ -64,10 +68,12 @@ void UGalleryLevel::BeginPlay()
 		IbMom = SpawnActor<AMom>();
 		IbMom->SetActorLocation({ 470,620 });
 		IbMom->SetDialogue(NewDialogue);
+		IbMom->StateChange(EPlayState::Event);
 
 		IbDad = SpawnActor<ADad>();
 		IbDad->SetActorLocation({ 470,590 });
 		IbDad->SetDialogue(NewDialogue);
+		//IbDad->StateChange(EPlayState::Event);
 
 		AGallery_Window* GalleryWindow = SpawnActor<AGallery_Window>();
 		GalleryWindow->SetActorLocation({ 600, 400 });
@@ -222,24 +228,24 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 	Script.push_back("오늘 보러 온 건\n'게르테나'라는 사람의 전시회인데......");//엄마 입벌린 표정
 	Script.push_back("그림 말고도 조각이라든가......\n여러 재미있는 작품들이 있는 것 같으니까");//엄마 살짝 웃는표정
 	Script.push_back("분명 이브도 재밌게 볼 수 있을 거야");//엄마 활짝 웃는 표정
-	//아빠 뒤돌고 대사
-	Script.push_back("접수하고 올까?");//아빠 살짝 웃는 표정
-	Script.push_back("그래\n그리고 전단지도 받아가자");//엄마 살짝 웃는표정
+	////아빠 뒤돌고 대사
+	//Script.push_back("접수하고 올까?");//아빠 살짝 웃는 표정
+	//Script.push_back("그래\n그리고 전단지도 받아가자");//엄마 살짝 웃는표정
 
-	//엄마 아빠 걸어나와서 프론트에 나란히 선다.
-	//이후에 이브도 엄마 옆으로 가서 나란히 선다.
-	//이브가 오른쪽 엄마쪽으로 돌아서고, 엄마도 이브를 돌아 본 후
-	Script.push_back("응? 먼저 보고 있겠다고?\n정말, 이브도 참......어쩔 수 없네");//엄마 살짝 당황표정
-	Script.push_back("미술관 안에서는 조용히 해야한다??\n알겠지?");//엄마 단호한 표정
-	Script.push_back("......뭐, 너라면 걱정 없지만");//엄마 살짝 웃는표정
-	Script.push_back("다른 사람들한테 민폐를 끼치지 않도록 주의하렴");//엄마 살짝 웃는표정
+	////엄마 아빠 걸어나와서 프론트에 나란히 선다.
+	////이후에 이브도 엄마 옆으로 가서 나란히 선다.
+	////이브가 오른쪽 엄마쪽으로 돌아서고, 엄마도 이브를 돌아 본 후
+	//Script.push_back("응? 먼저 보고 있겠다고?\n정말, 이브도 참......어쩔 수 없네");//엄마 살짝 당황표정
+	//Script.push_back("미술관 안에서는 조용히 해야한다??\n알겠지?");//엄마 단호한 표정
+	//Script.push_back("......뭐, 너라면 걱정 없지만");//엄마 살짝 웃는표정
+	//Script.push_back("다른 사람들한테 민폐를 끼치지 않도록 주의하렴");//엄마 살짝 웃는표정
 	//엄마 앞을 본다. 이브 자유시간
 
 	// 세명의 캐릭터가 앞으로걸어가면 된다.
 
 	if (CurEventState == EStartEventState::Walk)
 	{
- 		IbMom->SetAnimation("Move_Right");
+		IbMom->SetAnimation("Move_Right");
 		IbDad->SetAnimation("Move_Right");
 		NewPlayer->SetAnimation("Move_Right");
 
@@ -263,33 +269,31 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 		//BGMSound = UEngineSound::SoundPlay("put_00.ogg");
 
 		//이브엄마랑 이브 아빠 스페이스키 눌러도 충돌일으키지 않아야 하는 상태로 만들기
+		NewDialogue->SetActive(true);
+		NewDialogue->SetText(Script[CurTextIndex]);
+		NewDialogue->CharTextBoxRendererOn();
 
-		ADialogue* MomDialogue = SpawnActor<ADialogue>();
-		IbMom->SetDialogue(MomDialogue);
-		MomDialogue->SetActive(true, 1.0f);
-		MomDialogue->SetActorLocation({ 640, 620 });
-		MomDialogue->CharTextBoxRendererOn();
-		MomDialogue->SetText(Script[CurTextIndex]);
-
-		if (true == UEngineInput::IsDown(VK_SPACE)/* && true == MomDialogue->IsActive()*/)
+		if (true == UEngineInput::IsDown(VK_SPACE) && true == NewDialogue->IsActive())
 		{
 			++CurTextIndex;
+			
 			if (CurTextIndex >= 4)
 			{
-				MomDialogue->SetActive(false);
 				CurEventState = EStartEventState::End;
+ 				NewDialogue->SetActive(false);
 				return;
 			}
-			MomDialogue->SetText(Script[CurTextIndex]);
+
+			NewDialogue->SetText(Script[CurTextIndex]);
 
 		}
-
 
 	}
 
 	if (CurEventState == EStartEventState::End)
 	{
 		NewPlayer->StateChange(EPlayState::Idle);
+		IbMom->StateChange(EPlayState::Idle);
 		StateChange(EEventState::PlayerControll);
 	}
 

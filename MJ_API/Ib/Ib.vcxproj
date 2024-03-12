@@ -159,6 +159,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="APrevLevel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="NextLevel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="FadeIntro.h">
       <SubType>
       </SubType>
@@ -269,6 +277,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="APrevLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="NextLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="FadeIntro.cpp">
       <SubType>
       </SubType>

@@ -17,7 +17,6 @@ ADialogue::~ADialogue()
 
 void ADialogue::SetText(std::string _Text, float _Value /*= 20*/, Color8Bit _Color /*= Color8Bit::White*/)
 {
-	Renderers[2]->ActiveOn();
 	Renderers[2]->SetText(_Text);
 	Renderers[2]->SetTextSize(_Value);
 	Renderers[2]->SetTextColor(_Color);
