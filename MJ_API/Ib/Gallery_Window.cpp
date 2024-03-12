@@ -69,7 +69,7 @@ void AGallery_Window::Tick(float _DeltaTime)
 		{
 			Dialogue->SetActive(true);
 			Dialogue->CharTextBoxRendererOn();
-			Dialogue->SetText("담배나 피러 나갈까...");
+			Dialogue->SetText("한 대 피우고 올까......");
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{

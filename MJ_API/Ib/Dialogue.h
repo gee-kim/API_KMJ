@@ -21,7 +21,7 @@ public:
 	ADialogue& operator=(const ADialogue& _Other) = delete;
 	ADialogue& operator=(ADialogue&& _Other) noexcept = delete;
 
-	void SetText(std::string _Text, float _Value = 20, Color8Bit _Color = Color8Bit::White);
+	void SetText(std::string _Text, float _Value = 22, Color8Bit _Color = Color8Bit::White);
 
 	void CharTextBoxRendererOn();
 	void ArtTextBoxRendererOn();

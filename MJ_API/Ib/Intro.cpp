@@ -44,7 +44,7 @@ void AIntro::BeginPlay()
 		Script.push_back("한낮의 회색빛 하늘 아래......");
 		Script.push_back("이브와 그녀의 부모님은 미술관으로 가고 있었습니다......");
 		Script.push_back("'잊은건 없니? 이브'");
-		Script.push_back("'맞다, 손수건은 챙겼니?\n        있잖아, 생일선물로 줬던거'");
+		Script.push_back("'맞다, 손수건은 챙겼니?\n\n        있잖아, 생일선물로 줬던거'");
 		Script.push_back("'주머니 안에 잘 챙겨둬야 해? 잃어버리면 안 된다'");
 	
 		
@@ -70,7 +70,7 @@ void AIntro::Tick(float _DeltaTime)
 	{
 		Dialogue->SetActive(true);
 		Dialogue->AllTextBoxRendererOff();
-		Dialogue->SetText(Script[CurTextIndex]);
+		Dialogue->SetText(Script[CurTextIndex], 25.0f);
 	}
 	
 	

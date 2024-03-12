@@ -27,6 +27,9 @@ private:
 	std::vector<UImageRenderer*> Renderers;
 	UCollision* Collisions = nullptr;
 
+	int CurTextIndex = 0;
+	std::vector<std::string> Script;
+
 	ADialogue* Dialogue = nullptr;
 
 };

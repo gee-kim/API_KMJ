@@ -51,7 +51,7 @@ void AWallArt_Sea::Tick(float _DeltaTime)
 			//StateChange("Talk");
 			Dialogue->SetActive(true);
 			Dialogue->ArtTextBoxRendererOn();
-			Dialogue->SetText("바닷가가 어딘가 추워보여..");
+			Dialogue->SetText("[물가의 ? ?]");
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{

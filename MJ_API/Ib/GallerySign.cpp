@@ -28,6 +28,10 @@ void AGallerySign::BeginPlay()
 
 	}
 
+	Script.push_back("'어서오세요 게르테나전의 세계에'\n        오늘은 ? ? ? 주셔서 진심으로 감사드립니다.");
+	Script.push_back("본관에서는 현재 '바이스 게르테나전'을\n     ? ? 하고 있습니다.");
+	Script.push_back("게르테나씨가 말년에 그리신 아름다운 작품들을\n    부디 마음 가는대로 즐겨주시기 바랍니다.");
+	Script.push_back("어려워서 읽을 수 없는 글자가 있어......");
 }
 
 
@@ -53,12 +57,20 @@ void AGallerySign::Tick(float _DeltaTime)
 			//StateChange("Talk");
 			Dialogue->SetActive(true);
 			Dialogue->ArtTextBoxRendererOn();
-			Dialogue->SetText("게르테나전에 방문에 주셔서 감사합니다..");
+			Dialogue->SetText(Script[CurTextIndex]);
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{
-			//StateChange("Ilde");
-			Dialogue->SetActive(false);
+			++CurTextIndex;
+
+			if (CurTextIndex >= Script.size())
+			{
+				CurTextIndex = 0;
+				Dialogue->SetActive(false);
+				return;
+			}
+
+			Dialogue->SetText(Script[CurTextIndex]);
 		}
 	}
 

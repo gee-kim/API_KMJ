@@ -41,6 +41,9 @@ void ARightBigArt::BeginPlay()
 
 	}
 
+	Script.push_back("[정신의 ? ? ? ]");
+	Script.push_back("보기에 아름다운 그 모습은 너무 가까워지면 \n   다칠 수 ? ? ? ? 한 육체에서만 피어납니다.");
+
 }
 
 
@@ -64,11 +67,20 @@ void ARightBigArt::Tick(float _DeltaTime)
 		{
 			Dialogue->SetActive(true);
 			Dialogue->CharTextBoxRendererOn();
-			Dialogue->SetText("RightBigArt 문구 입력필요");
+			Dialogue->SetText(Script[CurTextIndex]);
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{
-			Dialogue->SetActive(false);
+			++CurTextIndex;
+
+			if (CurTextIndex >= Script.size())
+			{
+				CurTextIndex = 0;
+				Dialogue->SetActive(false);
+				return;
+			}
+
+			Dialogue->SetText(Script[CurTextIndex]);
 		}
 	}
 
