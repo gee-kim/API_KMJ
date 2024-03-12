@@ -39,12 +39,12 @@ void UGalleryLevel::BeginPlay()
 	BGMPlayer.Loop();
 
 	ANextLevel* NextLevel = SpawnActor<ANextLevel>();
-	NextLevel->SetActorLocation({ 1000,240 });
+	NextLevel->SetActorLocation({ 1100,200 });
 
 	//눈에 보이는 맵이랑, 충돌용 맵 넣어준다.
 	Map = SpawnActor<ABackGroundMap>();
 	Map->SetMapImage("galleryandArts_(1).png");
-	Map->SetColMapImage("gallery_colmap(1).png");
+	Map->SetColMapImage("gallery_colmap.png");
 
 	FVector ImageScale = Map->GetImageScale();
 
@@ -54,7 +54,7 @@ void UGalleryLevel::BeginPlay()
 	// 플레이어 액터 생성해준다.
 	// 액터로케이션 맵띄어서 확인해보고 조정해주기
 	NewPlayer = SpawnActor<APlayer>();
-	NewPlayer->SetActorLocation({ 470, 690 });
+	NewPlayer->SetActorLocation({ 470, 680 });
 	NewPlayer->SetImageScale(ImageScale);
 	// 플레이어는 이벤트상태일때는 아무것도 안한다.
 	NewPlayer->StateChange(EPlayState::Event);
@@ -66,12 +66,12 @@ void UGalleryLevel::BeginPlay()
 	//갤러리맵에 실제로 위치하고 콜리젼을 담당하는 객체들
 	{
 		IbMom = SpawnActor<AMom>();
-		IbMom->SetActorLocation({ 470,620 });
+		IbMom->SetActorLocation({ 470,610 });
 		IbMom->SetDialogue(NewDialogue);
-		IbMom->StateChange(EPlayState::Event);
+		//IbMom->StateChange(EPlayState::Event);
 
 		IbDad = SpawnActor<ADad>();
-		IbDad->SetActorLocation({ 470,590 });
+		IbDad->SetActorLocation({ 470,570 });
 		IbDad->SetDialogue(NewDialogue);
 		//IbDad->StateChange(EPlayState::Event);
 
@@ -215,6 +215,30 @@ void UGalleryLevel::StateUpdate(float _DeltaTime)
 void UGalleryLevel::StartEvent(float _DeltaTime)
 
 {
+	FVector PlayerLocation = NewPlayer->GetTransform().GetPosition();
+	UEngineWindow& Window = GEngine->MainWindow;
+	FVector ScreenSize = Window.GetWindowScale();
+	FVector CameraPos;
+	CameraPos.X = PlayerLocation.X - ScreenSize.hX();
+	CameraPos.Y = PlayerLocation.Y - ScreenSize.hY();
+
+
+	// 카메라 위치 맵에서 나가지 않게 지정해주기
+
+	if (0.0 >= CameraPos.X)
+	{
+		CameraPos.X = 0.0f;
+	}
+
+	if (0.0 >= CameraPos.Y)
+	{
+		CameraPos.Y = 0.0f;
+	}
+
+
+	SetCameraPos(CameraPos);
+
+
 	PlayTime -= _DeltaTime;
 
 	if (PlayTime <= 0)
@@ -228,17 +252,17 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 	Script.push_back("오늘 보러 온 건\n'게르테나'라는 사람의 전시회인데......");//엄마 입벌린 표정
 	Script.push_back("그림 말고도 조각이라든가......\n여러 재미있는 작품들이 있는 것 같으니까");//엄마 살짝 웃는표정
 	Script.push_back("분명 이브도 재밌게 볼 수 있을 거야");//엄마 활짝 웃는 표정
-	////아빠 뒤돌고 대사
-	//Script.push_back("접수하고 올까?");//아빠 살짝 웃는 표정
-	//Script.push_back("그래\n그리고 전단지도 받아가자");//엄마 살짝 웃는표정
+	//아빠 뒤돌고 대사
+	Script.push_back("접수하고 올까?");//아빠 살짝 웃는 표정
+	Script.push_back("그래\n그리고 전단지도 받아가자");//엄마 살짝 웃는표정
 
 	////엄마 아빠 걸어나와서 프론트에 나란히 선다.
 	////이후에 이브도 엄마 옆으로 가서 나란히 선다.
 	////이브가 오른쪽 엄마쪽으로 돌아서고, 엄마도 이브를 돌아 본 후
-	//Script.push_back("응? 먼저 보고 있겠다고?\n정말, 이브도 참......어쩔 수 없네");//엄마 살짝 당황표정
-	//Script.push_back("미술관 안에서는 조용히 해야한다??\n알겠지?");//엄마 단호한 표정
-	//Script.push_back("......뭐, 너라면 걱정 없지만");//엄마 살짝 웃는표정
-	//Script.push_back("다른 사람들한테 민폐를 끼치지 않도록 주의하렴");//엄마 살짝 웃는표정
+	Script.push_back("응? 먼저 보고 있겠다고?\n정말, 이브도 참......어쩔 수 없네");//엄마 살짝 당황표정
+	Script.push_back("미술관 안에서는 조용히 해야한다??\n알겠지?");//엄마 단호한 표정
+	Script.push_back("......뭐, 너라면 걱정 없지만");//엄마 살짝 웃는표정
+	Script.push_back("다른 사람들한테 민폐를 끼치지 않도록 주의하렴");//엄마 살짝 웃는표정
 	//엄마 앞을 본다. 이브 자유시간
 
 	// 세명의 캐릭터가 앞으로걸어가면 된다.
@@ -265,22 +289,24 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 
 	if (CurEventState == EStartEventState::MomTalk)
 	{
+
 		IbMom->SetAnimation("Idle_Down");
 		//BGMSound = UEngineSound::SoundPlay("put_00.ogg");
 
-		//이브엄마랑 이브 아빠 스페이스키 눌러도 충돌일으키지 않아야 하는 상태로 만들기
+
 		NewDialogue->SetActive(true);
 		NewDialogue->SetText(Script[CurTextIndex]);
 		NewDialogue->CharTextBoxRendererOn();
 
+
 		if (true == UEngineInput::IsDown(VK_SPACE) && true == NewDialogue->IsActive())
 		{
 			++CurTextIndex;
-			
+
 			if (CurTextIndex >= 4)
 			{
-				CurEventState = EStartEventState::End;
- 				NewDialogue->SetActive(false);
+				CurEventState = EStartEventState::DadTalk;
+				NewDialogue->SetActive(false);
 				return;
 			}
 
@@ -290,10 +316,102 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 
 	}
 
+
+	if (CurEventState == EStartEventState::DadTalk)
+	{
+		IbDad->SetAnimation("Idle_Down");
+
+		NewDialogue->SetActive(true);
+		NewDialogue->SetText(Script[CurTextIndex]);
+		NewDialogue->CharTextBoxRendererOn();
+
+		if (true == UEngineInput::IsDown(VK_SPACE) && true == NewDialogue->IsActive())
+		{
+			++CurTextIndex;
+
+			if (CurTextIndex >= 6)
+			{
+				CurEventState = EStartEventState::WalktoFront;
+				NewDialogue->SetActive(false);
+				return;
+			}
+
+			NewDialogue->SetText(Script[CurTextIndex]);
+
+		}
+	}
+
+	if (CurEventState == EStartEventState::WalktoFront)
+	{
+		IbMom->SetAnimation("Move_Right");
+		IbDad->SetAnimation("Move_Right");
+		NewPlayer->SetAnimation("Move_Right");
+
+		IbMom->AddActorLocation(FVector::Right * 52.0f * _DeltaTime);
+		IbDad->AddActorLocation(FVector::Right * 40.0f * _DeltaTime);
+		NewPlayer->AddActorLocation(FVector::Right * 30.0f * _DeltaTime);
+
+		FrontWalkTime -= _DeltaTime;
+		if (0.0f >= FrontWalkTime)
+		{
+			IbMom->SetAnimation("Idle_Right");
+			IbDad->SetAnimation("Idle_Right");
+			NewPlayer->SetAnimation("Idle_Right");
+			CurEventState = EStartEventState::WalktoDesk;
+		}
+	}
+
+	if (CurEventState == EStartEventState::WalktoDesk)
+	{
+		IbMom->SetAnimation("Move_Up");
+		IbDad->SetAnimation("Move_Right");
+		NewPlayer->SetAnimation("Move_Up");
+
+		IbMom->AddActorLocation(FVector::Up * 20.0f * _DeltaTime);
+		IbDad->AddActorLocation(FVector::Right * 35.0f * _DeltaTime);
+		NewPlayer->AddActorLocation(FVector::Up * 35.0f * _DeltaTime);
+
+		UpWalkTime -= _DeltaTime;
+		if (0.0f >= UpWalkTime)
+		{
+			IbMom->SetAnimation("Idle_Up");
+			IbDad->SetAnimation("Idle_Up");
+			NewPlayer->SetAnimation("Idle_Up");
+			CurEventState = EStartEventState::IbTalk;
+		}
+	}
+
+	if (CurEventState == EStartEventState::IbTalk)
+	{
+		NewPlayer->SetAnimation("Idle_Right");
+		IbMom->SetAnimation("Idle_Left");
+
+		NewDialogue->SetActive(true);
+		NewDialogue->SetText(Script[CurTextIndex]);
+		NewDialogue->CharTextBoxRendererOn();
+
+		if (true == UEngineInput::IsDown(VK_SPACE) && true == NewDialogue->IsActive())
+		{
+			++CurTextIndex;
+
+			if (CurTextIndex >= 10)
+			{
+				IbMom->SetAnimation("Idle_Up");
+				CurEventState = EStartEventState::End;
+				NewDialogue->SetActive(false);
+				return;
+			}
+
+			NewDialogue->SetText(Script[CurTextIndex]);
+
+		}
+	}
+
 	if (CurEventState == EStartEventState::End)
 	{
 		NewPlayer->StateChange(EPlayState::Idle);
 		IbMom->StateChange(EPlayState::Idle);
+		IbDad->StateChange(EPlayState::Idle);
 		StateChange(EEventState::PlayerControll);
 	}
 

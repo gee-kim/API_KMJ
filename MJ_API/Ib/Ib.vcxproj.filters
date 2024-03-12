@@ -72,17 +72,23 @@
     <ClInclude Include="SecondGalleryLevel.h">
       <Filter>Object\SecondGalleryLevel</Filter>
     </ClInclude>
-    <ClInclude Include="SecondGalleryArt.h">
-      <Filter>Object\SecondGalleryLevel</Filter>
-    </ClInclude>
-    <ClInclude Include="FadeIntro.h">
-      <Filter>Object\GalleryLevel\Actor</Filter>
-    </ClInclude>
     <ClInclude Include="NextLevel.h">
       <Filter>Object\GalleryLevel\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="APrevLevel.h">
-      <Filter>Object\SecondGalleryLevel</Filter>
+    <ClInclude Include="ThirdGalleryLevel.h">
+      <Filter>Object\ThirdGalleryLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="SecondGalleryArt.h">
+      <Filter>Object\SecondGalleryLevel\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="FadeIntro.h">
+      <Filter>Object\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="GrayScreen.h">
+      <Filter>Object\ThirdGalleryLevel\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="NextThirdLevel.h">
+      <Filter>Object\SecondGalleryLevel\Actor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -154,20 +160,26 @@
     <ClCompile Include="SecondGalleryLevel.cpp">
       <Filter>Object\SecondGalleryLevel</Filter>
     </ClCompile>
-    <ClCompile Include="SecondGalleryArt.cpp">
-      <Filter>Object\SecondGalleryLevel</Filter>
-    </ClCompile>
-    <ClCompile Include="FadeIntro.cpp">
-      <Filter>Object\GalleryLevel\Actor</Filter>
-    </ClCompile>
     <ClCompile Include="Dialogue.cpp">
       <Filter>Object\Global</Filter>
     </ClCompile>
     <ClCompile Include="NextLevel.cpp">
       <Filter>Object\GalleryLevel\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="APrevLevel.cpp">
-      <Filter>Object\SecondGalleryLevel</Filter>
+    <ClCompile Include="ThirdGalleryLevel.cpp">
+      <Filter>Object\ThirdGalleryLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="SecondGalleryArt.cpp">
+      <Filter>Object\SecondGalleryLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="FadeIntro.cpp">
+      <Filter>Object\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="GrayScreen.cpp">
+      <Filter>Object\ThirdGalleryLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="NextThirdLevel.cpp">
+      <Filter>Object\SecondGalleryLevel\Actor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,6 +218,15 @@
     </Filter>
     <Filter Include="Object\SecondGalleryLevel">
       <UniqueIdentifier>{4568ca1d-5688-437a-9e76-a59aa7e39ed5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\ThirdGalleryLevel">
+      <UniqueIdentifier>{8737fb55-7ae8-472f-a728-57c4687f4168}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\SecondGalleryLevel\Actor">
+      <UniqueIdentifier>{4fd7ca91-710e-4844-9de2-6253560c000b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\ThirdGalleryLevel\Actor">
+      <UniqueIdentifier>{f2a9e8e8-faa5-4003-995a-398dd76e1723}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

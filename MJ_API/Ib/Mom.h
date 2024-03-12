@@ -4,16 +4,6 @@
 #include "Player.h"
 #include "Dialogue.h"
 
-//enum class EEventState
-//{
-//	StartEvent,
-//	Idle,
-//};
-//
-//enum class EStartEventState
-//{
-//	Mom
-//};
 
 class AMom : public AActor
 {
@@ -56,7 +46,7 @@ private:
 	UCollision* Collision = nullptr;
 	UImageRenderer* Renderer = nullptr;
 
-	float MoveSpeed = 300.0f;
+	//float MoveSpeed = 300.0f;
 
 	int CurTextIndex = 0;
 	std::vector<std::string> Script;

@@ -110,7 +110,6 @@ void AMom::Idle(float _DeltaTime)
 		return;
 	}
 
-
 	std::vector<UCollision*> Result;
 
 	if (true == Collision->CollisionCheck(CollisionOrder::Player, Result))

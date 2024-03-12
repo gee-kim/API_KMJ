@@ -27,15 +27,25 @@ public:
 		Renderer->ChangeAnimation(_AnimationName);
 	}
 
+	void StateChange(EPlayState _State);
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _Deltatime) override;
+
+	void StateUpdate(float _DeltaTime);
+
+	// 상태 함수
+	void Idle(float _DeltaTime);
+	void Event(float _DeltaTime);
+
+	EPlayState State = EPlayState::Event;
 
 private:
 	UCollision* Collision = nullptr;
 	UImageRenderer* Renderer = nullptr;
 
-	float MoveSpeed = 300.0f;
+	//float MoveSpeed = 300.0f;
 
 	int CurTextIndex = 0;
 	std::vector<std::string> Script;

@@ -19,8 +19,7 @@ void ANextLevel::BeginPlay()
 	AActor::BeginPlay();
 
 	BodyCollision = CreateCollision(CollisionOrder::Characters);
-	BodyCollision->SetPosition({ 0, 0 });
-	BodyCollision->SetScale({ 50,100 });
+	BodyCollision->SetScale({ 200,100 });
 	BodyCollision->SetColType(ECollisionType::Rect);
 
 }

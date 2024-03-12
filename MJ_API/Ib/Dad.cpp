@@ -49,10 +49,20 @@ void ADad::BeginPlay()
 	//Script.push_back("'작은따옴표 나오나?'\n 줄바꿈은 되나?\n띄어쓰기는?");
 	//Script.push_back("세번째 대사");
 
+	StateChange(EPlayState::Event);
+
 }
 
-
 void ADad::Tick(float _DeltaTime)
+{
+
+	AActor::Tick(_DeltaTime);
+
+	StateUpdate(_DeltaTime);
+
+}
+
+void ADad::Idle(float _DeltaTime)
 {
 	if (nullptr == Dialogue)
 	{
@@ -94,4 +104,42 @@ void ADad::Tick(float _DeltaTime)
 
 	}
 
+}
+
+
+void ADad::StateChange(EPlayState _State)
+{
+	switch (_State)
+	{
+	case EPlayState::Idle:
+		break;
+	case EPlayState::Event:
+		break;
+	default:
+		break;
+	}
+
+
+	State = _State;
+
+}
+
+void ADad::StateUpdate(float _DeltaTime)
+{
+	switch (State)
+	{
+	case EPlayState::Idle:
+		Idle(_DeltaTime);
+	case EPlayState::Event:
+		Event(_DeltaTime);
+	default:
+		break;
+	}
+
+
+}
+
+void ADad::Event(float _DeltaTime)
+{
+	int a = 0;
 }

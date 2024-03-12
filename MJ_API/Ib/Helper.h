@@ -13,6 +13,7 @@ enum class PlayRenderOrder
 	Characters,
 	Player,
 	Art_Front,
+	GrayScreen,
 	Dialogue,
 	Text,
 	Fade,

@@ -13,6 +13,11 @@ public:
 	AFadeIntro& operator=(const AFadeIntro& _Other) = delete;
 	AFadeIntro& operator=(AFadeIntro&& _Other) noexcept = delete;
 
+	void SetFadeTime(float _Fadetime)
+	{
+		FadeTime = _Fadetime;
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;

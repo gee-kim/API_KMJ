@@ -17,6 +17,10 @@ enum class EStartEventState
 	// 대화창에 대사가 나오는 상태
 	MomTalk,
 	DadTalk,
+	//프론트데스크로 걸어나가는 상태
+	WalktoFront,
+	WalktoDesk,
+	IbTalk,
 	// 플레이어가 조작할수 있는 상태
 	End,
 };
@@ -48,7 +52,8 @@ protected:
 
 	EStartEventState CurEventState = EStartEventState::Walk;
 	float WalkTime = 4.0f;
-
+	float FrontWalkTime = 2.0f;
+	float UpWalkTime = 2.0f;
 	float PlayTime = 2.0f;
 
 	void StateChange(EEventState _State);

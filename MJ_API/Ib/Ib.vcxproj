@@ -159,7 +159,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="APrevLevel.h">
+    <ClInclude Include="NextThirdLevel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="GrayScreen.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -192,6 +196,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="SecondGalleryLevel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="ThirdGalleryLevel.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -277,7 +285,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="APrevLevel.cpp">
+    <ClCompile Include="NextThirdLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="GrayScreen.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -310,6 +322,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="SecondGalleryLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="ThirdGalleryLevel.cpp">
       <SubType>
       </SubType>
     </ClCompile>
