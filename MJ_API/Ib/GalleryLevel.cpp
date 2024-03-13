@@ -15,6 +15,13 @@
 #include "Dad.h"
 #include "FadeIntro.h"
 #include "NextLevel.h"
+#include "PhoneMan.h"
+#include "PonyTail.h"
+#include "BlueHair.h"
+#include "BrownHair.h"
+#include "OldLady.h"
+#include "PinkWomen.h"
+#include "WindowMan.h"
 #include <EngineCore\EngineCore.h>
 #include <EngineCore\EngineResourcesManager.h>
 #include <EngineBase\EngineDirectory.h>
@@ -77,7 +84,7 @@ void UGalleryLevel::BeginPlay()
 
 		AGallery_Window* GalleryWindow = SpawnActor<AGallery_Window>();
 		GalleryWindow->SetActorLocation({ 600, 400 });
-		GalleryWindow->SetDialogue(NewDialogue);
+		//GalleryWindow->SetDialogue(NewDialogue);
 
 		AGalleryButler* NewButler = SpawnActor<AGalleryButler>();
 		NewButler->SetActorLocation({ 860,460 });
@@ -112,8 +119,35 @@ void UGalleryLevel::BeginPlay()
 		Sneeze->SetActorLocation({ 1895, 1305 });
 		Sneeze->SetDialogue(NewDialogue);
 
-	}
+		APhoneMan* PhoneMan = SpawnActor<APhoneMan>();
+		PhoneMan->SetActorLocation({ 1470,600 });
+		PhoneMan->SetDialogue(NewDialogue);
 
+		APonyTail* PonyTail = SpawnActor<APonyTail>();
+		PonyTail->SetActorLocation({ 1470,650 });
+		PonyTail->SetDialogue(NewDialogue);
+
+		ABlueHair* BlueHair = SpawnActor<ABlueHair>();
+		BlueHair->SetActorLocation({ 1800,780 });
+		BlueHair->SetDialogue(NewDialogue);
+
+		ABrownHair* BrownHair = SpawnActor<ABrownHair>();
+		BrownHair->SetActorLocation({ 1580,780 });
+		BrownHair->SetDialogue(NewDialogue);
+
+		AOldLady* OldLady = SpawnActor<AOldLady>();
+		OldLady->SetActorLocation({ 1890,620 });
+		OldLady->SetDialogue(NewDialogue);
+
+		APinkWomen* PinkWomen = SpawnActor<APinkWomen>();
+		PinkWomen->SetActorLocation({ 1580,445 });
+		PinkWomen->SetDialogue(NewDialogue);
+
+		AWindowMan* WindowMan = SpawnActor<AWindowMan>();
+		WindowMan->SetActorLocation({ 600, 400 });
+		WindowMan->SetDialogue(NewDialogue);
+
+	}
 
 	//카메라의 위치는 
 	//플레이어의 위치에서 윈도우 크기의 Half만큼 x,y 값으로 이동한 위치
@@ -154,8 +188,8 @@ void UGalleryLevel::BeginPlay()
 
 	SetCameraPos(CameraPos);
 
-	//StateChange(EEventState::PlayerControll);
-	//NewPlayer->StateChange(EPlayState::Idle);
+	StateChange(EEventState::PlayerControll);
+	NewPlayer->StateChange(EPlayState::Idle);
 
 
 }

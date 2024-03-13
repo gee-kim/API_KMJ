@@ -90,6 +90,30 @@
     <ClInclude Include="NextThirdLevel.h">
       <Filter>Object\SecondGalleryLevel\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="PhoneMan.h">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="PonyTail.h">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="BrownHair.h">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="AOceanSign.h">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueHair.h">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="OldLady.h">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="PinkWomen.h">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowMan.h">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -180,6 +204,30 @@
     </ClCompile>
     <ClCompile Include="NextThirdLevel.cpp">
       <Filter>Object\SecondGalleryLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="PhoneMan.cpp">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="PonyTail.cpp">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="BrownHair.cpp">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="AOceanSign.cpp">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueHair.cpp">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="OldLady.cpp">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="PinkWomen.cpp">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowMan.cpp">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

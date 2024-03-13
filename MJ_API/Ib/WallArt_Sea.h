@@ -24,8 +24,7 @@ protected:
 	void Tick(float _Deltatime) override;
 
 private:
-	std::vector<UImageRenderer*> Renderers;
-	std::vector<UCollision*> Collisions;
+	UCollision* Collision = nullptr;
 
 	ADialogue* Dialogue = nullptr;
 

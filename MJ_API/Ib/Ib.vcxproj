@@ -159,6 +159,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="WindowMan.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="BlueHair.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="BrownHair.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="AOceanSign.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="OldLady.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="PhoneMan.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="PinkWomen.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="PonyTail.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="NextThirdLevel.h">
       <SubType>
       </SubType>
@@ -285,6 +317,38 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="WindowMan.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="BlueHair.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="BrownHair.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="AOceanSign.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="OldLady.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="PhoneMan.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="PinkWomen.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="PonyTail.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="NextThirdLevel.cpp">
       <SubType>
       </SubType>

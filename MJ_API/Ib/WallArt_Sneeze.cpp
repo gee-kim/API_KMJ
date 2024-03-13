@@ -66,7 +66,7 @@ void AWallArt_Sneeze::Tick(float _DeltaTime)
 			//StateChange("Talk");
 			Dialogue->SetActive(true);
 			Dialogue->ArtTextBoxRendererOn();
-			Dialogue->SetText("어린아이");
+			Dialogue->SetText("[기침하는남자]");
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{

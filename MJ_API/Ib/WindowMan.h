@@ -3,18 +3,17 @@
 #include "Helper.h"
 #include "Dialogue.h"
 
-
-class AGallery_Window : public AActor
+class AWindowMan : public AActor
 {
 public:
-	AGallery_Window();
-	~AGallery_Window();
+	AWindowMan();
+	~AWindowMan();
 
 	// delete Function
-	AGallery_Window(const AGallery_Window& _Other) = delete;
-	AGallery_Window(AGallery_Window&& _Other) noexcept = delete;
-	AGallery_Window& operator=(const AGallery_Window& _Other) = delete;
-	AGallery_Window& operator=(AGallery_Window&& _Other) noexcept = delete;
+	AWindowMan(const AWindowMan& _Other) = delete;
+	AWindowMan(AWindowMan&& _Other) noexcept = delete;
+	AWindowMan& operator=(const AWindowMan& _Other) = delete;
+	AWindowMan& operator=(AWindowMan&& _Other) noexcept = delete;
 
 	void SetDialogue(ADialogue* _Dialogue)
 	{
@@ -28,7 +27,10 @@ protected:
 private:
 	std::vector<UImageRenderer*> Renderers;
 	UCollision* Collisions = nullptr;
-	
+
+	std::vector<UCollision*> Result;
+	class APlayer* Player = nullptr;
+
 	ADialogue* Dialogue = nullptr;
 
 };

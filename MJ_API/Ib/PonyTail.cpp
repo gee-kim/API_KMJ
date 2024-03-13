@@ -1,55 +1,52 @@
-#include "GalleryButler.h"
+#include "PonyTail.h"
 #include "Helper.h"
 #include <EngineBase\EngineDebug.h>
-#include <EngineCore/EngineResourcesManager.h>
 #include <EnginePlatform\EngineInput.h>
+#include <EngineCore/EngineResourcesManager.h>
 
-AGalleryButler::AGalleryButler()
+APonyTail::APonyTail()
 {
 }
 
-AGalleryButler::~AGalleryButler()
+APonyTail::~APonyTail()
 {
 }
 
-void AGalleryButler::BeginPlay()
+
+void APonyTail::BeginPlay()
 {
 	AActor::BeginPlay();
 	{
 		// 이미지컷팅하기(애니메이션용)
-		UEngineResourcesManager::GetInst().CuttingImage("$mob_03.png", 3, 4);
+		UEngineResourcesManager::GetInst().CuttingImage("$mob_00.png", 3, 4);
 
 		// 화면에 아트와 캐릭터들 이미지랜더
 		UImageRenderer* CurRenderer = nullptr;
 
 		CurRenderer = CreateImageRenderer(PlayRenderOrder::Characters);
-		CurRenderer->SetImage("$mob_03.png");
+		CurRenderer->SetImage("$mob_00.png");
 		CurRenderer->AutoImageScale();
 		//CurRenderer->SetPosition({ 60, 60 });
 		//CurRenderer->SetTransform({ {0,60}, {48, 96} });
 		Renderers.push_back(CurRenderer);
-		CurRenderer->CreateAnimation("Idle", "$mob_03.png", 0, 2, 1.0f, true);
-		CurRenderer->CreateAnimation("Talk", "$mob_03.png", 6, 8, 0.0f, true);
+		CurRenderer->CreateAnimation("Idle", "$mob_00.png", 0, 0, 0.0f, true);
 		CurRenderer->ChangeAnimation("Idle");
 
 		// 플레이어와 충돌체랜더
-		UCollision* CurCreateCollsions = nullptr;
-
-		CurCreateCollsions = CreateCollision(CollisionOrder::Art);
-		CurCreateCollsions->SetScale({ 50, 100 });
-		CurCreateCollsions->SetColType(ECollisionType::CirCle);
-		Collisions.push_back(CurCreateCollsions);
+		Collision = CreateCollision(CollisionOrder::Art);
+		Collision->SetScale({ 50, 50 });
+		Collision->SetPosition({ 0,50 });
+		Collision->SetColType(ECollisionType::Rect);
 
 	}
 
-	Texts.push_back("이곳은 들어오면 안된단다? 귀여운 꼬마아가씨.");
-	Texts.push_back("'작은따옴표 나오나?'\n 줄바꿈은 되나?\n띄어쓰기는?");
-	Texts.push_back("세번째 대사");
+	Texts.push_back("이 작품, 내 눈으로 직접 보고 싶었어!");
+	Texts.push_back("역시 책에서 보는 거랑은 전혀 다르네......\n   분위기가 정말...... 무슨 소리인지......알지!");
 
 }
 
 
-void AGalleryButler::Tick(float _DeltaTime)
+void APonyTail::Tick(float _DeltaTime)
 {
 	if (nullptr == Dialogue)
 	{
@@ -61,7 +58,7 @@ void AGalleryButler::Tick(float _DeltaTime)
 
 	std::vector<UCollision*> Result;
 
-	if (true == Collisions[0]->CollisionCheck(CollisionOrder::Player, Result))
+	if (true == Collision->CollisionCheck(CollisionOrder::Player, Result))
 	{
 		//플레이어와 충돌이 일어나면 키가눌리는거 체크하고,
 		//키가 눌린다면 Textbox가 출력되게 만들기
@@ -72,7 +69,7 @@ void AGalleryButler::Tick(float _DeltaTime)
 			Dialogue->SetActive(true);
 			Dialogue->CharTextBoxRendererOn();
 			Dialogue->SetText(Texts[CurTextIndex]);
-			
+
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{

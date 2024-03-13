@@ -1,55 +1,51 @@
-#include "GalleryButler.h"
+#include "BlueHair.h"
 #include "Helper.h"
 #include <EngineBase\EngineDebug.h>
-#include <EngineCore/EngineResourcesManager.h>
 #include <EnginePlatform\EngineInput.h>
+#include <EngineCore/EngineResourcesManager.h>
 
-AGalleryButler::AGalleryButler()
+ABlueHair::ABlueHair()
 {
 }
 
-AGalleryButler::~AGalleryButler()
+ABlueHair::~ABlueHair()
 {
 }
 
-void AGalleryButler::BeginPlay()
+
+void ABlueHair::BeginPlay()
 {
 	AActor::BeginPlay();
 	{
 		// 이미지컷팅하기(애니메이션용)
-		UEngineResourcesManager::GetInst().CuttingImage("$mob_03.png", 3, 4);
+		UEngineResourcesManager::GetInst().CuttingImage("$mob_02.png", 3, 4);
 
 		// 화면에 아트와 캐릭터들 이미지랜더
 		UImageRenderer* CurRenderer = nullptr;
 
 		CurRenderer = CreateImageRenderer(PlayRenderOrder::Characters);
-		CurRenderer->SetImage("$mob_03.png");
+		CurRenderer->SetImage("$mob_02.png");
 		CurRenderer->AutoImageScale();
 		//CurRenderer->SetPosition({ 60, 60 });
 		//CurRenderer->SetTransform({ {0,60}, {48, 96} });
 		Renderers.push_back(CurRenderer);
-		CurRenderer->CreateAnimation("Idle", "$mob_03.png", 0, 2, 1.0f, true);
-		CurRenderer->CreateAnimation("Talk", "$mob_03.png", 6, 8, 0.0f, true);
+		CurRenderer->CreateAnimation("Idle", "$mob_00.png", 5, 5, 0.0f, true);
 		CurRenderer->ChangeAnimation("Idle");
 
 		// 플레이어와 충돌체랜더
-		UCollision* CurCreateCollsions = nullptr;
-
-		CurCreateCollsions = CreateCollision(CollisionOrder::Art);
-		CurCreateCollsions->SetScale({ 50, 100 });
-		CurCreateCollsions->SetColType(ECollisionType::CirCle);
-		Collisions.push_back(CurCreateCollsions);
+		Collision = CreateCollision(CollisionOrder::Characters);
+		Collision->SetScale({ 50, 50 });
+		Collision->SetColType(ECollisionType::Rect);
 
 	}
 
-	Texts.push_back("이곳은 들어오면 안된단다? 귀여운 꼬마아가씨.");
-	Texts.push_back("'작은따옴표 나오나?'\n 줄바꿈은 되나?\n띄어쓰기는?");
-	Texts.push_back("세번째 대사");
+	Script.push_back("왠지 이 바닥 바로 밑에\n   정말로 물고기가 헤엄치고 있는 것 같아......");
+	Script.push_back("이런 게 실존하면 지릴 것 같은데......");
 
 }
 
 
-void AGalleryButler::Tick(float _DeltaTime)
+void ABlueHair::Tick(float _DeltaTime)
 {
 	if (nullptr == Dialogue)
 	{
@@ -61,7 +57,7 @@ void AGalleryButler::Tick(float _DeltaTime)
 
 	std::vector<UCollision*> Result;
 
-	if (true == Collisions[0]->CollisionCheck(CollisionOrder::Player, Result))
+	if (true == Collision->CollisionCheck(CollisionOrder::Player, Result))
 	{
 		//플레이어와 충돌이 일어나면 키가눌리는거 체크하고,
 		//키가 눌린다면 Textbox가 출력되게 만들기
@@ -71,21 +67,21 @@ void AGalleryButler::Tick(float _DeltaTime)
 			// 그리고 다른 액터들도 정지되는 상태로 만들어주기.
 			Dialogue->SetActive(true);
 			Dialogue->CharTextBoxRendererOn();
-			Dialogue->SetText(Texts[CurTextIndex]);
-			
+			Dialogue->SetText(Script[CurTextIndex]);
+
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{
 			++CurTextIndex;
 
-			if (CurTextIndex >= Texts.size())
+			if (CurTextIndex >= Script.size())
 			{
 				CurTextIndex = 0;
 				Dialogue->SetActive(false);
 				return;
 			}
 
-			Dialogue->SetText(Texts[CurTextIndex]);
+			Dialogue->SetText(Script[CurTextIndex]);
 
 		}
 

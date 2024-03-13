@@ -1,26 +1,34 @@
-#include "WallArt_Sea.h"
+#include "OldLady.h"
 #include <EngineBase\EngineDebug.h>
 #include <EnginePlatform\EngineInput.h>
 #include <EngineCore/EngineResourcesManager.h>
-#include "Helper.h"
 
-AWallArt_Sea::AWallArt_Sea()
+AOldLady::AOldLady()
 {
 }
 
-AWallArt_Sea::~AWallArt_Sea()
+AOldLady::~AOldLady()
 {
 }
 
-void AWallArt_Sea::BeginPlay()
+void AOldLady::BeginPlay()
 {
 	AActor::BeginPlay();
 	{
-		// 플레이어와 충돌체랜더
+		// 이미지컷팅하기(애니메이션용)
+		UEngineResourcesManager::GetInst().CuttingImage("$mob_00.png", 3, 4);
 
+		// 화면에 아트와 캐릭터들 이미지랜더
+		Renderer = CreateImageRenderer(PlayRenderOrder::Characters);
+		Renderer->SetImage("$mob_00.png");
+		Renderer->AutoImageScale();
+		Renderer->CreateAnimation("Idle", "$mob_00.png", 8, 8, 0.0f, true);
+		Renderer->ChangeAnimation("Idle");
+
+
+		// 플레이어와 충돌체랜더
 		Collision = CreateCollision(CollisionOrder::Art);
-		Collision->SetPosition(GetActorLocation());
-		Collision->SetScale({ 50, 30 });
+		Collision->SetScale({ 50, 50 });
 		Collision->SetColType(ECollisionType::Rect);
 
 	}
@@ -28,7 +36,7 @@ void AWallArt_Sea::BeginPlay()
 }
 
 
-void AWallArt_Sea::Tick(float _DeltaTime)
+void AOldLady::Tick(float _DeltaTime)
 {
 	if (nullptr == Dialogue)
 	{
@@ -46,14 +54,13 @@ void AWallArt_Sea::Tick(float _DeltaTime)
 		//키가 눌린다면 Textbox가 출력되게 만들기
 		if (true == UEngineInput::IsDown(VK_SPACE) && false == Dialogue->IsActive())
 		{
-			//StateChange("Talk");
+
 			Dialogue->SetActive(true);
-			Dialogue->ArtTextBoxRendererOn();
-			Dialogue->SetText("[물가의 ? ?]");
+			Dialogue->CharTextBoxRendererOn();
+			Dialogue->SetText("꽤나 커다란 작품이네......");
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{
-			//StateChange("Ilde");
 			Dialogue->SetActive(false);
 		}
 	}

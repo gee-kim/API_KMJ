@@ -1,26 +1,36 @@
-#include "WallArt_Sea.h"
+#include "BrownHair.h"
+#include "Helper.h"
 #include <EngineBase\EngineDebug.h>
 #include <EnginePlatform\EngineInput.h>
 #include <EngineCore/EngineResourcesManager.h>
-#include "Helper.h"
 
-AWallArt_Sea::AWallArt_Sea()
+
+ABrownHair::ABrownHair()
 {
 }
 
-AWallArt_Sea::~AWallArt_Sea()
+ABrownHair::~ABrownHair()
 {
 }
 
-void AWallArt_Sea::BeginPlay()
+void ABrownHair::BeginPlay()
 {
 	AActor::BeginPlay();
 	{
-		// 플레이어와 충돌체랜더
+		// 이미지컷팅하기(애니메이션용)
+		UEngineResourcesManager::GetInst().CuttingImage("$mob_02.png", 3, 4);
+		
+		// 화면에 아트와 캐릭터들 이미지랜더
+		Renderer = CreateImageRenderer(PlayRenderOrder::Characters);
+		Renderer->SetImage("$mob_02.png");
+		Renderer->AutoImageScale();
+		Renderer->CreateAnimation("Idle", "$mob_02.png", 3, 3, 0.0f, true);
+		Renderer->ChangeAnimation("Idle");
 
+	
+		// 플레이어와 충돌체랜더
 		Collision = CreateCollision(CollisionOrder::Art);
-		Collision->SetPosition(GetActorLocation());
-		Collision->SetScale({ 50, 30 });
+		Collision->SetScale({ 50, 50 });
 		Collision->SetColType(ECollisionType::Rect);
 
 	}
@@ -28,7 +38,7 @@ void AWallArt_Sea::BeginPlay()
 }
 
 
-void AWallArt_Sea::Tick(float _DeltaTime)
+void ABrownHair::Tick(float _DeltaTime)
 {
 	if (nullptr == Dialogue)
 	{
@@ -46,14 +56,13 @@ void AWallArt_Sea::Tick(float _DeltaTime)
 		//키가 눌린다면 Textbox가 출력되게 만들기
 		if (true == UEngineInput::IsDown(VK_SPACE) && false == Dialogue->IsActive())
 		{
-			//StateChange("Talk");
+
 			Dialogue->SetActive(true);
-			Dialogue->ArtTextBoxRendererOn();
-			Dialogue->SetText("[물가의 ? ?]");
+			Dialogue->CharTextBoxRendererOn();
+			Dialogue->SetText("지상에서 볼 수 있는 심해라......");
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{
-			//StateChange("Ilde");
 			Dialogue->SetActive(false);
 		}
 	}
