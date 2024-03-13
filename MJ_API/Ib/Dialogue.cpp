@@ -15,6 +15,7 @@ ADialogue::~ADialogue()
 }
 
 
+
 void ADialogue::SetText(std::string _Text, float _Value /*= 22*/, Color8Bit _Color /*= Color8Bit::White*/)
 {
 	Renderers[2]->SetText(_Text);
@@ -83,8 +84,37 @@ void ADialogue::BeginPlay()
 	Renderers.push_back(MovingBoxRenderer);
 	MovingBoxRenderer->CreateAnimation("Moving", "moving.png", 0, 3, 0.2, true);
 	MovingBoxRenderer->ChangeAnimation("Moving");
-	//UImageRenderer* MovingBoxRenderer = CreateImageRenderer(PlayRenderOrder::Dialogue);
-	//MovingBoxRenderer->SetImage("");
+	
+	MomSmileFace = CreateImageRenderer(PlayRenderOrder::Dialogue);
+	MomSmileFace->SetImage("mo_00.png");
+	MomSmileFace->AutoImageScale();
+	MomSmileFace->SetPosition({ -425,270 });
+	MomSmileFace->ActiveOff();
+
+	MomUpsetFace = CreateImageRenderer(PlayRenderOrder::Dialogue);
+	MomUpsetFace->SetImage("mo_08.png");
+	MomUpsetFace->AutoImageScale();
+	MomUpsetFace->SetPosition({ -425,270 });
+	MomUpsetFace->ActiveOff();
+
+	MomBigSmileFace = CreateImageRenderer(PlayRenderOrder::Dialogue);
+	MomBigSmileFace->SetImage("mo_01.png");
+	MomBigSmileFace->AutoImageScale();
+	MomBigSmileFace->SetPosition({ -425,270 });
+	MomBigSmileFace->ActiveOff();
+
+	MomAngryFace = CreateImageRenderer(PlayRenderOrder::Dialogue);
+	MomAngryFace->SetImage("mo_02.png");
+	MomAngryFace->AutoImageScale();
+	MomAngryFace->SetPosition({ -425,270 });
+	MomAngryFace->ActiveOff();
+
+	DadSmileFace = CreateImageRenderer(PlayRenderOrder::Dialogue);
+	DadSmileFace->SetImage("f_01.png");
+	DadSmileFace->AutoImageScale();
+	DadSmileFace->SetPosition({ -440,270 });
+	DadSmileFace->ActiveOff();
+
 
 	SetActive(false);
 	

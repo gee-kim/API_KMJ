@@ -1,8 +1,9 @@
 #pragma once
 #include <EngineCore/Actor.h>
 #include "Helper.h"
-#include "Player.h"
 #include "Dialogue.h"
+
+class APlayer;
 
 class AGalleryButler : public AActor
 {
@@ -28,7 +29,10 @@ protected:
 
 private:
 	std::vector<UImageRenderer*> Renderers;
+
 	std::vector<UCollision*> Collisions;
+	std::vector<UCollision*> Result;
+	APlayer* Player = nullptr;
 
 	int CurTextIndex = 0;
 	std::vector<std::string> Texts;

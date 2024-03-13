@@ -2,6 +2,8 @@
 #include <EngineCore/Actor.h>
 #include "Dialogue.h"
 
+class APlayer;
+
 class ALeftBigArt : public AActor
 {
 public:
@@ -25,7 +27,10 @@ protected:
 
 private:
 	std::vector<UImageRenderer*> Renderers;
+	
 	UCollision* Collisions = nullptr;
+	std::vector<UCollision*> Result;
+	APlayer* Player = nullptr;
 
 	ADialogue* Dialogue = nullptr;
 

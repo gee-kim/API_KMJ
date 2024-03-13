@@ -2,6 +2,8 @@
 #include <EngineCore/Actor.h>
 #include "Dialogue.h"
 
+class APlayer;
+
 class AWallArt_Sea : public AActor
 {
 public:
@@ -25,6 +27,8 @@ protected:
 
 private:
 	UCollision* Collision = nullptr;
+	std::vector<UCollision*> Result;
+	APlayer* Player = nullptr;
 
 	ADialogue* Dialogue = nullptr;
 

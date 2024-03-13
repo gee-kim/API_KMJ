@@ -50,8 +50,6 @@ void AWindowMan::Tick(float _DeltaTime)
 
 	AActor::Tick(_DeltaTime);
 
-	
-
 	if (true == Collisions->CollisionCheck(CollisionOrder::Player, Result))
 	{
 		//플레이어와 충돌이 일어나면 키가눌리는거 체크하고,

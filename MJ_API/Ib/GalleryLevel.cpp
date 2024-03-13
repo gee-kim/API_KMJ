@@ -47,7 +47,7 @@ void UGalleryLevel::BeginPlay()
 
 	ANextLevel* NextLevel = SpawnActor<ANextLevel>();
 	NextLevel->SetActorLocation({ 1100,200 });
-
+	
 	//´«¿¡ º¸ÀÌ´Â ¸ÊÀÌ¶û, Ãæµ¹¿ë ¸Ê ³Ö¾îÁØ´Ù.
 	Map = SpawnActor<ABackGroundMap>();
 	Map->SetMapImage("galleryandArts_(1).png");
@@ -87,11 +87,11 @@ void UGalleryLevel::BeginPlay()
 		//GalleryWindow->SetDialogue(NewDialogue);
 
 		AGalleryButler* NewButler = SpawnActor<AGalleryButler>();
-		NewButler->SetActorLocation({ 860,460 });
+		NewButler->SetActorLocation({ 840,460 });
 		NewButler->SetDialogue(NewDialogue);
 
 		APoster* NewPoster = SpawnActor<APoster>();
-		NewPoster->SetActorLocation({ 940, 440 });
+		NewPoster->SetActorLocation({ 950, 440 });
 		NewPoster->SetDialogue(NewDialogue);
 
 		AGallerySign* NewSign = SpawnActor<AGallerySign>();
@@ -132,7 +132,7 @@ void UGalleryLevel::BeginPlay()
 		BlueHair->SetDialogue(NewDialogue);
 
 		ABrownHair* BrownHair = SpawnActor<ABrownHair>();
-		BrownHair->SetActorLocation({ 1580,780 });
+		BrownHair->SetActorLocation({ 1680,780 });
 		BrownHair->SetDialogue(NewDialogue);
 
 		AOldLady* OldLady = SpawnActor<AOldLady>();
@@ -146,6 +146,9 @@ void UGalleryLevel::BeginPlay()
 		AWindowMan* WindowMan = SpawnActor<AWindowMan>();
 		WindowMan->SetActorLocation({ 600, 400 });
 		WindowMan->SetDialogue(NewDialogue);
+
+
+
 
 	}
 
@@ -188,8 +191,8 @@ void UGalleryLevel::BeginPlay()
 
 	SetCameraPos(CameraPos);
 
-	StateChange(EEventState::PlayerControll);
-	NewPlayer->StateChange(EPlayState::Idle);
+	//StateChange(EEventState::PlayerControll);
+	//NewPlayer->StateChange(EPlayState::Idle);
 
 
 }
@@ -323,15 +326,22 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 
 	if (CurEventState == EStartEventState::MomTalk)
 	{
+		DelayTime -= _DeltaTime;
+		if (0.0 >= DelayTime)
+		{
+			IbMom->SetAnimation("Idle_Down");
 
-		IbMom->SetAnimation("Idle_Down");
-		//BGMSound = UEngineSound::SoundPlay("put_00.ogg");
+			if (true != MomSoundPlayed)
+			{
+				BGMSound = UEngineSound::SoundPlay("put_00.ogg");
+				MomSoundPlayed = true;
 
+				NewDialogue->SetActive(true);
+				NewDialogue->SetText(Script[CurTextIndex]);
+				NewDialogue->CharTextBoxRendererOn();
+			}
 
-		NewDialogue->SetActive(true);
-		NewDialogue->SetText(Script[CurTextIndex]);
-		NewDialogue->CharTextBoxRendererOn();
-
+		}
 
 		if (true == UEngineInput::IsDown(VK_SPACE) && true == NewDialogue->IsActive())
 		{
@@ -353,11 +363,22 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 
 	if (CurEventState == EStartEventState::DadTalk)
 	{
-		IbDad->SetAnimation("Idle_Down");
+		DelayTime -= _DeltaTime;
+		if (0.0 >= DelayTime)
+		{
+			IbDad->SetAnimation("Idle_Down");
 
-		NewDialogue->SetActive(true);
-		NewDialogue->SetText(Script[CurTextIndex]);
-		NewDialogue->CharTextBoxRendererOn();
+			if (true != DadSoundPlayed)
+			{
+				BGMSound = UEngineSound::SoundPlay("put_00.ogg");
+				DadSoundPlayed = true;
+
+				NewDialogue->SetActive(true);
+				NewDialogue->SetText(Script[CurTextIndex]);
+				NewDialogue->CharTextBoxRendererOn();
+			}
+		}
+
 
 		if (true == UEngineInput::IsDown(VK_SPACE) && true == NewDialogue->IsActive())
 		{
@@ -417,12 +438,23 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 
 	if (CurEventState == EStartEventState::IbTalk)
 	{
-		NewPlayer->SetAnimation("Idle_Right");
-		IbMom->SetAnimation("Idle_Left");
+		DelayTime -= _DeltaTime;
+		if (0.0 >= DelayTime)
+		{
+			NewPlayer->SetAnimation("Idle_Right");
+			IbMom->SetAnimation("Idle_Left");
 
-		NewDialogue->SetActive(true);
-		NewDialogue->SetText(Script[CurTextIndex]);
-		NewDialogue->CharTextBoxRendererOn();
+			if (true != IbSoundPlayed)
+			{
+				BGMSound = UEngineSound::SoundPlay("put_00.ogg");
+				IbSoundPlayed = true;
+
+			NewDialogue->SetActive(true);
+			NewDialogue->SetText(Script[CurTextIndex]);
+			NewDialogue->CharTextBoxRendererOn();
+			}
+
+		}
 
 		if (true == UEngineInput::IsDown(VK_SPACE) && true == NewDialogue->IsActive())
 		{

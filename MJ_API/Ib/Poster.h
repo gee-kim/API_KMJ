@@ -1,8 +1,9 @@
 #pragma once
 #include <EngineCore/Actor.h>
 #include "Helper.h"
-#include "Player.h"
 #include "Dialogue.h"
+
+class APlayer;
 
 class APoster : public AActor
 {
@@ -26,8 +27,9 @@ protected:
 	void Tick(float _Deltatime) override;
 
 private:
-	std::vector<UImageRenderer*> Renderers;
 	std::vector<UCollision*> Collisions;
+	std::vector<UCollision*> Result;
+	APlayer* Player = nullptr;
 
 	ADialogue* Dialogue = nullptr;
 

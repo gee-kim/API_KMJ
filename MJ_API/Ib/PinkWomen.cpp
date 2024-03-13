@@ -20,7 +20,7 @@ void APinkWomen::BeginPlay()
 		UEngineResourcesManager::GetInst().CuttingImage("$mob_00.png", 3, 4);
 
 		// 화면에 아트와 캐릭터들 이미지랜더
-		Renderer = CreateImageRenderer(PlayRenderOrder::Characters);
+		Renderer = CreateImageRenderer(PlayRenderOrder::Characters_Front);
 		Renderer->SetImage("$mob_00.png");
 		Renderer->AutoImageScale();
 		Renderer->CreateAnimation("Idle", "$mob_00.png", 10, 10, 0.0f, true);

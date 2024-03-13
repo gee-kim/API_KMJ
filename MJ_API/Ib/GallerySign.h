@@ -2,6 +2,8 @@
 #include <EngineCore/Actor.h>
 #include "Dialogue.h"
 
+class APlayer;
+
 class AGallerySign : public AActor
 {
 public:
@@ -24,8 +26,9 @@ protected:
 	void Tick(float _Deltatime) override;
 
 private:
-	std::vector<UImageRenderer*> Renderers;
 	std::vector<UCollision*> Collisions;
+	std::vector<UCollision*> Result;
+	APlayer* Player = nullptr;
 
 	int CurTextIndex = 0;
 	std::vector<std::string> Script;

@@ -2,6 +2,7 @@
 #include <EngineCore/Actor.h>
 #include "Dialogue.h"
 
+class APlayer;
 
 class AWallArt_Lines : public AActor
 {
@@ -26,7 +27,10 @@ protected:
 
 private:
 	std::vector<UImageRenderer*> Renderers;
+	
 	std::vector<UCollision*> Collisions;
+	std::vector<UCollision*> Result;
+	APlayer* Player = nullptr;
 
 	ADialogue* Dialogue = nullptr;
 

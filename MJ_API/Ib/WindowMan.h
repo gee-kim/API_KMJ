@@ -3,6 +3,8 @@
 #include "Helper.h"
 #include "Dialogue.h"
 
+class APlayer;
+
 class AWindowMan : public AActor
 {
 public:
@@ -29,7 +31,7 @@ private:
 	UCollision* Collisions = nullptr;
 
 	std::vector<UCollision*> Result;
-	class APlayer* Player = nullptr;
+	APlayer* Player = nullptr;
 
 	ADialogue* Dialogue = nullptr;
 

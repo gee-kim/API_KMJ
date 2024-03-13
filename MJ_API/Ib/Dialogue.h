@@ -27,6 +27,7 @@ public:
 	void ArtTextBoxRendererOn();
 	void AllTextBoxRendererOff();
 	void SetMovingBoxPosition(FVector _Value);
+	void SetMomFace(std::string_view _Name);
 
 protected:
 	void BeginPlay() override;
@@ -34,10 +35,14 @@ protected:
 
 private:
 	std::vector<UImageRenderer*> Renderers;
-//	UImageRenderer* CharfaceImageRenderer = nullptr;
-//	UImageRenderer* MovingBoxRenderer = nullptr;
-//	UImageRenderer* ArtTextBoxRenderer = nullptr;
-//	UImageRenderer* CharTextBoxRenderer = nullptr;
-//	UImageRenderer* TextRenderer = nullptr;
+
+	UImageRenderer* MomSmileFace = nullptr;
+	UImageRenderer* MomUpsetFace = nullptr;
+	UImageRenderer* MomBigSmileFace = nullptr;
+	UImageRenderer* MomAngryFace = nullptr;
+	UImageRenderer* DadSmileFace = nullptr;
+
+	std::vector<std::string> FaceName;
+
 };
 

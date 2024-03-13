@@ -39,7 +39,7 @@ void ABlueHair::BeginPlay()
 
 	}
 
-	Script.push_back("왠지 이 바닥 바로 밑에\n   정말로 물고기가 헤엄치고 있는 것 같아......");
+	Script.push_back("왠지 이 바닥 바로 밑에 정말로\n   물고기가 헤엄치고 있는 것 같아......");
 	Script.push_back("이런 게 실존하면 지릴 것 같은데......");
 
 }

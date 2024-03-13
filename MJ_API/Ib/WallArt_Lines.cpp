@@ -1,4 +1,9 @@
 #include "WallArt_Lines.h"
+#include <EngineBase\EngineDebug.h>
+#include <EnginePlatform\EngineInput.h>
+#include <EngineCore/EngineResourcesManager.h>
+#include "Helper.h"
+#include "Player.h"
 
 AWallArt_Lines::AWallArt_Lines()
 {
@@ -16,7 +21,6 @@ void AWallArt_Lines::BeginPlay()
 		UCollision* CurCreateCollsions = nullptr;
 
 		CurCreateCollsions = CreateCollision(CollisionOrder::Art);
-		CurCreateCollsions->SetPosition(GetActorLocation());
 		CurCreateCollsions->SetScale({ 50, 30 });
 		CurCreateCollsions->SetColType(ECollisionType::Rect);
 		Collisions.push_back(CurCreateCollsions);
@@ -44,14 +48,25 @@ void AWallArt_Lines::Tick(float _DeltaTime)
 		//키가 눌린다면 Textbox가 출력되게 만들기
 		if (true == UEngineInput::IsDown(VK_SPACE) && false == Dialogue->IsActive())
 		{
-			//StateChange("Talk");
+			AActor* Owner = Result[0]->GetOwner();
+
+			Player = dynamic_cast<APlayer*>(Owner);
+
+			if (nullptr == Player)
+			{
+				MsgBoxAssert("플레이어가 아닙니다.");
+			}
+
+			// 키체크가 들어오면 플레이어는 움직이지 못하는 상태가 됨.
+			Player->StateChange(EPlayState::Event);
+
 			Dialogue->SetActive(true);
 			Dialogue->ArtTextBoxRendererOn();
-			Dialogue->SetText("흰 바탕에 검은 선들이 춤을 추고있어..");
+			Dialogue->SetText("거꾸로 매달린 남자");
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{
-			//StateChange("Ilde");
+			Player->StateChange(EPlayState::Idle);
 			Dialogue->SetActive(false);
 		}
 	}

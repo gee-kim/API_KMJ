@@ -55,6 +55,8 @@ protected:
 	float FrontWalkTime = 2.0f;
 	float UpWalkTime = 2.0f;
 	float PlayTime = 2.0f;
+	float DelayTime = 0.5f;
+
 
 	void StateChange(EEventState _State);
 	void StateUpdate(float _DeltaTime);
@@ -75,6 +77,10 @@ private:
 	class APlayer* NewPlayer = nullptr;
 	class AMom* IbMom = nullptr;
 	class ADad* IbDad = nullptr;
+
+	bool MomSoundPlayed = false;
+	bool DadSoundPlayed = false;
+	bool IbSoundPlayed = false;
 
 };
 
