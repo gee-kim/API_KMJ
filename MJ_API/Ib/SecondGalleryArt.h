@@ -17,6 +17,7 @@ enum class ESecondStartEventState
 	End,
 };
 
+class APlayer;
 
 class ASecondGalleryArt :public AActor
 {
@@ -49,6 +50,8 @@ private:
 	UImageRenderer* BlackRenderer= nullptr;
 	FVector ImageScale;
 	int Count = 3;
+
+	APlayer* Player = nullptr;
 
 	UCollision* Collisions = nullptr;
 

@@ -1,9 +1,9 @@
-#include <EngineBase\EngineDebug.h>
-#include <EnginePlatform\EngineInput.h>
-#include <EngineCore/EngineResourcesManager.h>
-#include "Helper.h"
 #include "Poster.h"
+#include "Helper.h"
 #include "Player.h"
+#include <EngineBase\EngineDebug.h>
+#include <EngineCore/EngineResourcesManager.h>
+#include <EnginePlatform\EngineInput.h>
 
 APoster::APoster()
 {

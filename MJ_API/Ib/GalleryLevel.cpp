@@ -23,6 +23,7 @@
 #include "OldLady.h"
 #include "PinkWomen.h"
 #include "WindowMan.h"
+#include "Exit.h"
 #include <EngineCore\EngineCore.h>
 #include <EngineCore\EngineResourcesManager.h>
 #include <EngineBase\EngineDirectory.h>
@@ -59,6 +60,7 @@ void UGalleryLevel::BeginPlay()
 	AFadeIntro* FadeIntro = SpawnActor<AFadeIntro>();
 	//FadeIntro->SetActorLocation({})
 
+
 	// 플레이어 액터 생성해준다.
 	// 액터로케이션 맵띄어서 확인해보고 조정해주기
 	NewPlayer = SpawnActor<APlayer>();
@@ -70,6 +72,10 @@ void UGalleryLevel::BeginPlay()
 	//갤러리에 있는 콜리젼과 충돌했을 때 뜨는 다이얼로그
 	NewDialogue = SpawnActor<ADialogue>();
 	NewDialogue->SetActorLocation({ 640, 620 });
+
+	AExit* Exit = SpawnActor<AExit>();
+	Exit->SetActorLocation({ 430, 620 });
+	Exit->SetDialogue(NewDialogue);
 
 	CharFace = SpawnActor<ACharFace>();
 	CharFace->SetActorLocation({ 145, 570 });
@@ -85,10 +91,11 @@ void UGalleryLevel::BeginPlay()
 		IbDad = SpawnActor<ADad>();
 		IbDad->SetActorLocation({ 470,570 });
 		IbDad->SetDialogue(NewDialogue);
+		IbDad->SetCharFace(CharFace);
 		//IbDad->StateChange(EPlayState::Event);
 
 		AGallery_Window* GalleryWindow = SpawnActor<AGallery_Window>();
-		GalleryWindow->SetActorLocation({ 600, 400 });
+		GalleryWindow->SetActorLocation({ 600, 430 });
 		//GalleryWindow->SetDialogue(NewDialogue);
 
 		AGalleryButler* NewButler = SpawnActor<AGalleryButler>();
@@ -196,10 +203,10 @@ void UGalleryLevel::BeginPlay()
 
 	SetCameraPos(CameraPos);
 
-	//StateChange(EEventState::PlayerControll);
-	//NewPlayer->StateChange(EPlayState::Idle);
-	//IbMom->StateChange(EPlayState::Idle);
-	//IbDad->StateChange(EPlayState::Idle);
+	StateChange(EEventState::PlayerControll);
+	NewPlayer->StateChange(EPlayState::Idle);
+	IbMom->StateChange(EPlayState::Idle);
+	IbDad->StateChange(EPlayState::Idle);
 
 }
 
@@ -433,9 +440,9 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 		IbDad->SetAnimation("Move_Right");
 		NewPlayer->SetAnimation("Move_Right");
 
-		IbMom->AddActorLocation(FVector::Right * 52.0f * _DeltaTime);
-		IbDad->AddActorLocation(FVector::Right * 40.0f * _DeltaTime);
-		NewPlayer->AddActorLocation(FVector::Right * 30.0f * _DeltaTime);
+		IbMom->AddActorLocation(FVector::Right * 80.0f * _DeltaTime);
+		IbDad->AddActorLocation(FVector::Right * 77.0f * _DeltaTime);
+		NewPlayer->AddActorLocation(FVector::Right * 50.0f * _DeltaTime);
 
 		FrontWalkTime -= _DeltaTime;
 		if (0.0f >= FrontWalkTime)
@@ -453,9 +460,9 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 		IbDad->SetAnimation("Move_Right");
 		NewPlayer->SetAnimation("Move_Up");
 
-		IbMom->AddActorLocation(FVector::Up * 20.0f * _DeltaTime);
-		IbDad->AddActorLocation(FVector::Right * 35.0f * _DeltaTime);
-		NewPlayer->AddActorLocation(FVector::Up * 35.0f * _DeltaTime);
+		IbMom->AddActorLocation(FVector::Up * 40.0f * _DeltaTime);
+		IbDad->AddActorLocation(FVector::Right * 50.0f * _DeltaTime);
+		NewPlayer->AddActorLocation(FVector::Up * 68.0f * _DeltaTime);
 
 		UpWalkTime -= _DeltaTime;
 		if (0.0f >= UpWalkTime)

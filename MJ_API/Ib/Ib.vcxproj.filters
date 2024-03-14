@@ -117,6 +117,9 @@
     <ClInclude Include="CharFace.h">
       <Filter>Object\Global</Filter>
     </ClInclude>
+    <ClInclude Include="Exit.h">
+      <Filter>Object\GalleryLevel\Actor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -234,6 +237,9 @@
     </ClCompile>
     <ClCompile Include="CharFace.cpp">
       <Filter>Object\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Exit.cpp">
+      <Filter>Object\GalleryLevel\Actor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

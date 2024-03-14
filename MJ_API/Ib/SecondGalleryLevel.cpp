@@ -27,7 +27,7 @@ void USecondGalleryLevel::BeginPlay()
 	Map = SpawnActor<ABackGroundMap>();
 	Map->SetMapImage("second_gallery_map.png");
 	Map->SetColMapImage("second_gallery_colmap.png");
-
+	
 	FVector MapScale = Map->GetImageScale();
 
 
@@ -39,7 +39,7 @@ void USecondGalleryLevel::BeginPlay()
 
 
 	NewPlayer = SpawnActor<APlayer>();
-	NewPlayer->SetActorLocation({ 645,760 });
+	NewPlayer->SetActorLocation({ 650,760 });
 	NewPlayer->SetImageScale(MapScale);
 	NewPlayer->SetAnimation("Idle_Up");
 

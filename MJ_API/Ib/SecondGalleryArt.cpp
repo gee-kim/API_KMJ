@@ -1,5 +1,5 @@
 #include "SecondGalleryArt.h"
-
+#include "Player.h"
 
 ASecondGalleryArt::ASecondGalleryArt()
 {
@@ -25,10 +25,9 @@ void ASecondGalleryArt::BeginPlay()
 		BlackRenderer->SetImage("IntroBackGround.png");
 		BlackRenderer->AutoImageScale();
 		//ImageScale = GEngine->MainWindow.GetWindowScale();
-		BlackRenderer->SetPosition({ 50, 100 });
+		BlackRenderer->SetPosition({ 60, 150 });
 		BlackRenderer->SetAlpha(0.5f);
 		BlackRenderer->SetActive(false);
-
 
 	}
 
@@ -49,10 +48,22 @@ void ASecondGalleryArt::Tick(float _DeltaTime)
 
 	if (true == Collisions->CollisionCheck(CollisionOrder::Player, Result))
 	{
+		AActor* Owner = Result[0]->GetOwner();
+
+		Player = dynamic_cast<APlayer*>(Owner);
+
+		if (nullptr == Player)
+		{
+			MsgBoxAssert("플레이어가 아닙니다.");
+		}
+
+		// 키체크가 들어오면 플레이어는 움직이지 못하는 상태가 됨.
+
 		//플레이어와 충돌이 일어나면 키가눌리는거 체크하고,
 		//키가 눌린다면 Textbox가 출력되게 만들기
 		if (true == UEngineInput::IsDown(VK_SPACE) && false == Dialogue->IsActive())
 		{
+		Player->StateChange(EPlayState::Event);
 			Dialogue->SetActive(true);
 			Dialogue->ArtTextBoxRendererOn();
 			Dialogue->SetText("'???의 세계'", 20.0f, Color8Bit::Magenta);
@@ -61,6 +72,7 @@ void ASecondGalleryArt::Tick(float _DeltaTime)
 		{
 			Dialogue->SetActive(false);
 			StateChange(ESecondEventState::StartEvent);
+		Player->StateChange(EPlayState::Idle);
 		}
 	}
 
@@ -75,6 +87,7 @@ void ASecondGalleryArt::StateChange(ESecondEventState _State)
 	case ESecondEventState::StartEvent:
 		break;
 	case ESecondEventState::PlayerControll:
+
 		break;
 	default:
 		break;

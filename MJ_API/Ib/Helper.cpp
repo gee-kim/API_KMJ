@@ -2,6 +2,7 @@
 
 UWindowImage* Helper::ColMapImage = nullptr;
 
+
 Helper::Helper()
 {
 }

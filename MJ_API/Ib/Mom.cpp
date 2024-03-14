@@ -42,7 +42,7 @@ void AMom::BeginPlay()
 
 		// 플레이어와 충돌체랜더
 		Collision = CreateCollision(CollisionOrder::Characters);
-		Collision->SetScale({ 50, 100 });
+		Collision->SetScale({ 40,40 });
 		Collision->SetColType(ECollisionType::CirCle);
 
 	}
@@ -105,6 +105,8 @@ void AMom::Event(float _DeltaTime)
 
 void AMom::Idle(float _DeltaTime)
 {
+	AActor::Tick(_DeltaTime);
+
 	if (nullptr == Dialogue)
 	{
 		MsgBoxAssert("Dialogue가 셋팅되지 않아서 동작이 불가능합니다.");
@@ -143,6 +145,7 @@ void AMom::Idle(float _DeltaTime)
 			Dialogue->SetText(Script[CurTextIndex]);
 			CharFace->SetActive(true);
 			CharFace->SetMomSmileFace();
+			Renderer->ChangeAnimation("Idle_Left");
 
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
@@ -155,6 +158,7 @@ void AMom::Idle(float _DeltaTime)
 				Dialogue->SetActive(false);
 				CharFace->SetActive(false);
 				Player->StateChange(EPlayState::Idle);
+				Renderer->ChangeAnimation("Idle_Up");
 				return;
 			}
 

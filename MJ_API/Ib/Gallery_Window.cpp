@@ -26,7 +26,7 @@ void AGallery_Window::BeginPlay()
 
 		CurRenderer = CreateImageRenderer(PlayRenderOrder::Art_Back);
 		CurRenderer->SetImage("!$w_00.png");
-		CurRenderer->SetTransform({ {0,20}, {80, 90} });
+		CurRenderer->AutoImageScale();
 		Renderers.push_back(CurRenderer);
 		CurRenderer->CreateAnimation("Window_1Floor", "!$w_00.png", 1, 1, 0.0f, true);
 		CurRenderer->ChangeAnimation("Window_1Floor");

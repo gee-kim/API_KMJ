@@ -53,8 +53,8 @@ protected:
 
 	EStartEventState CurEventState = EStartEventState::Walk;
 	float WalkTime = 4.0f;
-	float FrontWalkTime = 2.0f;
-	float UpWalkTime = 2.0f;
+	float FrontWalkTime = 1.5f;
+	float UpWalkTime = 1.0f;
 	float PlayTime = 2.0f;
 	float DelayTime = 0.5f;
 

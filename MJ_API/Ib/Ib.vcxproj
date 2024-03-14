@@ -159,6 +159,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Exit.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="CharFace.h">
       <SubType>
       </SubType>
@@ -321,6 +325,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Exit.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="CharFace.cpp">
       <SubType>
       </SubType>
