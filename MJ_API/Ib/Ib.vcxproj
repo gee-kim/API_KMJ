@@ -159,6 +159,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CharFace.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="WindowMan.h">
       <SubType>
       </SubType>
@@ -317,6 +321,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CharFace.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="WindowMan.cpp">
       <SubType>
       </SubType>

@@ -14,9 +14,11 @@ public:
 	IbCore& operator=(IbCore&& _Other) noexcept = delete;
 
 protected:
+	void WindowOpen(std::string& _OutWindowTitle, std::string& _SmallIconPath) override;
+
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
-	void End() override;
+
 private:
 	
 

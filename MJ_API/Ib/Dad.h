@@ -3,6 +3,7 @@
 #include "Helper.h"
 #include "Player.h"
 #include "Dialogue.h"
+#include "CharFace.h"
 
 class ADad : public AActor
 {

@@ -1,9 +1,10 @@
 #pragma once
 #include <EngineCore/Actor.h>
 #include "Helper.h"
-#include "Player.h"
 #include "Dialogue.h"
+#include "CharFace.h"
 
+class APlayer;
 
 class AMom : public AActor
 {
@@ -21,6 +22,11 @@ public:
 	void SetDialogue(ADialogue* _Dialogue)
 	{
 		Dialogue = _Dialogue;
+	}
+
+	void SetCharFace(ACharFace* _CharFace)
+	{
+		CharFace = _CharFace;
 	}
 
 	void SetAnimation(std::string_view _AnimationName)
@@ -44,13 +50,17 @@ protected:
 
 private:
 	UCollision* Collision = nullptr;
+	std::vector<UCollision*> Result;
+
 	UImageRenderer* Renderer = nullptr;
 
-	//float MoveSpeed = 300.0f;
+	APlayer* Player = nullptr;
 
 	int CurTextIndex = 0;
 	std::vector<std::string> Script;
 
 	ADialogue* Dialogue = nullptr;
+	ACharFace* CharFace = nullptr;
+
 };
 

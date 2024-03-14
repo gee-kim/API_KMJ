@@ -114,6 +114,9 @@
     <ClInclude Include="WindowMan.h">
       <Filter>Object\GalleryLevel\Actor\Character</Filter>
     </ClInclude>
+    <ClInclude Include="CharFace.h">
+      <Filter>Object\Global</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -228,6 +231,9 @@
     </ClCompile>
     <ClCompile Include="WindowMan.cpp">
       <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="CharFace.cpp">
+      <Filter>Object\Global</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -2,12 +2,6 @@
 #include <EngineCore\Actor.h>
 #include "Helper.h"
 
-class ADialogueInfo
-{
-public:
-
-};
-
 
 class ADialogue : public AActor
 {
@@ -27,7 +21,8 @@ public:
 	void ArtTextBoxRendererOn();
 	void AllTextBoxRendererOff();
 	void SetMovingBoxPosition(FVector _Value);
-	void SetMomFace(std::string_view _Name);
+
+
 
 protected:
 	void BeginPlay() override;
@@ -36,13 +31,8 @@ protected:
 private:
 	std::vector<UImageRenderer*> Renderers;
 
-	UImageRenderer* MomSmileFace = nullptr;
-	UImageRenderer* MomUpsetFace = nullptr;
-	UImageRenderer* MomBigSmileFace = nullptr;
-	UImageRenderer* MomAngryFace = nullptr;
-	UImageRenderer* DadSmileFace = nullptr;
 
-	std::vector<std::string> FaceName;
+	//std::vector<std::string> FaceName;
 
 };
 

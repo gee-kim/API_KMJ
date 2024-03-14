@@ -21,12 +21,25 @@ IbCore::~IbCore()
 {
 }
 
+void IbCore::WindowOpen(std::string& _OutWindowTitle, std::string& _SmallIconPath)
+{
+	UEngineDirectory NewDir;
+	NewDir.MoveToSearchChild("Ib_Resource");
+	
+
+	_OutWindowTitle = "Ib";
+
+	std::string IconPath = NewDir.AppendPath("icon.ico");
+	_SmallIconPath = IconPath;
+}
+
 
 // 게임시작
 void IbCore::BeginPlay()
 {
 	UEngineCore::BeginPlay();
 
+	//MainWindow.SetWindowTitle("Ib");
 	MainWindow.SetWindowScale({ 1280, 720 });
 	MainWindow.SetWindowPosition({ 200, 0 });
 
@@ -86,7 +99,3 @@ void IbCore::Tick(float _DeltaTime)
 	int a = 0;
 }
 
-void IbCore::End()
-{
-	int a = 0;
-}

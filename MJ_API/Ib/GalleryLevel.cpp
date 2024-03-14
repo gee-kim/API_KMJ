@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "BackGroundMap.h"
 #include "Dialogue.h"
+#include "CharFace.h"
 #include "GalleryButler.h"
 #include "Gallery_Window.h"
 #include "Poster.h"
@@ -70,11 +71,15 @@ void UGalleryLevel::BeginPlay()
 	NewDialogue = SpawnActor<ADialogue>();
 	NewDialogue->SetActorLocation({ 640, 620 });
 
+	CharFace = SpawnActor<ACharFace>();
+	CharFace->SetActorLocation({ 145, 570 });
+
 	//갤러리맵에 실제로 위치하고 콜리젼을 담당하는 객체들
 	{
 		IbMom = SpawnActor<AMom>();
 		IbMom->SetActorLocation({ 470,610 });
 		IbMom->SetDialogue(NewDialogue);
+		IbMom->SetCharFace(CharFace);
 		//IbMom->StateChange(EPlayState::Event);
 
 		IbDad = SpawnActor<ADad>();
@@ -193,7 +198,8 @@ void UGalleryLevel::BeginPlay()
 
 	//StateChange(EEventState::PlayerControll);
 	//NewPlayer->StateChange(EPlayState::Idle);
-
+	//IbMom->StateChange(EPlayState::Idle);
+	//IbDad->StateChange(EPlayState::Idle);
 
 }
 
@@ -286,7 +292,7 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 	// 대본
 	// 엄마 오른쪽에서 이브쪽 바라본 후 대사
 	Script.push_back("자. 도착했네\n......이브는 미술관 처음 와보지?");//엄마 살짝 웃는표정
-	Script.push_back("오늘 보러 온 건\n'게르테나'라는 사람의 전시회인데......");//엄마 입벌린 표정
+	Script.push_back("오늘 보러 온 건\n'게르테나'라는 사람의 전시회인데......");//엄마 살짝 웃는 표정
 	Script.push_back("그림 말고도 조각이라든가......\n여러 재미있는 작품들이 있는 것 같으니까");//엄마 살짝 웃는표정
 	Script.push_back("분명 이브도 재밌게 볼 수 있을 거야");//엄마 활짝 웃는 표정
 	//아빠 뒤돌고 대사
@@ -337,8 +343,10 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 				MomSoundPlayed = true;
 
 				NewDialogue->SetActive(true);
+				CharFace->SetActive(true);
 				NewDialogue->SetText(Script[CurTextIndex]);
 				NewDialogue->CharTextBoxRendererOn();
+				CharFace->SetMomSmileFace();
 			}
 
 		}
@@ -347,10 +355,23 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 		{
 			++CurTextIndex;
 
+			if (CurTextIndex == 2)
+			{
+				CharFace->SetMomSmileFace();
+			}
+
+			if (CurTextIndex == 3)
+			{
+				CharFace->SetMomBigSmileFace();
+			}
+
+
 			if (CurTextIndex >= 4)
 			{
 				CurEventState = EStartEventState::DadTalk;
 				NewDialogue->SetActive(false);
+				CharFace->SetActive(false);
+
 				return;
 			}
 
@@ -374,8 +395,10 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 				DadSoundPlayed = true;
 
 				NewDialogue->SetActive(true);
+				CharFace->SetActive(true);
 				NewDialogue->SetText(Script[CurTextIndex]);
 				NewDialogue->CharTextBoxRendererOn();
+				CharFace->SetDadSmileFace();
 			}
 		}
 
@@ -384,10 +407,18 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 		{
 			++CurTextIndex;
 
+			if (CurTextIndex == 5)
+			{
+				IbMom->SetAnimation("Idle_Up");
+				CharFace->SetMomSmileFace();
+			}
+
+
 			if (CurTextIndex >= 6)
 			{
 				CurEventState = EStartEventState::WalktoFront;
 				NewDialogue->SetActive(false);
+				CharFace->SetActive(false);
 				return;
 			}
 
@@ -450,8 +481,10 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 				IbSoundPlayed = true;
 
 			NewDialogue->SetActive(true);
+			CharFace->SetActive(true);
 			NewDialogue->SetText(Script[CurTextIndex]);
 			NewDialogue->CharTextBoxRendererOn();
+			CharFace->SetMomUpsetFace();
 			}
 
 		}
@@ -460,11 +493,20 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 		{
 			++CurTextIndex;
 
+
+			if (CurTextIndex >= 8)
+			{
+				CharFace->SetMomSmileFace();
+			}
+
+
 			if (CurTextIndex >= 10)
 			{
 				IbMom->SetAnimation("Idle_Up");
 				CurEventState = EStartEventState::End;
 				NewDialogue->SetActive(false);
+				CharFace->SetActive(false);
+
 				return;
 			}
 
