@@ -43,7 +43,7 @@ void IbCore::BeginPlay()
 
 	//MainWindow.SetWindowTitle("Ib");
 	MainWindow.SetWindowScale({ 1280, 720 });
-	MainWindow.SetWindowPosition({ 200, 0 });
+	MainWindow.SetWindowPosition({ 400, 0 });
 
 	UEngineDirectory NewDir;
 
@@ -62,7 +62,6 @@ void IbCore::BeginPlay()
 
 		//캐릭터 이미지 1장으로 된거 애니메이션 돌려주기 위해서 cutting 해주기.
 		UEngineResourcesManager::GetInst().CuttingImage("ib_00.png", 3, 4);
-		UEngineResourcesManager::GetInst().CuttingImage("BlueImages.png", 12, 8);
 		//다른캐릭터도 넣어줘야함.
 	}
 

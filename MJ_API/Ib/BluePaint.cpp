@@ -20,6 +20,7 @@ void ABluePaint::BeginPlay()
 	{
 		// 이미지컷팅하기(애니메이션용)
 		UEngineResourcesManager::GetInst().CuttingImage("!letters.png", 12, 8);
+		UEngineResourcesManager::GetInst().CuttingImage("FootPrint.png", 7, 2);
 
 		UImageRenderer* CurRenderer = nullptr;
 
@@ -87,18 +88,12 @@ void ABluePaint::BeginPlay()
 		Renderers.push_back(CurRenderer);
 
 		CurRenderer = CreateImageRenderer(PlayRenderOrder::Art_Back);
-		CurRenderer->SetImage("BlueImages.png");
+		CurRenderer->SetImage("FootPrint.png");
 		CurRenderer->AutoImageScale();
-		CurRenderer->CreateAnimation("SixthLetter", "!letters.png", 22, 22, 0.3f, true);
-		CurRenderer->ChangeAnimation("SixthLetter");
-		CurRenderer->SetPosition({ 370, 180 });
+		CurRenderer->CreateAnimation("BlueFootPrint", "FootPrint.png", 10, 10, 0.3f, true);
+		CurRenderer->ChangeAnimation("BlueFootPrint");
+		CurRenderer->SetPosition({ 115,300 });
 		Renderers.push_back(CurRenderer);
-		
-
-		//CurRenderer = CreateImageRenderer(PlayRenderOrder::Art_Back);
-		//CurRenderer->CreateAnimation("SixthLetter", "!letters.png", 22, 22, 0.3f, true);
-		//CurRenderer->ChangeAnimation("SixthLetter");
-		//Renderers.push_back(CurRenderer);
 
 
 		//  다이얼로그 생성하는 콜리젼
