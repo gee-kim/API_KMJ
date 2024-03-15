@@ -24,9 +24,6 @@ protected:
 	void LevelEnd(ULevel* _Level) override;
 
 private:
-
-	UImageRenderer* Renderer = nullptr;
-
 	class APlayer* NewPlayer = nullptr;
 	ABackGroundMap* Map = nullptr;
 

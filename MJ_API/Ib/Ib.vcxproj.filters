@@ -123,6 +123,12 @@
     <ClInclude Include="WindowAnimation.h">
       <Filter>Object\ThirdGalleryLevel\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="FourthGalleryLevel.h">
+      <Filter>Object\FourthGallery</Filter>
+    </ClInclude>
+    <ClInclude Include="BluePaint.h">
+      <Filter>Object\FourthGallery\Actor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IbCore.cpp" />
@@ -247,6 +253,12 @@
     <ClCompile Include="WindowAnimation.cpp">
       <Filter>Object\ThirdGalleryLevel\Actor</Filter>
     </ClCompile>
+    <ClCompile Include="FourthGalleryLevel.cpp">
+      <Filter>Object\FourthGallery</Filter>
+    </ClCompile>
+    <ClCompile Include="BluePaint.cpp">
+      <Filter>Object\FourthGallery\Actor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
@@ -296,6 +308,9 @@
     </Filter>
     <Filter Include="Object\FourthGallery">
       <UniqueIdentifier>{02e85f6b-c4cc-455c-9a57-822436871fa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\FourthGallery\Actor">
+      <UniqueIdentifier>{5050faa6-611d-42aa-a3ef-95bd28ab6498}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

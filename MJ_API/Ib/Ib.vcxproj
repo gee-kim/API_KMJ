@@ -159,6 +159,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BluePaint.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="FourthGalleryLevel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="WindowAnimation.h">
       <SubType>
       </SubType>
@@ -329,6 +337,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BluePaint.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="FourthGalleryLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="WindowAnimation.cpp">
       <SubType>
       </SubType>

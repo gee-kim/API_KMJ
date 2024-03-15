@@ -6,6 +6,8 @@
 #include "TestLevel.h"
 #include "OpeningLevel.h"
 #include "SecondGalleryLevel.h"
+#include "FourthGalleryLevel.h"
+
 #include <EnginePlatform\EngineInput.h>
 #include <EnginePlatform\EngineSound.h>
 #include <EnginePlatform\WindowImage.h>
@@ -60,6 +62,7 @@ void IbCore::BeginPlay()
 
 		//캐릭터 이미지 1장으로 된거 애니메이션 돌려주기 위해서 cutting 해주기.
 		UEngineResourcesManager::GetInst().CuttingImage("ib_00.png", 3, 4);
+		UEngineResourcesManager::GetInst().CuttingImage("BlueImages.png", 12, 8);
 		//다른캐릭터도 넣어줘야함.
 	}
 
@@ -79,10 +82,12 @@ void IbCore::BeginPlay()
 	//CreateLevel<UTitleLevel>("Title");
 	//CreateLevel<UOpeningLevel>("Opening");
 	//CreateLevel<UGalleryLevel>("Gallery");
-	CreateLevel<USecondGalleryLevel>("Second_Gallery");
+	//CreateLevel<USecondGalleryLevel>("Second_Gallery");
+	CreateLevel<UFourthGalleryLevel>("Fourth");
 	
 	//ChangeLevel("Gallery");
-	ChangeLevel("Second_Gallery");
+	//ChangeLevel("Second_Gallery");
+	ChangeLevel("Fourth");
 
 	int a = 0;
 }
