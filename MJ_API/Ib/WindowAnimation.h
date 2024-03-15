@@ -5,27 +5,24 @@
 
 class APlayer;
 
-class AWallArt_Sneeze : public AActor
+class AWindowAnimation : public AActor
 {
 public:
-	AWallArt_Sneeze();
-	~AWallArt_Sneeze();
+	AWindowAnimation();
+	~AWindowAnimation();
 
 	// delete Function
-	AWallArt_Sneeze(const AWallArt_Sneeze& _Other) = delete;
-	AWallArt_Sneeze(AWallArt_Sneeze&& _Other) noexcept = delete;
-	AWallArt_Sneeze& operator=(const AWallArt_Sneeze& _Other) = delete;
-	AWallArt_Sneeze& operator=(AWallArt_Sneeze&& _Other) noexcept = delete;
+	AWindowAnimation(const AWindowAnimation& _Other) = delete;
+	AWindowAnimation(AWindowAnimation&& _Other) noexcept = delete;
+	AWindowAnimation& operator=(const AWindowAnimation& _Other) = delete;
+	AWindowAnimation& operator=(AWindowAnimation&& _Other) noexcept = delete;
 
 	void SetDialogue(ADialogue* _Dialogue)
 	{
 		Dialogue = _Dialogue;
 	}
 
-	void SetRenderOff();
-
 	void StateChange(EPlayState _State);
-
 
 protected:
 	void BeginPlay() override;
@@ -37,18 +34,20 @@ protected:
 	void Idle(float _DeltaTime);
 	void Event(float _DeltaTime);
 
-	EPlayState State = EPlayState::Idle;
+	EPlayState State = EPlayState::Event;
 
 private:
-	UImageRenderer* Renderer = nullptr;
 	std::vector<UCollision*> Collisions;
 	std::vector<UCollision*> Result;
 
-	ADialogue* Dialogue = nullptr;
+	UImageRenderer* Renderer = nullptr;
 
 	APlayer* Player = nullptr;
 
-	//bool IsPlayed = false;
+	std::vector<std::string> Script;
 
+	ADialogue* Dialogue = nullptr;
+
+	bool IsPlayed = false;
 };
 

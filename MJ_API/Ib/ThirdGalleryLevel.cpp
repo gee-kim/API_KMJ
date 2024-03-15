@@ -8,7 +8,8 @@
 #include "BackGroundMap.h"
 
 #include "Dialogue.h"
-#include "Gallery_Window.h"
+#include "WindowAnimation.h"
+//#include "Gallery_Window.h"
 #include "Poster.h"
 #include "LeftBigArt.h"
 #include "RightBigArt.h"
@@ -57,9 +58,10 @@ void UThirdGalleryLevel::BeginPlay()
 
 	//갤러리맵에 실제로 위치하고 콜리젼을 담당하는 객체들
 	{
-		AGallery_Window* GalleryWindow = SpawnActor<AGallery_Window>();
-		GalleryWindow->SetActorLocation({ 600, 400 });
-		GalleryWindow->SetDialogue(NewDialogue);
+
+		AWindowAnimation* Window = SpawnActor<AWindowAnimation>();
+		Window->SetActorLocation({ 600, 430 });
+		Window->SetDialogue(NewDialogue);
 
 		APoster* NewPoster = SpawnActor<APoster>();
 		NewPoster->SetActorLocation({ 940, 440 });
@@ -89,6 +91,7 @@ void UThirdGalleryLevel::BeginPlay()
 		//Sneeze->SetActorLocation({ 660, 660 });
 		Sneeze->SetActorLocation({ 1895, 1305 });
 		Sneeze->SetDialogue(NewDialogue);
+		
 
 	}
 

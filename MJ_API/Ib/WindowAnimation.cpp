@@ -1,60 +1,59 @@
-#include "WallArt_Sneeze.h"
+#include "WindowAnimation.h"
 #include "Player.h"
-#include <EnginePlatform\EngineInput.h>
 #include <EngineBase\EngineDebug.h>
+#include <EnginePlatform\EngineInput.h>
 #include <EngineCore/EngineResourcesManager.h>
 
-AWallArt_Sneeze::AWallArt_Sneeze()
+AWindowAnimation::AWindowAnimation()
 {
 }
 
-AWallArt_Sneeze::~AWallArt_Sneeze()
+AWindowAnimation::~AWindowAnimation()
 {
 }
 
 
-void AWallArt_Sneeze::BeginPlay()
+void AWindowAnimation::BeginPlay()
 {
 	AActor::BeginPlay();
 	{
 		// 이미지컷팅하기(애니메이션용)
-		UEngineResourcesManager::GetInst().CuttingImage("!$anm_00.png", 3, 4);
+		UEngineResourcesManager::GetInst().CuttingImage("!$w_02.png", 3, 4);
 
-		// 화면에 아트와 캐릭터들 이미지랜더
+		// 화면에 아트 이미지랜더 및 애니메이션 생성
 		Renderer = CreateImageRenderer(PlayRenderOrder::Art_Back);
-		Renderer->SetImage("!$anm_00.png");
+		Renderer->SetImage("!$w_02.png");
 		Renderer->AutoImageScale();
-		Renderer->CreateAnimation("Idle", "!$anm_00.png", 0, 0, 0.0f, true);
-		Renderer->CreateAnimation("Sneeze", "!$anm_00.png", {0, 3, 6, 0}, 0.3f, false);
-		Renderer->ChangeAnimation("Idle");
+		Renderer->CreateAnimation("Window_Idle", "!$w_02.png", 0, 0, 0.0f, true);
+		Renderer->CreateAnimation("Window_Pass", "!$w_02.png", { 1, 4, 7, 10, 0 }, 0.2f, false);
+		Renderer->ChangeAnimation("Window_Idle");
 
-		// 플레이어와 충돌체랜더
+
+		// 맵 내에 위치할 콜리젼 생성
 		UCollision* CurCollision = nullptr;
 
+		// 창문에 위치하는 다이얼로그 생성하는 콜리젼
 		CurCollision = CreateCollision(CollisionOrder::Art);
-		CurCollision->SetScale({ 50, 50 });
-		CurCollision->SetPosition({ 0,30 });
+		CurCollision->SetScale({ 100, 40 });
 		CurCollision->SetColType(ECollisionType::Rect);
 		Collisions.push_back(CurCollision);
 
 		//맵 내에 애니메이션 하는 콜리젼
 		CurCollision = CreateCollision(CollisionOrder::Art);
 		CurCollision->SetScale({ 200, 40 });
-		CurCollision->SetPosition({ -100, -100 });
+		CurCollision->SetPosition({ 500, 200 });
 		CurCollision->SetColType(ECollisionType::Rect);
 		Collisions.push_back(CurCollision);
 
 	}
 
+	Script.push_back("바깥은 날씨가 흐려......");
 
+	StateChange(EPlayState::Event);
 }
 
-void AWallArt_Sneeze::SetRenderOff()
-{
-	Collisions[1]->SetActive(false);
-}
 
-void AWallArt_Sneeze::Tick(float _DeltaTime)
+void AWindowAnimation::Tick(float _DeltaTime)
 {
 
 	AActor::Tick(_DeltaTime);
@@ -64,7 +63,7 @@ void AWallArt_Sneeze::Tick(float _DeltaTime)
 }
 
 
-void AWallArt_Sneeze::StateChange(EPlayState _State)
+void AWindowAnimation::StateChange(EPlayState _State)
 {
 	switch (_State)
 	{
@@ -81,7 +80,7 @@ void AWallArt_Sneeze::StateChange(EPlayState _State)
 
 }
 
-void AWallArt_Sneeze::StateUpdate(float _DeltaTime)
+void AWindowAnimation::StateUpdate(float _DeltaTime)
 {
 	switch (State)
 	{
@@ -96,22 +95,33 @@ void AWallArt_Sneeze::StateUpdate(float _DeltaTime)
 
 }
 
-void AWallArt_Sneeze::Event(float _DeltaTime)
+void AWindowAnimation::Event(float _DeltaTime)
 {
 
 	// 충돌 후 애니메이션 생성
 	if (true == Collisions[1]->CollisionCheck(CollisionOrder::Player, Result))
 	{
-		int a = 0;
+		if (false == IsPlayed)
+		{
+			Renderer->ChangeAnimation("Window_Pass");
+			IsPlayed = true;
+			StateChange(EPlayState::Idle);
+		}
 
-		Renderer->ChangeAnimation("Sneeze");
+	}
+
+	int a = 0;
+}
+
+void AWindowAnimation::Idle(float _DeltaTime)
+{
+
+	if (nullptr == Dialogue)
+	{
+		MsgBoxAssert("Dialogue가 셋팅되지 않아서 동작이 불가능합니다.");
 		return;
 	}
 
-}
-
-void AWallArt_Sneeze::Idle(float _DeltaTime)
-{
 
 	if (true == Collisions[0]->CollisionCheck(CollisionOrder::Player, Result))
 	{
@@ -135,7 +145,7 @@ void AWallArt_Sneeze::Idle(float _DeltaTime)
 			// 그리고 다른 액터들도 정지되는 상태로 만들어주기.
 			Dialogue->SetActive(true);
 			Dialogue->ArtTextBoxRendererOn();
-			Dialogue->SetText("[기침하는남자]");
+			Dialogue->SetText(Script[0]);
 
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
@@ -149,3 +159,4 @@ void AWallArt_Sneeze::Idle(float _DeltaTime)
 	}
 
 }
+

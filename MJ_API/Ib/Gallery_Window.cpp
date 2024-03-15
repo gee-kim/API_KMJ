@@ -32,6 +32,8 @@ void AGallery_Window::BeginPlay()
 		CurRenderer->ChangeAnimation("Window_1Floor");
 
 
+
+
 	}
 
 }
@@ -41,6 +43,8 @@ void AGallery_Window::Tick(float _DeltaTime)
 {
 
 	AActor::Tick(_DeltaTime);
+
+	// 갤러리 레벨에서는 충돌이 발생하지 않아야 한다. enum 으로 event 모드로
 
 	//if (nullptr == Dialogue)
 	//{
@@ -67,3 +71,4 @@ void AGallery_Window::Tick(float _DeltaTime)
 	//}
 
 }
+

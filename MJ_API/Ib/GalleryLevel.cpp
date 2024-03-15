@@ -130,6 +130,7 @@ void UGalleryLevel::BeginPlay()
 		//Sneeze->SetActorLocation({ 660, 660 });
 		Sneeze->SetActorLocation({ 1895, 1305 });
 		Sneeze->SetDialogue(NewDialogue);
+		Sneeze->SetRenderOff();
 
 		APhoneMan* PhoneMan = SpawnActor<APhoneMan>();
 		PhoneMan->SetActorLocation({ 1470,600 });
