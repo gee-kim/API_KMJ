@@ -2,6 +2,7 @@
 #include <EnginePlatform\EngineInput.h>
 #include <EngineBase\EngineDebug.h>
 #include "Helper.h"
+#include <EngineCore/EngineDebug.h>
 
 APlayer::APlayer()
 {
@@ -26,10 +27,9 @@ void APlayer::BeginPlay()
 	{
 		Renderer = CreateImageRenderer(PlayRenderOrder::Player);
 		Renderer->SetImage("ib_00.png");
+		Renderer->AutoImageScale();
 		Renderer->SetTransform({ {0,-38}, {48, 96} });
-		//Renderer->SetImageCuttingTransform({ {82,82}, {91, 91} });
-		//971*1102
-
+		
 		Renderer->CreateAnimation("Idle", "ib_00.png", 1, 1, 0.5f, true);
 		Renderer->CreateAnimation("Idle_Right", "ib_00.png", 7, 7, 0.1f, true);
 		Renderer->CreateAnimation("Idle_Left", "ib_00.png", 4, 4, 0.1f, true);
@@ -57,7 +57,10 @@ void APlayer::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 
+	UEngineDebug::DebugTextPrint("PlayerPos : " + GetTransform().GetPosition().ToString(), 15.0f);
+
 	StateUpdate(_DeltaTime);
+
 }
 
 

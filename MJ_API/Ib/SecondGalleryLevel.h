@@ -26,6 +26,8 @@ protected:
 private:
 	class APlayer* NewPlayer = nullptr;
 	ABackGroundMap* Map = nullptr;
+	UEngineSoundPlayer BGMPlayer;
+
 
 };
 

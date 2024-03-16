@@ -17,6 +17,7 @@ AExit::~AExit()
 void AExit::BeginPlay()
 {
 	AActor::BeginPlay();
+
 	{
 		// 플레이어와 충돌체랜더
 		Collision = CreateCollision(CollisionOrder::Art);
@@ -39,6 +40,7 @@ void AExit::Tick(float _DeltaTime)
 	}
 
 
+	
 	if (true == Collision->CollisionCheck(CollisionOrder::Player, Result))
 	{
 		// 충돌 시에 발생하는 이벤트

@@ -2,20 +2,20 @@
 #include <EngineCore/Actor.h>
 #include "Dialogue.h"
 
-
 class APlayer;
 
-class AExit : public AActor
+
+class AArtSign : public AActor
 {
 public:
-	AExit();
-	~AExit();
+	AArtSign();
+	~AArtSign();
 
 	// delete Function
-	AExit(const AExit& _Other) = delete;
-	AExit(AExit&& _Other) noexcept = delete;
-	AExit& operator=(const AExit& _Other) = delete;
-	AExit& operator=(AExit&& _Other) noexcept = delete;
+	AArtSign(const AArtSign& _Other) = delete;
+	AArtSign(AArtSign&& _Other) noexcept = delete;
+	AArtSign& operator=(const AArtSign& _Other) = delete;
+	AArtSign& operator=(AArtSign&& _Other) noexcept = delete;
 
 	void SetDialogue(ADialogue* _Dialogue)
 	{
@@ -26,14 +26,9 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _Deltatime) override;
 
-	
-
 private:
-	UCollision* Collision = nullptr;
-	std::vector<UCollision*> Result;
-
 	APlayer* Player = nullptr;
-
+	UCollision* Collision = nullptr;
 	ADialogue* Dialogue = nullptr;
 
 };

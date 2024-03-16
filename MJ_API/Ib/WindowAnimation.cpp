@@ -12,6 +12,10 @@ AWindowAnimation::~AWindowAnimation()
 {
 }
 
+void AWindowAnimation::SetIsPlayedTrue()
+{
+	IsPlayed = true;
+}
 
 void AWindowAnimation::BeginPlay()
 {

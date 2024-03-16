@@ -43,7 +43,9 @@ enum class EPlayState
 	Move,
 	Talk,
 	Event,
+
 };
+
 
 
 class Helper

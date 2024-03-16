@@ -23,6 +23,7 @@ public:
 	}
 
 	void StateChange(EPlayState _State);
+	void SetIsPlayedTrue();
 
 protected:
 	void BeginPlay() override;

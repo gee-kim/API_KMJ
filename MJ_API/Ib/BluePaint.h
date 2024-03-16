@@ -1,7 +1,7 @@
 #pragma once
 #include <EngineCore/Actor.h>
 #include "Dialogue.h"
-
+#include "Helper.h"
 
 class ABluePaint : public AActor
 {
@@ -19,24 +19,32 @@ public:
 	{
 		Dialogue = _Dialogue;
 	}
-	void StateChange(EPlayState _State);
 
 protected:
 	void BeginPlay() override;
 	void Tick(float _Deltatime) override;
 
+	EPlayState State = EPlayState::None;
+
+	void StateChange(EPlayState _State);
+
+
 private:
 	std::vector<UImageRenderer*> Renderers;
 	UCollision* Collision = nullptr;
-
-	FVector ImageScale;
-	int Count = 3;
+	std::vector<UCollision*> Result;
 
 	class APlayer* Player = nullptr;
 	ADialogue* Dialogue = nullptr;
 
 	std::vector<std::string> Script;
 
+	FVector ImageScale;
+	int CurRenderIndex = 0;
+	int CurTextIndex = 0;
+
+	float DelayTime = 0.5f;
+	float LetterInTime = 0.5f;
 
 };
 

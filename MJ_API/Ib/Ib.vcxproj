@@ -159,6 +159,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ArtSign.h" />
+    <ClInclude Include="NextFifrhGallery.h" />
+    <ClInclude Include="NextFourthGallery.h" />
     <ClInclude Include="BluePaint.h">
       <SubType>
       </SubType>
@@ -167,6 +170,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="FifthGalleryLevel.h" />
     <ClInclude Include="WindowAnimation.h">
       <SubType>
       </SubType>
@@ -337,6 +341,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ArtSign.cpp" />
+    <ClCompile Include="NextFifrhGallery.cpp" />
+    <ClCompile Include="NextFourthGallery.cpp" />
     <ClCompile Include="BluePaint.cpp">
       <SubType>
       </SubType>
@@ -345,6 +352,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="FifthGalleryLevel.cpp" />
     <ClCompile Include="WindowAnimation.cpp">
       <SubType>
       </SubType>

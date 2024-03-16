@@ -55,7 +55,7 @@ protected:
 	float WalkTime = 4.0f;
 	float FrontWalkTime = 1.5f;
 	float UpWalkTime = 1.0f;
-	float PlayTime = 2.0f;
+	
 	float DelayTime = 0.5f;
 
 
@@ -67,7 +67,7 @@ private:
 	EEventState CurState = EEventState::StartEvent;
 
 	ABackGroundMap* Map = nullptr;
-	UEngineSoundPlayer BGMPlayer;
+
 	UEngineSoundPlayer BGMSound;
 
 	ADialogue* NewDialogue = nullptr;

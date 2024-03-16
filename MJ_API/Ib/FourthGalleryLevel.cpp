@@ -4,7 +4,8 @@
 #include "FadeIntro.h"
 #include "BluePaint.h"
 #include "GrayScreen.h"
-#include "SecondGalleryArt.h"
+#include "ArtSign.h"
+#include "NextFifrhGallery.h"
 
 #include <EngineCore\EngineCore.h>
 #include <EngineCore\EngineResourcesManager.h>
@@ -36,9 +37,8 @@ void UFourthGalleryLevel::BeginPlay()
 	AGrayScreen* GrayScreen = SpawnActor<AGrayScreen>();
 	GrayScreen->SetActorLocation({ 200,0 });
 
-	/*ANextThirdLevel* THirdLevel = SpawnActor<ANextThirdLevel>();
-	THirdLevel->SetActorLocation({ 645,910 });*/
-
+	ANextFifrhGallery* NextFifth = SpawnActor<ANextFifrhGallery>();
+	NextFifth->SetActorLocation({ 645,910 });
 
 	NewPlayer = SpawnActor<APlayer>();
 	NewPlayer->SetActorLocation({ 650,760 });
@@ -57,7 +57,7 @@ void UFourthGalleryLevel::BeginPlay()
 	ADialogue* NewDialog = SpawnActor<ADialogue>();
 	NewDialog->SetActorLocation({ 640, 620 });
 
-	ASecondGalleryArt* MainArt = SpawnActor<ASecondGalleryArt>();
+	AArtSign* MainArt = SpawnActor<AArtSign>();
 	MainArt->SetActorLocation({ 630,430 });
 	MainArt->SetDialogue(NewDialog);
 
@@ -65,13 +65,10 @@ void UFourthGalleryLevel::BeginPlay()
 	Paint->SetActorLocation({ 540,453 });
 	Paint->SetDialogue(NewDialog);
 
-
-
 }
 
 void UFourthGalleryLevel::Tick(float _DeltaTime)
 {
 	ULevel::Tick(_DeltaTime);
-
-
+	
 }

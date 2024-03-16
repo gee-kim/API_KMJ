@@ -1,6 +1,7 @@
 #pragma once
 #include <EngineCore/Actor.h>
 #include "Dialogue.h"
+#include <EnginePlatform/EngineSound.h>
 
 enum class ESecondEventState
 {
@@ -44,9 +45,9 @@ protected:
 	void StateUpdate(float _DeltaTime);
 	void StartEvent(float _DeltaTime);
 
+
 private:
 	ESecondEventState CurState = ESecondEventState::PlayerControll;
-private:
 	UImageRenderer* BlackRenderer= nullptr;
 	FVector ImageScale;
 	int Count = 3;
@@ -58,5 +59,9 @@ private:
 	ADialogue* Dialogue = nullptr;
 
 	float Time = 0.0f;
+
+	UEngineSoundPlayer BGMPlayer;
+	UEngineSoundPlayer BGMSound;
+	bool IsPlayed = false;
 };
 

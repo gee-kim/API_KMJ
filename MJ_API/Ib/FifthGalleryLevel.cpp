@@ -1,32 +1,31 @@
-#include <EngineCore\EngineCore.h>
-#include <EngineCore\EngineResourcesManager.h>
+#include "FifthGalleryLevel.h"
+
+#include "BackGroundMap.h"
+#include "Dialogue.h"
+#include "GallerySign.h"
+#include "GrayScreen.h"
+#include "LeftBigArt.h"
+#include "Player.h"
+#include "Poster.h"
+#include "RightBigArt.h"
+#include "WallArt_Lines.h"
+#include "WallArt_Sea.h"
+#include "WallArt_Sneeze.h"
+#include "WindowAnimation.h"
 #include <EngineBase\EngineDirectory.h>
 #include <EngineBase\EngineFile.h>
-#include "ThirdGalleryLevel.h"
-#include "GrayScreen.h"
-#include "Player.h"
-#include "BackGroundMap.h"
-#include "NextFourthGallery.h"
-#include "Dialogue.h"
-#include "WindowAnimation.h"
-//#include "Gallery_Window.h"
-#include "Poster.h"
-#include "LeftBigArt.h"
-#include "RightBigArt.h"
-#include "WallArt_Sea.h"
-#include "GallerySign.h"
-#include "WallArt_Lines.h"
-#include "WallArt_Sneeze.h"
+#include <EngineCore\EngineCore.h>
+#include <EngineCore\EngineResourcesManager.h>
 
-UThirdGalleryLevel::UThirdGalleryLevel()
+UFifthGalleryLevel::UFifthGalleryLevel()
 {
 }
 
-UThirdGalleryLevel::~UThirdGalleryLevel()
+UFifthGalleryLevel::~UFifthGalleryLevel()
 {
 }
 
-void UThirdGalleryLevel::BeginPlay()
+void UFifthGalleryLevel::BeginPlay()
 {
 	ULevel::BeginPlay();
 
@@ -39,9 +38,6 @@ void UThirdGalleryLevel::BeginPlay()
 	Map->SetMapImage("galleryandArts_(1).png");
 	Map->SetColMapImage("gallery_colmap.png");
 
-	ANextFourthGallery* NextGallery = SpawnActor<ANextFourthGallery>();
-	NextGallery->SetActorLocation({ 1100,200 });
-
 	FVector ImageScale = Map->GetImageScale();
 
 	AGrayScreen* GrayScreen = SpawnActor<AGrayScreen>();
@@ -52,9 +48,7 @@ void UThirdGalleryLevel::BeginPlay()
 	NewPlayer = SpawnActor<APlayer>();
 	NewPlayer->SetActorLocation({ 1078,419 });
 	NewPlayer->SetImageScale(ImageScale);
-	// 플레이어는 이벤트상태일때는 아무것도 안한다.
 	
-
 	//갤러리에 있는 콜리젼과 충돌했을 때 뜨는 다이얼로그
 	ADialogue* NewDialogue = SpawnActor<ADialogue>();
 	NewDialogue->SetActorLocation({ 640, 620 });
@@ -65,6 +59,7 @@ void UThirdGalleryLevel::BeginPlay()
 		AWindowAnimation* Window = SpawnActor<AWindowAnimation>();
 		Window->SetActorLocation({ 600, 430 });
 		Window->SetDialogue(NewDialogue);
+		Window->SetIsPlayedTrue();
 
 		APoster* NewPoster = SpawnActor<APoster>();
 		NewPoster->SetActorLocation({ 940, 440 });
@@ -94,7 +89,7 @@ void UThirdGalleryLevel::BeginPlay()
 		//Sneeze->SetActorLocation({ 660, 660 });
 		Sneeze->SetActorLocation({ 1895, 1305 });
 		Sneeze->SetDialogue(NewDialogue);
-		
+		Sneeze->SetRenderOff();
 
 	}
 
@@ -141,20 +136,20 @@ void UThirdGalleryLevel::BeginPlay()
 }
 
 
-void UThirdGalleryLevel::Tick(float _DeltaTime)
+void UFifthGalleryLevel::Tick(float _DeltaTime)
 {
 	ULevel::Tick(_DeltaTime);
 
 }
 
-void UThirdGalleryLevel::LevelStart(ULevel* _Level)
+void UFifthGalleryLevel::LevelStart(ULevel* _Level)
 {
 	ULevel::LevelStart(_Level);
 
 	int a = 0;
 }
 
-void UThirdGalleryLevel::LevelEnd(ULevel* _Level)
+void UFifthGalleryLevel::LevelEnd(ULevel* _Level)
 {
 	ULevel::LevelEnd(_Level);
 

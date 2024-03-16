@@ -1,5 +1,6 @@
 #include "SecondGalleryArt.h"
 #include "Player.h"
+//#include <EnginePlatform/EngineSound.h>
 
 ASecondGalleryArt::ASecondGalleryArt()
 {
@@ -72,7 +73,7 @@ void ASecondGalleryArt::Tick(float _DeltaTime)
 		{
 			Dialogue->SetActive(false);
 			StateChange(ESecondEventState::StartEvent);
-		Player->StateChange(EPlayState::Idle);
+			Player->StateChange(EPlayState::Idle);
 		}
 	}
 
@@ -87,8 +88,7 @@ void ASecondGalleryArt::StateChange(ESecondEventState _State)
 	case ESecondEventState::StartEvent:
 		break;
 	case ESecondEventState::PlayerControll:
-
-		break;
+			break;
 	default:
 		break;
 	}
@@ -115,6 +115,13 @@ void ASecondGalleryArt::StartEvent(float _Deltatime)
 	//여기서는 콜리젼 충돌이 일어난 이후 맵이 암전이 되는 이벤트가 발생
 	//Renderer->SetImage("IntroBackGround.png");
 	//Renderer->SetAlpha(0.5f);
+	if (false == IsPlayed)
+	{
+		BGMPlayer.Off();
+		BGMSound = UEngineSound::SoundPlay("light_01.ogg");
+	}
+
+	IsPlayed = true;
 
 	Time += _Deltatime * 3.0f;
 

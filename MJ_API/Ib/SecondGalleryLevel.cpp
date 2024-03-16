@@ -24,6 +24,8 @@ void USecondGalleryLevel::BeginPlay()
 {
 	ULevel::BeginPlay();
 
+	BGMPlayer = UEngineSound::SoundPlay("La_Follia.ogg");
+	BGMPlayer.Off();
 	Map = SpawnActor<ABackGroundMap>();
 	Map->SetMapImage("second_gallery_map.png");
 	Map->SetColMapImage("second_gallery_colmap.png");
@@ -32,14 +34,14 @@ void USecondGalleryLevel::BeginPlay()
 
 
 	AFadeIntro* FadeIntro = SpawnActor<AFadeIntro>();
-	FadeIntro->SetFadeTime(1.0f);
+	FadeIntro->SetFadeTime(1.5f);
 
 	ANextThirdLevel* THirdLevel = SpawnActor<ANextThirdLevel>();
 	THirdLevel->SetActorLocation({ 645,910 });
 
 
 	NewPlayer = SpawnActor<APlayer>();
-	NewPlayer->SetActorLocation({ 650,760 });
+	NewPlayer->SetActorLocation({ 650,850 });
 	NewPlayer->SetImageScale(MapScale);
 	NewPlayer->SetAnimation("Idle_Up");
 
@@ -59,13 +61,11 @@ void USecondGalleryLevel::BeginPlay()
 	MainArt->SetActorLocation({ 630,430 });
 	MainArt->SetDialogue(NewDialog);
 
-	
 }
 
 void USecondGalleryLevel::Tick(float _DeltaTime)
 {
 	ULevel::Tick(_DeltaTime);
-
 
 }
 

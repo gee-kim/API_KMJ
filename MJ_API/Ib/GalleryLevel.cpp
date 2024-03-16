@@ -43,10 +43,6 @@ void UGalleryLevel::BeginPlay()
 {
 	ULevel::BeginPlay();
 
-	BGMPlayer = UEngineSound::SoundPlay("La_Follia.ogg");
-	BGMPlayer.Off();
-	BGMPlayer.Loop();
-
 	ANextLevel* NextLevel = SpawnActor<ANextLevel>();
 	NextLevel->SetActorLocation({ 1100,200 });
 	
@@ -204,10 +200,10 @@ void UGalleryLevel::BeginPlay()
 
 	SetCameraPos(CameraPos);
 
-	StateChange(EEventState::PlayerControll);
-	NewPlayer->StateChange(EPlayState::Idle);
-	IbMom->StateChange(EPlayState::Idle);
-	IbDad->StateChange(EPlayState::Idle);
+	//StateChange(EEventState::PlayerControll);
+	//NewPlayer->StateChange(EPlayState::Idle);
+	//IbMom->StateChange(EPlayState::Idle);
+	//IbDad->StateChange(EPlayState::Idle);
 
 }
 
@@ -290,13 +286,6 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 	SetCameraPos(CameraPos);
 
 
-	PlayTime -= _DeltaTime;
-
-	if (PlayTime <= 0)
-	{
-		BGMPlayer.On();
-	}
-
 	// 대본
 	// 엄마 오른쪽에서 이브쪽 바라본 후 대사
 	Script.push_back("자. 도착했네\n......이브는 미술관 처음 와보지?");//엄마 살짝 웃는표정
@@ -348,6 +337,7 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 			if (true != MomSoundPlayed)
 			{
 				BGMSound = UEngineSound::SoundPlay("put_00.ogg");
+				BGMSound.SetVolume(0.3f);
 				MomSoundPlayed = true;
 
 				NewDialogue->SetActive(true);
@@ -400,6 +390,7 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 			if (true != DadSoundPlayed)
 			{
 				BGMSound = UEngineSound::SoundPlay("put_00.ogg");
+				BGMSound.SetVolume(0.3f);
 				DadSoundPlayed = true;
 
 				NewDialogue->SetActive(true);
@@ -486,6 +477,7 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 			if (true != IbSoundPlayed)
 			{
 				BGMSound = UEngineSound::SoundPlay("put_00.ogg");
+				BGMSound.SetVolume(0.3f);
 				IbSoundPlayed = true;
 
 			NewDialogue->SetActive(true);
