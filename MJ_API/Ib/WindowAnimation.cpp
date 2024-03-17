@@ -44,8 +44,8 @@ void AWindowAnimation::BeginPlay()
 
 		//맵 내에 애니메이션 하는 콜리젼
 		CurCollision = CreateCollision(CollisionOrder::Art);
-		CurCollision->SetScale({ 200, 40 });
-		CurCollision->SetPosition({ 500, 130 });
+		CurCollision->SetScale({ 160, 40 });
+		CurCollision->SetPosition({ 490, 150 });
 		CurCollision->SetColType(ECollisionType::Rect);
 		Collisions.push_back(CurCollision);
 

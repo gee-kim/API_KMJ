@@ -21,7 +21,7 @@ void AGallerySign::BeginPlay()
 		UCollision* CurCreateCollsions = nullptr;
 
 		CurCreateCollsions = CreateCollision(CollisionOrder::Art);
-		CurCreateCollsions->SetScale({ 50, 50 });
+		CurCreateCollsions->SetScale({ 40, 40 });
 		CurCreateCollsions->SetColType(ECollisionType::Rect);
 		Collisions.push_back(CurCreateCollsions);
 

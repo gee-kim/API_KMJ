@@ -42,7 +42,8 @@ void ADad::BeginPlay()
 		// 플레이어와 충돌체랜더
 		Collision = CreateCollision(CollisionOrder::Characters);
 		Collision->SetScale({40,40});
-		Collision->SetColType(ECollisionType::CirCle);
+		Collision->SetPosition({ 0,-40 });
+		Collision->SetColType(ECollisionType::Rect);
 
 	}
 

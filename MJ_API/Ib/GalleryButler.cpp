@@ -44,8 +44,7 @@ void AGalleryButler::BeginPlay()
 	}
 
 	Texts.push_back("이곳은 들어오면 안된단다? 귀여운 꼬마아가씨.");
-	Texts.push_back("'작은따옴표 나오나?'\n 줄바꿈은 되나?\n띄어쓰기는?");
-	Texts.push_back("세번째 대사");
+	Texts.push_back("부모님 말씀을 잘 들어야겠지요?");
 
 }
 

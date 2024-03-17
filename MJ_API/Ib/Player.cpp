@@ -33,23 +33,23 @@ void APlayer::BeginPlay()
 		Renderer->AutoImageScale();
 		Renderer->SetTransform({ {0,-38}, {48, 96} });
 		
-		Renderer->CreateAnimation("Idle", "ib_00.png", 1, 1, 0.5f, true);
-		Renderer->CreateAnimation("Idle_Right", "ib_00.png", 7, 7, 0.1f, true);
-		Renderer->CreateAnimation("Idle_Left", "ib_00.png", 4, 4, 0.1f, true);
-		Renderer->CreateAnimation("Idle_Down", "ib_00.png", 1, 1, 0.5f, true);
-		Renderer->CreateAnimation("Idle_Up", "ib_00.png", 10, 10, 0.5f, true);
+		Renderer->CreateAnimation("Idle", "ib_00.png", 1, 1, 0.2f, true);
+		Renderer->CreateAnimation("Idle_Right", "ib_00.png", 7, 7, 0.2f, true);
+		Renderer->CreateAnimation("Idle_Left", "ib_00.png", 4, 4, 0.2f, true);
+		Renderer->CreateAnimation("Idle_Down", "ib_00.png", 1, 1, 0.2f, true);
+		Renderer->CreateAnimation("Idle_Up", "ib_00.png", 10, 10, 0.2f, true);
 
-		Renderer->CreateAnimation("Move_Down", "ib_00.png", 0, 2, 0.3f, true);
-		Renderer->CreateAnimation("Move_Left", "ib_00.png", 3, 5, 0.5f, true);
+		Renderer->CreateAnimation("Move_Down", "ib_00.png", 0, 2, 0.2f, true);
+		Renderer->CreateAnimation("Move_Left", "ib_00.png", 3, 5, 0.2f, true);
 		Renderer->CreateAnimation("Move_Right", "ib_00.png", 6, 8, 0.2f, true);
-		Renderer->CreateAnimation("Move_Up", "ib_00.png", 9, 11, 0.5f, true);
+		Renderer->CreateAnimation("Move_Up", "ib_00.png", 9, 11, 0.2f, true);
 
 		Renderer->SetImage("$ib_11.png");
-		Renderer->CreateAnimation("Sink", "$ib_11.png", 0, 11, 0.1f, false);
-		Renderer->CreateAnimation("Sink_Down", "$ib_11.png", 0, 11, 0.1f, false);
-		Renderer->CreateAnimation("Sink_Left", "$ib_11.png", 0, 11, 0.1f, false);
-		Renderer->CreateAnimation("Sink_Right", "$ib_11.png", 0, 11, 0.1f, false);
-		Renderer->CreateAnimation("Sink_Up", "$ib_11.png", 0, 11, 0.1f, false);
+		Renderer->CreateAnimation("Sink", "$ib_11.png", 0, 11, 0.2f, false);
+		Renderer->CreateAnimation("Sink_Down", "$ib_11.png", 0, 11, 0.2f, false);
+		Renderer->CreateAnimation("Sink_Left", "$ib_11.png", 0, 11, 0.2f, false);
+		Renderer->CreateAnimation("Sink_Right", "$ib_11.png", 0, 11, 0.2f, false);
+		Renderer->CreateAnimation("Sink_Up", "$ib_11.png", 0, 11, 0.2f, false);
 
 		Renderer->ChangeAnimation("Idle");
 	}

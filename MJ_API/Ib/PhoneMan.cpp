@@ -37,7 +37,7 @@ void APhoneMan::BeginPlay()
 		// 플레이어와 충돌체랜더
 		Collisions = CreateCollision(CollisionOrder::Art);
 		Collisions->SetScale({ 50, 50 });
-		//Collisions->SetPosition({ 120,0 });
+		Collisions->SetPosition({ 0,-30 });
 		Collisions->SetColType(ECollisionType::Rect);
 
 	}
