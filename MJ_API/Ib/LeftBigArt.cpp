@@ -38,7 +38,7 @@ void ALeftBigArt::BeginPlay()
 
 		// 플레이어와 충돌체랜더
 		Collisions = CreateCollision(CollisionOrder::Art);
-		Collisions->SetScale({ 20, 100 });
+		Collisions->SetScale({ 20, 40 });
 		Collisions->SetPosition({ 120,0 });
 		Collisions->SetColType(ECollisionType::Rect);
 

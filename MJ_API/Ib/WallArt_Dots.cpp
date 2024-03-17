@@ -1,43 +1,36 @@
-#include "OldLady.h"
+#include "WallArt_Dots.h"
+#include "Helper.h"
 #include "Player.h"
 #include <EngineBase\EngineDebug.h>
-#include <EnginePlatform\EngineInput.h>
 #include <EngineCore/EngineResourcesManager.h>
+#include <EnginePlatform\EngineInput.h>
 
-AOldLady::AOldLady()
+AWallArt_Dots::AWallArt_Dots()
 {
 }
 
-AOldLady::~AOldLady()
+AWallArt_Dots::~AWallArt_Dots()
 {
 }
 
-void AOldLady::BeginPlay()
+
+void AWallArt_Dots::BeginPlay()
 {
 	AActor::BeginPlay();
 	{
-		// 이미지컷팅하기(애니메이션용)
-		UEngineResourcesManager::GetInst().CuttingImage("$mob_00.png", 3, 4);
-
-		// 화면에 아트와 캐릭터들 이미지랜더
-		Renderer = CreateImageRenderer(PlayRenderOrder::Characters);
-		Renderer->SetImage("$mob_00.png");
-		Renderer->AutoImageScale();
-		Renderer->CreateAnimation("Idle", "$mob_00.png", 8, 8, 0.0f, true);
-		Renderer->ChangeAnimation("Idle");
-
-
 		// 플레이어와 충돌체랜더
-		Collision = CreateCollision(CollisionOrder::Art);
-		Collision->SetScale({ 50, 50 });
-		Collision->SetColType(ECollisionType::Rect);
+		UCollision* CurCreateCollsions = nullptr;
 
+		CurCreateCollsions = CreateCollision(CollisionOrder::Art);
+		CurCreateCollsions->SetScale({ 50, 50 });
+		CurCreateCollsions->SetColType(ECollisionType::Rect);
+		Collisions.push_back(CurCreateCollsions);
 	}
 
 }
 
 
-void AOldLady::Tick(float _DeltaTime)
+void AWallArt_Dots::Tick(float _DeltaTime)
 {
 	if (nullptr == Dialogue)
 	{
@@ -47,15 +40,12 @@ void AOldLady::Tick(float _DeltaTime)
 
 	AActor::Tick(_DeltaTime);
 
-	std::vector<UCollision*> Result;
-
-	if (true == Collision->CollisionCheck(CollisionOrder::Player, Result))
+	if (true == Collisions[0]->CollisionCheck(CollisionOrder::Player, Result))
 	{
 		//플레이어와 충돌이 일어나면 키가눌리는거 체크하고,
 		//키가 눌린다면 Textbox가 출력되게 만들기
 		if (true == UEngineInput::IsDown(VK_SPACE) && false == Dialogue->IsActive())
 		{
-
 			AActor* Owner = Result[0]->GetOwner();
 
 			Player = dynamic_cast<APlayer*>(Owner);
@@ -69,13 +59,13 @@ void AOldLady::Tick(float _DeltaTime)
 			Player->StateChange(EPlayState::Event);
 
 			Dialogue->SetActive(true);
-			Dialogue->CharTextBoxRendererOn();
-			Dialogue->SetText("꽤나 커다란 작품이네......");
+			Dialogue->ArtTextBoxRendererOn();
+			Dialogue->SetText("[? ? 의 정신]");
 		}
 		else if (true == UEngineInput::IsDown(VK_SPACE) && true == Dialogue->IsActive())
 		{
-			Dialogue->SetActive(false);
 			Player->StateChange(EPlayState::Idle);
+			Dialogue->SetActive(false);
 		}
 	}
 

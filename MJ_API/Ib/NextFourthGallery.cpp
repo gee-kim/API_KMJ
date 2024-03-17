@@ -33,6 +33,7 @@ void ANextFourthGallery::Tick(float _DeltaTime)
 
 	if (true == BodyCollision->CollisionCheck(CollisionOrder::Player, Result))
 	{
+		BGMSound = UEngineSound::SoundPlay("stairs.ogg");
 		GEngine->CreateLevel<UFourthGalleryLevel>("Fourth");
 		GEngine->ChangeLevel("Fourth");
 

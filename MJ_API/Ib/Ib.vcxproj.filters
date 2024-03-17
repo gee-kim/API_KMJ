@@ -96,9 +96,6 @@
     <ClInclude Include="BrownHair.h">
       <Filter>Object\GalleryLevel\Actor\Character</Filter>
     </ClInclude>
-    <ClInclude Include="AOceanSign.h">
-      <Filter>Object\GalleryLevel\Actor\Art</Filter>
-    </ClInclude>
     <ClInclude Include="BlueHair.h">
       <Filter>Object\GalleryLevel\Actor\Character</Filter>
     </ClInclude>
@@ -106,9 +103,6 @@
       <Filter>Object\GalleryLevel\Actor\Character</Filter>
     </ClInclude>
     <ClInclude Include="PinkWomen.h">
-      <Filter>Object\GalleryLevel\Actor\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowMan.h">
       <Filter>Object\GalleryLevel\Actor\Character</Filter>
     </ClInclude>
     <ClInclude Include="CharFace.h">
@@ -140,6 +134,36 @@
     </ClInclude>
     <ClInclude Include="ArtSign.h">
       <Filter>Object\FourthGallery\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="FootPrints.h">
+      <Filter>Object\FifthGalleryLevel\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowMan.h">
+      <Filter>Object\GalleryLevel\Actor\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="WallArt_Sleep.h">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClInclude>
+    <ClInclude Include="WallArt_Dots.h">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClInclude>
+    <ClInclude Include="WallArt_Mount.h">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClInclude>
+    <ClInclude Include="WallArt_White.h">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClInclude>
+    <ClInclude Include="BelowSign.h">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClInclude>
+    <ClInclude Include="OceanSign.h">
+      <Filter>Object\ThirdGalleryLevel\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="WallArt_Piano.h">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClInclude>
+    <ClInclude Include="NoExit.h">
+      <Filter>Object\ThirdGalleryLevel\Actor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -238,9 +262,6 @@
     <ClCompile Include="BrownHair.cpp">
       <Filter>Object\GalleryLevel\Actor\Character</Filter>
     </ClCompile>
-    <ClCompile Include="AOceanSign.cpp">
-      <Filter>Object\GalleryLevel\Actor\Art</Filter>
-    </ClCompile>
     <ClCompile Include="BlueHair.cpp">
       <Filter>Object\GalleryLevel\Actor\Character</Filter>
     </ClCompile>
@@ -282,6 +303,33 @@
     </ClCompile>
     <ClCompile Include="ArtSign.cpp">
       <Filter>Object\FourthGallery\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="FootPrints.cpp">
+      <Filter>Object\FifthGalleryLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="WallArt_Sleep.cpp">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClCompile>
+    <ClCompile Include="WallArt_Dots.cpp">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClCompile>
+    <ClCompile Include="WallArt_Mount.cpp">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClCompile>
+    <ClCompile Include="WallArt_White.cpp">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClCompile>
+    <ClCompile Include="BelowSign.cpp">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClCompile>
+    <ClCompile Include="OceanSign.cpp">
+      <Filter>Object\ThirdGalleryLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="WallArt_Piano.cpp">
+      <Filter>Object\GalleryLevel\Actor\Art</Filter>
+    </ClCompile>
+    <ClCompile Include="NoExit.cpp">
+      <Filter>Object\ThirdGalleryLevel\Actor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -338,6 +386,9 @@
     </Filter>
     <Filter Include="Object\FifthGalleryLevel">
       <UniqueIdentifier>{b911c35c-2dd0-46b7-a505-a009a60b4cdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\FifthGalleryLevel\Actor">
+      <UniqueIdentifier>{3a0ec8cd-85b0-4827-9137-646d5c7b313b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

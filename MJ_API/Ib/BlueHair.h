@@ -2,6 +2,8 @@
 #include <EngineCore/Actor.h>
 #include "Dialogue.h"
 
+class APlayer;
+
 class ABlueHair : public AActor
 {
 public:
@@ -31,6 +33,6 @@ private:
 	std::vector<std::string> Script;
 
 	ADialogue* Dialogue = nullptr;
-
+	APlayer* Player = nullptr;
 };
 

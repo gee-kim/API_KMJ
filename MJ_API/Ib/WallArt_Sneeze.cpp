@@ -4,6 +4,8 @@
 #include <EngineBase\EngineDebug.h>
 #include <EngineCore/EngineResourcesManager.h>
 
+
+
 AWallArt_Sneeze::AWallArt_Sneeze()
 {
 }
@@ -40,7 +42,7 @@ void AWallArt_Sneeze::BeginPlay()
 		//맵 내에 애니메이션 하는 콜리젼
 		CurCollision = CreateCollision(CollisionOrder::Art);
 		CurCollision->SetScale({ 200, 40 });
-		CurCollision->SetPosition({ -100, -100 });
+		CurCollision->SetPosition({ -180, -100 });
 		CurCollision->SetColType(ECollisionType::Rect);
 		Collisions.push_back(CurCollision);
 
@@ -102,10 +104,14 @@ void AWallArt_Sneeze::Event(float _DeltaTime)
 	// 충돌 후 애니메이션 생성
 	if (true == Collisions[1]->CollisionCheck(CollisionOrder::Player, Result))
 	{
-		int a = 0;
+		if (false == IsPlayed)
+		{
 
-		Renderer->ChangeAnimation("Sneeze");
-		return;
+			BGMSound = UEngineSound::SoundPlay("cough.ogg");
+			Renderer->ChangeAnimation("Sneeze");
+			IsPlayed = true;
+			return;
+		}
 	}
 
 }

@@ -159,6 +159,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="NoExit.h" />
+    <ClInclude Include="WallArt_Piano.h" />
+    <ClInclude Include="BelowSign.h" />
+    <ClInclude Include="WallArt_Dots.h" />
+    <ClInclude Include="WallArt_Mount.h" />
+    <ClInclude Include="WallArt_White.h" />
+    <ClInclude Include="WallArt_Sleep.h" />
+    <ClInclude Include="FootPrints.h" />
     <ClInclude Include="ArtSign.h" />
     <ClInclude Include="NextFifrhGallery.h" />
     <ClInclude Include="NextFourthGallery.h" />
@@ -195,7 +203,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="AOceanSign.h">
+    <ClInclude Include="OceanSign.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -341,6 +349,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="NoExit.cpp" />
+    <ClCompile Include="WallArt_Piano.cpp" />
+    <ClCompile Include="BelowSign.cpp" />
+    <ClCompile Include="WallArt_Dots.cpp" />
+    <ClCompile Include="WallArt_Mount.cpp" />
+    <ClCompile Include="WallArt_White.cpp" />
+    <ClCompile Include="WallArt_Sleep.cpp" />
+    <ClCompile Include="FootPrints.cpp" />
     <ClCompile Include="ArtSign.cpp" />
     <ClCompile Include="NextFifrhGallery.cpp" />
     <ClCompile Include="NextFourthGallery.cpp" />
@@ -377,7 +393,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="AOceanSign.cpp">
+    <ClCompile Include="OceanSign.cpp">
       <SubType>
       </SubType>
     </ClCompile>

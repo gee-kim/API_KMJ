@@ -3,6 +3,8 @@
 #include "Helper.h"
 #include <EngineCore/Actor.h>
 
+class APlayer;
+
 class ABrownHair : public AActor
 {
 public:
@@ -29,5 +31,7 @@ private:
 	UCollision* Collision = nullptr;
 
 	ADialogue* Dialogue = nullptr;
+	APlayer* Player = nullptr;
+
 };
 

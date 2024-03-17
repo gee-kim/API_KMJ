@@ -2,6 +2,8 @@
 #include <EngineCore/Actor.h>
 #include "Dialogue.h"
 
+class APlayer;
+
 class ARightBigArt : public AActor
 {
 public:
@@ -32,5 +34,6 @@ private:
 
 	ADialogue* Dialogue = nullptr;
 
+	APlayer* Player = nullptr;
 };
 

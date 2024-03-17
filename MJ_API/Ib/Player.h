@@ -1,5 +1,6 @@
 #pragma once
 #include <EngineCore\Actor.h>
+#include <EnginePlatform\EngineSound.h>
 #include "Helper.h"
 
 
@@ -52,11 +53,13 @@ protected:
 	void Idle(float _DeltaTime);
 	void Move(float _DeltaTime);
 	void Event(float _DeltaTime);
+	void Sink(float _DeltaTime);
 
 	// 상태 시작 함수들
 	void IdleStart();
 	void MoveStart();
 	void EventStart();
+	void SinkStart();
 
 	EPlayState State = EPlayState::None;
 	EActorDir DirState = EActorDir::Right;
@@ -75,6 +78,8 @@ private:
 	float FreeMoveSpeed = 3000.0f;
 	float MoveSpeed = 300.0f;
 	FVector ImageScale= FVector::Zero;
+
+	UEngineSoundPlayer BGMSound;
 };
 
 

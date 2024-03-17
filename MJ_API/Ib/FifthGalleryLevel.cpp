@@ -1,4 +1,5 @@
 #include "FifthGalleryLevel.h"
+#include "FootPrints.h"
 
 #include "BackGroundMap.h"
 #include "Dialogue.h"
@@ -35,8 +36,8 @@ void UFifthGalleryLevel::BeginPlay()
 
 	//눈에 보이는 맵이랑, 충돌용 맵 넣어준다.
 	Map = SpawnActor<ABackGroundMap>();
-	Map->SetMapImage("galleryandArts_(1).png");
-	Map->SetColMapImage("gallery_colmap.png");
+	Map->SetMapImage("Fifthgallery.png");
+	Map->SetColMapImage("FifthGallery_colmap.png");
 
 	FVector ImageScale = Map->GetImageScale();
 
@@ -48,13 +49,17 @@ void UFifthGalleryLevel::BeginPlay()
 	NewPlayer = SpawnActor<APlayer>();
 	NewPlayer->SetActorLocation({ 1078,419 });
 	NewPlayer->SetImageScale(ImageScale);
-	
+
 	//갤러리에 있는 콜리젼과 충돌했을 때 뜨는 다이얼로그
 	ADialogue* NewDialogue = SpawnActor<ADialogue>();
-	NewDialogue->SetActorLocation({ 640, 620 });
+	NewDialogue->SetActorLocation({ 640, 320 });
 
 	//갤러리맵에 실제로 위치하고 콜리젼을 담당하는 객체들
 	{
+
+		AFootPrints* FootEvent = SpawnActor<AFootPrints>();
+		FootEvent->SetActorLocation({ 1178,500 });
+		FootEvent->SetDialogue(NewDialogue);
 
 		AWindowAnimation* Window = SpawnActor<AWindowAnimation>();
 		Window->SetActorLocation({ 600, 430 });

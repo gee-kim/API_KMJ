@@ -24,6 +24,15 @@
 #include "PinkWomen.h"
 #include "WindowMan.h"
 #include "Exit.h"
+
+#include "WallArt_Sleep.h"
+#include "WallArt_Dots.h"
+#include "BelowSign.h"
+#include "WallArt_White.h"
+#include "WallArt_Mount.h"
+#include "WallArt_Piano.h"
+
+
 #include <EngineCore\EngineCore.h>
 #include <EngineCore\EngineResourcesManager.h>
 #include <EngineBase\EngineDirectory.h>
@@ -111,7 +120,7 @@ void UGalleryLevel::BeginPlay()
 		LeftBig->SetDialogue(NewDialogue);
 
 		ARightBigArt* RightBig = SpawnActor<ARightBigArt>();
-		RightBig->SetActorLocation({ 2625, 1225 });
+		RightBig->SetActorLocation({ 2675, 1225 });
 		RightBig->SetDialogue(NewDialogue);
 
 		AWallArt_Sea* SeaArt = SpawnActor<AWallArt_Sea>();
@@ -122,6 +131,32 @@ void UGalleryLevel::BeginPlay()
 		Lines->SetActorLocation({ 2380, 520 });
 		Lines->SetDialogue(NewDialogue);
 
+		AWallArt_Sleep* Sleep = SpawnActor<AWallArt_Sleep>();
+		Sleep->SetActorLocation({ 2760, 520 });
+		Sleep->SetDialogue(NewDialogue);
+		
+		AWallArt_Dots* Dots = SpawnActor<AWallArt_Dots>();
+		Dots->SetActorLocation({ 2570, 520 });
+		Dots->SetDialogue(NewDialogue);
+
+		AWallArt_Mount* Mountain = SpawnActor<AWallArt_Mount>();
+		Mountain->SetActorLocation({ 2075, 1335 });
+		Mountain->SetDialogue(NewDialogue);
+
+		AWallArt_White* White = SpawnActor<AWallArt_White>();
+		White->SetActorLocation({ 2275, 1335 });
+		White->SetDialogue(NewDialogue);
+
+		ABelowSign* BelowSign = SpawnActor<ABelowSign>();
+		BelowSign->SetActorLocation({ 2700, 1075 });
+		BelowSign->SetDialogue(NewDialogue);
+
+		AWallArt_Piano* Piano = SpawnActor<AWallArt_Piano>();
+		Piano->SetActorLocation({ 1675, 300 });
+		Piano->SetDialogue(NewDialogue);
+
+
+
 		AWallArt_Sneeze* Sneeze = SpawnActor<AWallArt_Sneeze>();
 		//Sneeze->SetActorLocation({ 660, 660 });
 		Sneeze->SetActorLocation({ 1895, 1305 });
@@ -129,7 +164,7 @@ void UGalleryLevel::BeginPlay()
 		Sneeze->SetRenderOff();
 
 		APhoneMan* PhoneMan = SpawnActor<APhoneMan>();
-		PhoneMan->SetActorLocation({ 1470,600 });
+		PhoneMan->SetActorLocation({ 1470,620 });
 		PhoneMan->SetDialogue(NewDialogue);
 
 		APonyTail* PonyTail = SpawnActor<APonyTail>();
@@ -200,10 +235,10 @@ void UGalleryLevel::BeginPlay()
 
 	SetCameraPos(CameraPos);
 
-	//StateChange(EEventState::PlayerControll);
-	//NewPlayer->StateChange(EPlayState::Idle);
-	//IbMom->StateChange(EPlayState::Idle);
-	//IbDad->StateChange(EPlayState::Idle);
+	StateChange(EEventState::PlayerControll);
+	NewPlayer->StateChange(EPlayState::Idle);
+	IbMom->StateChange(EPlayState::Idle);
+	IbDad->StateChange(EPlayState::Idle);
 
 }
 
@@ -337,7 +372,7 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 			if (true != MomSoundPlayed)
 			{
 				BGMSound = UEngineSound::SoundPlay("put_00.ogg");
-				BGMSound.SetVolume(0.3f);
+				BGMSound.SetVolume(0.2f);
 				MomSoundPlayed = true;
 
 				NewDialogue->SetActive(true);
@@ -390,7 +425,7 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 			if (true != DadSoundPlayed)
 			{
 				BGMSound = UEngineSound::SoundPlay("put_00.ogg");
-				BGMSound.SetVolume(0.3f);
+				BGMSound.SetVolume(0.2f);
 				DadSoundPlayed = true;
 
 				NewDialogue->SetActive(true);
@@ -477,7 +512,7 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 			if (true != IbSoundPlayed)
 			{
 				BGMSound = UEngineSound::SoundPlay("put_00.ogg");
-				BGMSound.SetVolume(0.3f);
+				BGMSound.SetVolume(0.2f);
 				IbSoundPlayed = true;
 
 			NewDialogue->SetActive(true);

@@ -2,6 +2,8 @@
 #include <EngineCore/Actor.h>
 #include "Dialogue.h"
 
+class APlayer;
+
 class APonyTail :public AActor
 {
 public:
@@ -31,6 +33,7 @@ private:
 	std::vector<std::string> Texts;
 
 	ADialogue* Dialogue = nullptr;
+	APlayer* Player = nullptr;
 
 };
 

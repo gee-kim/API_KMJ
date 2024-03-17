@@ -15,6 +15,8 @@ enum class PlayRenderOrder
 	Art_Front,
 	Characters_Front,
 	GrayScreen,
+	BlueScreen,
+	BlackScreen,
 	Dialogue,
 	Text,
 	Fade,
@@ -43,6 +45,7 @@ enum class EPlayState
 	Move,
 	Talk,
 	Event,
+	Sink,
 
 };
 

@@ -9,7 +9,6 @@
 #include "NextFourthGallery.h"
 #include "Dialogue.h"
 #include "WindowAnimation.h"
-//#include "Gallery_Window.h"
 #include "Poster.h"
 #include "LeftBigArt.h"
 #include "RightBigArt.h"
@@ -17,6 +16,15 @@
 #include "GallerySign.h"
 #include "WallArt_Lines.h"
 #include "WallArt_Sneeze.h"
+
+#include "WallArt_Sleep.h"
+#include "WallArt_Dots.h"
+#include "BelowSign.h"
+#include "WallArt_White.h"
+#include "WallArt_Mount.h"
+#include "WallArt_Piano.h"
+#include "NoExit.h"
+#include "OceanSign.h"
 
 UThirdGalleryLevel::UThirdGalleryLevel()
 {
@@ -37,7 +45,7 @@ void UThirdGalleryLevel::BeginPlay()
 	//눈에 보이는 맵이랑, 충돌용 맵 넣어준다.
 	Map = SpawnActor<ABackGroundMap>();
 	Map->SetMapImage("galleryandArts_(1).png");
-	Map->SetColMapImage("gallery_colmap.png");
+	Map->SetColMapImage("Third_Gallery_colmap.png");
 
 	ANextFourthGallery* NextGallery = SpawnActor<ANextFourthGallery>();
 	NextGallery->SetActorLocation({ 1100,200 });
@@ -62,6 +70,10 @@ void UThirdGalleryLevel::BeginPlay()
 	//갤러리맵에 실제로 위치하고 콜리젼을 담당하는 객체들
 	{
 
+		ANoExit* Exit = SpawnActor<ANoExit>();
+		Exit->SetActorLocation({ 430, 620 });
+		Exit->SetDialogue(NewDialogue);
+
 		AWindowAnimation* Window = SpawnActor<AWindowAnimation>();
 		Window->SetActorLocation({ 600, 430 });
 		Window->SetDialogue(NewDialogue);
@@ -79,7 +91,7 @@ void UThirdGalleryLevel::BeginPlay()
 		LeftBig->SetDialogue(NewDialogue);
 
 		ARightBigArt* RightBig = SpawnActor<ARightBigArt>();
-		RightBig->SetActorLocation({ 2625, 1225 });
+		RightBig->SetActorLocation({ 2675, 1225 });
 		RightBig->SetDialogue(NewDialogue);
 
 		AWallArt_Sea* SeaArt = SpawnActor<AWallArt_Sea>();
@@ -95,6 +107,33 @@ void UThirdGalleryLevel::BeginPlay()
 		Sneeze->SetActorLocation({ 1895, 1305 });
 		Sneeze->SetDialogue(NewDialogue);
 		
+		AWallArt_Sleep* Sleep = SpawnActor<AWallArt_Sleep>();
+		Sleep->SetActorLocation({ 2760, 520 });
+		Sleep->SetDialogue(NewDialogue);
+
+		AWallArt_Dots* Dots = SpawnActor<AWallArt_Dots>();
+		Dots->SetActorLocation({ 2570, 520 });
+		Dots->SetDialogue(NewDialogue);
+
+		AWallArt_Mount* Mountain = SpawnActor<AWallArt_Mount>();
+		Mountain->SetActorLocation({ 2075, 1335 });
+		Mountain->SetDialogue(NewDialogue);
+
+		AWallArt_White* White = SpawnActor<AWallArt_White>();
+		White->SetActorLocation({ 2275, 1335 });
+		White->SetDialogue(NewDialogue);
+
+		ABelowSign* BelowSign = SpawnActor<ABelowSign>();
+		BelowSign->SetActorLocation({ 2700, 1075 });
+		BelowSign->SetDialogue(NewDialogue);
+
+		AWallArt_Piano* Piano = SpawnActor<AWallArt_Piano>();
+		Piano->SetActorLocation({ 1675, 300 });
+		Piano->SetDialogue(NewDialogue);
+
+		AOceanSign* OceanSign = SpawnActor<AOceanSign>();
+		OceanSign->SetActorLocation({ 1675, 850 });
+		OceanSign->SetDialogue(NewDialogue);
 
 	}
 

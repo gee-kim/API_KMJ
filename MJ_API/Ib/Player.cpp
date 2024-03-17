@@ -3,6 +3,7 @@
 #include <EngineBase\EngineDebug.h>
 #include "Helper.h"
 #include <EngineCore/EngineDebug.h>
+#include <EngineCore/EngineResourcesManager.h>
 
 APlayer::APlayer()
 {
@@ -25,6 +26,8 @@ void APlayer::BeginPlay()
 	AActor::BeginPlay();
 	
 	{
+		UEngineResourcesManager::GetInst().CuttingImage("$ib_11.png", 3, 4);
+
 		Renderer = CreateImageRenderer(PlayRenderOrder::Player);
 		Renderer->SetImage("ib_00.png");
 		Renderer->AutoImageScale();
@@ -40,6 +43,14 @@ void APlayer::BeginPlay()
 		Renderer->CreateAnimation("Move_Left", "ib_00.png", 3, 5, 0.5f, true);
 		Renderer->CreateAnimation("Move_Right", "ib_00.png", 6, 8, 0.2f, true);
 		Renderer->CreateAnimation("Move_Up", "ib_00.png", 9, 11, 0.5f, true);
+
+		Renderer->SetImage("$ib_11.png");
+		Renderer->CreateAnimation("Sink", "$ib_11.png", 0, 11, 0.1f, false);
+		Renderer->CreateAnimation("Sink_Down", "$ib_11.png", 0, 11, 0.1f, false);
+		Renderer->CreateAnimation("Sink_Left", "$ib_11.png", 0, 11, 0.1f, false);
+		Renderer->CreateAnimation("Sink_Right", "$ib_11.png", 0, 11, 0.1f, false);
+		Renderer->CreateAnimation("Sink_Up", "$ib_11.png", 0, 11, 0.1f, false);
+
 		Renderer->ChangeAnimation("Idle");
 	}
 	
@@ -207,6 +218,13 @@ void APlayer::EventStart()
 	DirCheck();
 }
 
+void APlayer::SinkStart()
+{
+	Renderer->ChangeAnimation(GetAnimationName("Sink"));
+	BGMSound = UEngineSound::SoundPlay("sink.ogg");
+	DirCheck();
+}
+
 void APlayer::StateChange(EPlayState _State)
 {
 	// 이전상태와 지금 상태가 같지 않아
@@ -223,6 +241,10 @@ void APlayer::StateChange(EPlayState _State)
 			break;
 		case EPlayState::Event:
 			EventStart();
+			break;
+		case EPlayState::Sink:
+			SinkStart();
+			break;
 		default:
 			break;
 		}
@@ -251,6 +273,10 @@ void APlayer::StateUpdate(float _DeltaTime)
 		break;
 	case EPlayState::Event:
 		Event(_DeltaTime);
+		break;
+	case EPlayState::Sink:
+		Sink(_DeltaTime);
+		break;
 	default:
 		break;
 	}
@@ -261,6 +287,12 @@ void APlayer::StateUpdate(float _DeltaTime)
 void APlayer::Event(float _DeltaTime)
 {
 }
+
+void APlayer::Sink(float _DeltaTime)
+{
+	//Renderer->ChangeAnimation("Sink");
+}
+
 
 void APlayer::Idle(float _DeltaTime)
 {

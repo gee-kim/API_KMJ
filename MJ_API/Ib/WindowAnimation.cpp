@@ -45,7 +45,7 @@ void AWindowAnimation::BeginPlay()
 		//맵 내에 애니메이션 하는 콜리젼
 		CurCollision = CreateCollision(CollisionOrder::Art);
 		CurCollision->SetScale({ 200, 40 });
-		CurCollision->SetPosition({ 500, 200 });
+		CurCollision->SetPosition({ 500, 130 });
 		CurCollision->SetColType(ECollisionType::Rect);
 		Collisions.push_back(CurCollision);
 
@@ -107,6 +107,7 @@ void AWindowAnimation::Event(float _DeltaTime)
 	{
 		if (false == IsPlayed)
 		{
+			BGMSound = UEngineSound::SoundPlay("flow.ogg");
 			Renderer->ChangeAnimation("Window_Pass");
 			IsPlayed = true;
 			StateChange(EPlayState::Idle);

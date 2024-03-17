@@ -1,5 +1,6 @@
 #pragma once
 #include <EngineCore\Actor.h>
+#include <EnginePlatform\EngineSound.h>
 
 class ANextThirdLevel : public AActor
 {
@@ -20,5 +21,6 @@ protected:
 private:
 	UCollision* BodyCollision = nullptr;
 
+	UEngineSoundPlayer BGMSound;
 };
 

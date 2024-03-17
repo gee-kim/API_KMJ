@@ -1,20 +1,21 @@
 #pragma once
 #include <EngineCore/Actor.h>
+#include "Helper.h"
 #include "Dialogue.h"
 
 class APlayer;
 
-class AWallArt_Sea : public AActor
+class ABelowSign : public AActor
 {
 public:
-	AWallArt_Sea();
-	~AWallArt_Sea();
+	ABelowSign();
+	~ABelowSign();
 
 	// delete Function
-	AWallArt_Sea(const AWallArt_Sea& _Other) = delete;
-	AWallArt_Sea(AWallArt_Sea&& _Other) noexcept = delete;
-	AWallArt_Sea& operator=(const AWallArt_Sea& _Other) = delete;
-	AWallArt_Sea& operator=(AWallArt_Sea&& _Other) noexcept = delete;
+	ABelowSign(const ABelowSign& _Other) = delete;
+	ABelowSign(ABelowSign&& _Other) noexcept = delete;
+	ABelowSign& operator=(const ABelowSign& _Other) = delete;
+	ABelowSign& operator=(ABelowSign&& _Other) noexcept = delete;
 
 	void SetDialogue(ADialogue* _Dialogue)
 	{
@@ -26,9 +27,8 @@ protected:
 	void Tick(float _Deltatime) override;
 
 private:
-	UCollision* Collision = nullptr;
+	std::vector<UCollision*> Collisions;
 	std::vector<UCollision*> Result;
-	
 	APlayer* Player = nullptr;
 
 	ADialogue* Dialogue = nullptr;

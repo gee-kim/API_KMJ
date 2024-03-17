@@ -1,5 +1,6 @@
 #pragma once
 #include <EngineCore/Actor.h>
+#include <EnginePlatform\EngineSound.h>
 #include "Helper.h"
 #include "Dialogue.h"
 
@@ -50,5 +51,7 @@ private:
 	ADialogue* Dialogue = nullptr;
 
 	bool IsPlayed = false;
+
+	UEngineSoundPlayer BGMSound;
 };
 

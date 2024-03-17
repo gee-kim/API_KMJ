@@ -34,7 +34,7 @@ void AIntro::BeginPlay()
 
 		FadeImage = CreateImageRenderer(PlayRenderOrder::Fade);
 		//setalpha 값 바꿔줘서 fade 효과 넣어주기
-		FadeImage->SetImage("IntroFadeImage.png");
+		FadeImage->SetImage("IntroBackGround.png");
 		FadeImage->AutoImageScale();
 		ImageScale = GEngine->MainWindow.GetWindowScale();
 		FadeImage->SetTransform({ ImageScale.Half2D(), ImageScale });

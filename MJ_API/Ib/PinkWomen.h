@@ -3,6 +3,8 @@
 #include "Helper.h"
 #include <EngineCore/Actor.h>
 
+class APlayer;
+
 class APinkWomen : public AActor
 {
 public:
@@ -30,6 +32,6 @@ private:
 
 	ADialogue* Dialogue = nullptr;
 
-
+	APlayer* Player = nullptr;
 };
 
