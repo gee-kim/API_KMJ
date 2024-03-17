@@ -1,6 +1,16 @@
 #include "FifthGalleryLevel.h"
 #include "FootPrints.h"
 
+#include "WallArt_Sleep.h"
+#include "WallArt_Dots.h"
+#include "BelowSign.h"
+#include "WallArt_White.h"
+#include "WallArt_Mount.h"
+#include "WallArt_Piano.h"
+#include "NoExit.h"
+#include "OceanSign.h"
+
+
 #include "BackGroundMap.h"
 #include "Dialogue.h"
 #include "GallerySign.h"
@@ -52,10 +62,13 @@ void UFifthGalleryLevel::BeginPlay()
 
 	//갤러리에 있는 콜리젼과 충돌했을 때 뜨는 다이얼로그
 	ADialogue* NewDialogue = SpawnActor<ADialogue>();
-	NewDialogue->SetActorLocation({ 640, 320 });
+	NewDialogue->SetActorLocation({ 640, 620 });
 
 	//갤러리맵에 실제로 위치하고 콜리젼을 담당하는 객체들
 	{
+		ANoExit* Exit = SpawnActor<ANoExit>();
+		Exit->SetActorLocation({ 430, 620 });
+		Exit->SetDialogue(NewDialogue);
 
 		AFootPrints* FootEvent = SpawnActor<AFootPrints>();
 		FootEvent->SetActorLocation({ 1178,500 });
@@ -95,6 +108,35 @@ void UFifthGalleryLevel::BeginPlay()
 		Sneeze->SetActorLocation({ 1895, 1305 });
 		Sneeze->SetDialogue(NewDialogue);
 		Sneeze->SetRenderOff();
+
+		AWallArt_Sleep* Sleep = SpawnActor<AWallArt_Sleep>();
+		Sleep->SetActorLocation({ 2760, 520 });
+		Sleep->SetDialogue(NewDialogue);
+
+		AWallArt_Dots* Dots = SpawnActor<AWallArt_Dots>();
+		Dots->SetActorLocation({ 2570, 520 });
+		Dots->SetDialogue(NewDialogue);
+
+		AWallArt_Mount* Mountain = SpawnActor<AWallArt_Mount>();
+		Mountain->SetActorLocation({ 2075, 1335 });
+		Mountain->SetDialogue(NewDialogue);
+
+		AWallArt_White* White = SpawnActor<AWallArt_White>();
+		White->SetActorLocation({ 2275, 1335 });
+		White->SetDialogue(NewDialogue);
+
+		ABelowSign* BelowSign = SpawnActor<ABelowSign>();
+		BelowSign->SetActorLocation({ 2700, 1075 });
+		BelowSign->SetDialogue(NewDialogue);
+
+		AWallArt_Piano* Piano = SpawnActor<AWallArt_Piano>();
+		Piano->SetActorLocation({ 1675, 300 });
+		Piano->SetDialogue(NewDialogue);
+
+		AOceanSign* OceanSign = SpawnActor<AOceanSign>();
+		OceanSign->SetActorLocation({ 1675, 750 });
+		OceanSign->SetDialogue(NewDialogue);
+
 
 	}
 

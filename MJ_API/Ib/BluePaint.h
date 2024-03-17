@@ -1,5 +1,6 @@
 #pragma once
 #include <EngineCore/Actor.h>
+#include <EnginePlatform\EngineSound.h>
 #include "Dialogue.h"
 #include "Helper.h"
 
@@ -45,6 +46,8 @@ private:
 
 	float DelayTime = 0.5f;
 	float LetterInTime = 0.5f;
+
+	UEngineSoundPlayer BGMSound;
 
 };
 

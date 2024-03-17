@@ -29,7 +29,7 @@ void AOceanSign::BeginPlay()
 	}
 
 	Script.push_back("[ 심해의 ?? ]");
-	Script.push_back("사람이 들어가는 게 허락되지 않는 그 세계를\n ? ? 하기 위해 나는 캔버스 안에서 그 세계를 ? ? 했지");
+	Script.push_back("사람이 들어가는 게 허락되지 않는 그 세계를\n\n ? ? 하기 위해 나는 캔버스 안에서 그 세계를 ? ? 했지");
 }
 
 

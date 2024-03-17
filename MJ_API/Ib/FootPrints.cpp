@@ -138,6 +138,8 @@ void AFootPrints::Tick(float _DeltaTime)
 		{
 			Dialogue->SetActive(true);
 			Dialogue->AllTextBoxRendererOff();
+			Dialogue->SetTextPosition({ 0,-300 });
+			Dialogue->SetMovingBoxPosition({ 0,200 });
 			Dialogue->SetText("과연 이브는 어디로 간걸까요?... \n\n  The End......",30.0f);
 
 		}

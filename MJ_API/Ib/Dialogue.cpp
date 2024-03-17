@@ -47,6 +47,12 @@ void ADialogue::SetMovingBoxPosition(FVector _Value)
 	Renderers[3]->SetPosition(_Value);
 }
 
+
+void ADialogue::SetTextPosition(FVector _Value)
+{
+	Renderers[2]->SetPosition(_Value);
+}
+
 void ADialogue::BeginPlay()
 {
 	AActor::BeginPlay();

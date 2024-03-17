@@ -132,7 +132,7 @@ void UThirdGalleryLevel::BeginPlay()
 		Piano->SetDialogue(NewDialogue);
 
 		AOceanSign* OceanSign = SpawnActor<AOceanSign>();
-		OceanSign->SetActorLocation({ 1675, 850 });
+		OceanSign->SetActorLocation({ 1675, 750 });
 		OceanSign->SetDialogue(NewDialogue);
 
 	}

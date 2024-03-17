@@ -187,7 +187,7 @@ void ABluePaint::Tick(float _DeltaTime)
 			}
 
 			Renderers[CurRenderIndex]->ActiveOn();
-			// 비지엠 사운드 넣어야 함.
+			BGMSound = UEngineSound::SoundPlay("blood.ogg");
 			DelayTime = 0.2f;
 		}
 	}

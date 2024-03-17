@@ -235,10 +235,10 @@ void UGalleryLevel::BeginPlay()
 
 	SetCameraPos(CameraPos);
 
-	StateChange(EEventState::PlayerControll);
-	NewPlayer->StateChange(EPlayState::Idle);
-	IbMom->StateChange(EPlayState::Idle);
-	IbDad->StateChange(EPlayState::Idle);
+	//StateChange(EEventState::PlayerControll);
+	//NewPlayer->StateChange(EPlayState::Idle);
+	//IbMom->StateChange(EPlayState::Idle);
+	//IbDad->StateChange(EPlayState::Idle);
 
 }
 
