@@ -78,6 +78,7 @@ void UFifthGalleryLevel::BeginPlay()
 		Window->SetActorLocation({ 600, 430 });
 		Window->SetDialogue(NewDialogue);
 		Window->SetIsPlayedTrue();
+		Window->StateChange(EPlayState::Idle);
 
 		APoster* NewPoster = SpawnActor<APoster>();
 		NewPoster->SetActorLocation({ 940, 440 });

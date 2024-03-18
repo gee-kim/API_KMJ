@@ -467,7 +467,7 @@ void UGalleryLevel::StartEvent(float _DeltaTime)
 		IbDad->SetAnimation("Move_Right");
 		NewPlayer->SetAnimation("Move_Right");
 
-		IbMom->AddActorLocation(FVector::Right * 80.0f * _DeltaTime);
+		IbMom->AddActorLocation(FVector::Right * 77.0f * _DeltaTime);
 		IbDad->AddActorLocation(FVector::Right * 77.0f * _DeltaTime);
 		NewPlayer->AddActorLocation(FVector::Right * 50.0f * _DeltaTime);
 

@@ -43,7 +43,7 @@ void ARightBigArt::BeginPlay()
 	}
 
 	Script.push_back("[정신의 ? ? ? ]");
-	Script.push_back("보기에 아름다운 그 모습은 너무 가까워지면 \n   다칠 수 ? ? ? ? 한 육체에서만 피어납니다.");
+	Script.push_back("보기에 아름다운 그 모습은 너무 가까워지면 \n\n   다칠 수 ? ? ? ? 한 육체에서만 피어납니다.");
 
 }
 
