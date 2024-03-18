@@ -47,9 +47,9 @@ void IbCore::BeginPlay()
 
 	UEngineDirectory NewDir;
 
-	NewDir.MoveParent();
+	//NewDir.MoveParent();
 
-	NewDir.Move("Ib_Resource");
+	NewDir.MoveToSearchChild("Ib_Resource");
 	{
 		//이미지로드
 		std::list<UEngineFile> NewList = NewDir.AllFile({ ".png", ".bmp" }, true);
